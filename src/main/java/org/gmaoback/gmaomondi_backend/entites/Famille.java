@@ -15,5 +15,8 @@ public class Famille {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idFournisseur;
+    private Long idFamilleMere;
+    private String nomFamille;
+
 
 }

@@ -17,6 +17,12 @@ public class Personne {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long idPersonne;
+    private String nom;
+    private String prenom;
+    private String specialite;
+    private int tel;
+    private String email;
+
 
 
 }

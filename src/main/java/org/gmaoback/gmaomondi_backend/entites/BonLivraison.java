@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,5 +17,13 @@ public class BonLivraison {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idBL;
+    private Long idFournisseur;
+    private Long idBC;
+    //private List<ArticleLivré> articlesLivres;
+    private String documentBL;
+    private Date dateReception;
+    private Long idRecepteur;
+    private String StatusBL;
+    private String DocBL;
 
 }

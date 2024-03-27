@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Date;
+import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,5 +17,10 @@ public class Inventaire {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idInventaire;
+    private Long idArticle;
+    private int quantiteReel;
+    private Date dateInventaire;
+    private String justification;
+    private Long idPersonne;
 
 }

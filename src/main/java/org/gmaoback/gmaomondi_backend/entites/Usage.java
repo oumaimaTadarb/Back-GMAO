@@ -15,5 +15,6 @@ public class Usage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUsage;
+    private String usage;
 
 }

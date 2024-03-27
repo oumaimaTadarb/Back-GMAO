@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,5 +17,13 @@ public class DemandeAchat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idDA;
+    //private List<ArticleDemande> articles_demandes; // List to hold requested articles and quantities
+    private String typeDemande;
+    private Date dateSouhaitee;
+    private String Commantaire;
+    private Date dateDA;
+    private Date DateDemissionDevis;
+    private int NumDevis;
+    private String docDevis;
 
 }

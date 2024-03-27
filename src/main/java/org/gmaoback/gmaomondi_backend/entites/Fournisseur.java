@@ -15,5 +15,10 @@ public class Fournisseur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idFournisseur;
+    private String nom;
+    private int tel;
+    private String email;
+    private String adresse;
+
 
 }

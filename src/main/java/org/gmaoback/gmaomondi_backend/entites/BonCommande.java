@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+import java.util.ArrayList;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,5 +18,13 @@ public class BonCommande {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long idBC;
-
+    private Long idFournisseur;
+    private Date dateBC;
+    //private ArrayList<ArticleCommande>
+    private String documentBC;
+    private double montant;
+    private Date dateLivraisonConfirmee;
+    private Date dateDemissionProforma;
+    private int numProforma;
+    private String docProforma;
 }

@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,5 +17,13 @@ public class Sortie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idSortie;
+    private String idPersonne;
+    //private List<ArticleSortie> articlesSorties;
+    private Date dateDemande;
+    private Date dateValidation;
+    private String usage;
+    private String etat;
+    private String commentaire;
+    private String document;
 
 }
