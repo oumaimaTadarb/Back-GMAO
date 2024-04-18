@@ -26,7 +26,7 @@ public class Article {
     private String famille;
     private String donneeTechnique;
     //private ArrayList<Long> idUsage;
-    private String documentTechnique;
+   // private String documentTechnique;
 
 
 
