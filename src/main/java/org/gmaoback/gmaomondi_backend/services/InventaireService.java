@@ -1,4 +1,18 @@
 package org.gmaoback.gmaomondi_backend.services;
 
+import org.gmaoback.gmaomondi_backend.entites.Inventaire;
+import org.springframework.data.domain.Page;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
 public interface InventaireService {
+    Inventaire saveInventaire(Inventaire inventaire);
+    Inventaire updateInventaire(Inventaire inventaire);
+    Inventaire getInventaireById(Long idBC);
+    List<Inventaire> getAllInventaires();
+    //void deleteInventaireById(Long idBC);
+    //List<Inventaire>finAllByIdFournisseur(Long idFournisseur);
+    Page<Inventaire> getAllArticlesByPage(int page , int size);
 }
