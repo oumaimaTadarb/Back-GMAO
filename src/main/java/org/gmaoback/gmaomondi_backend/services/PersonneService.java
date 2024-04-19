@@ -9,7 +9,7 @@ import java.util.List;
 public interface PersonneService {
     Personne savePersonne(Personne personne);
     Personne updatePersonne(Personne personne);
-    Personne getPersonneById(Long idBC);
+    Personne getPersonneById(Long idPersonne);
     List<Personne> getAllPersonnes();
      void deletePersonneById(Long idPersonne);
     //Page<Personne> getAllArticlesByPage(int page , int size);
