@@ -17,7 +17,7 @@ public class Article {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long idArticle;
-    private int codeSAP;
+    private Long codeSap;
     private String designation;
     private String emplacementPhysique;
     private int stockMin;

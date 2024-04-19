@@ -10,7 +10,8 @@ public interface ArticleService {
     Article saveArticle(Article article);
     Article updateArticle(Article article);
     Article getArticleById(Long idArticle);
-    //List<Ingredient>
-
+    List<Article> getAllArticles();
+    void deleteArticleByID(Long idArticle);
+    void deleteAllArticle();
 
 }
