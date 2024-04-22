@@ -19,4 +19,11 @@ public class Famille {
     private String nomFamille;
 
 
+    public Long getIdFamille() {
+        return idFamille;
+    }
+
+    public void setIdFamille(Long idFamille) {
+        this.idFamille = idFamille;
+    }
 }

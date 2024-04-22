@@ -17,25 +17,26 @@ public class SortieServiceImpl implements SortieService {
     public Sortie saveSortie(Sortie sortie) {
         return sortieRepository.save(sortie);
     }
+
     @Override
     public Sortie updateSortie(Sortie sortie) {
-        return sortieRepository.save(sortie);
+        if (sortieRepository.existsById(sortie.getIdSortie())) {
+            return sortieRepository.save(sortie);
+        } else {
+            throw new IllegalArgumentException("Sortie non trouvée avec l'identifiant : " + sortie.getIdSortie());
+        }
     }
+
     @Override
-    public Sortie getSortieById(Long idBC) {
-        return sortieRepository.findById(idBC).get();
+    public Sortie getSortieById(Long idSortie) {
+        return sortieRepository.findById(idSortie)
+                .orElseThrow(() -> new IllegalArgumentException("Sortie non trouvée avec l'identifiant : " + idSortie));
     }
 
     @Override
     public List<Sortie> getAllSorties() {
         return sortieRepository.findAll();
     }
-    //@Override
-    // public List<Sortie> finAllByIdFournisseur(Long idFournisseur) {
-    //     return sortieRepository.findAllByIdFournisseur(IdFournisseur);
-    // }
-
-
 
     @Override
     public void deleteSortieById(Long idSortie) {
@@ -44,6 +45,6 @@ public class SortieServiceImpl implements SortieService {
 
     @Override
     public Page<Sortie> getAllSortiesByPage(int page, int size) {
-        return sortieRepository.findAll(PageRequest.of(page,size));
+        return sortieRepository.findAll(PageRequest.of(page, size));
     }
 }

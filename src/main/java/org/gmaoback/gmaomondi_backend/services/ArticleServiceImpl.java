@@ -17,12 +17,17 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public Article updateArticle(Article article) {
-        return articleRepository.save(article);
+        if (articleRepository.existsById(article.getIdArticle())) {
+            return articleRepository.save(article);
+        } else {
+            throw new IllegalArgumentException("Article non trouvé avec l'identifiant : " + article.getIdArticle());
+        }
     }
 
     @Override
     public Article getArticleById(Long idArticle) {
-        return articleRepository.findById(idArticle).get();
+        return articleRepository.findById(idArticle)
+                .orElseThrow(() -> new IllegalArgumentException("Article non trouvé avec l'identifiant : " + idArticle));
     }
 
     @Override
@@ -31,13 +36,9 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public void deleteArticleByID(Long idArticle) {
+    public void deleteArticleById(Long idArticle) {
         articleRepository.deleteById(idArticle);
     }
 
-    @Override
-    public void deleteAllArticle() {
-        articleRepository.deleteAll();
 
-    }
 }

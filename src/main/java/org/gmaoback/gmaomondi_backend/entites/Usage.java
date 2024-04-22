@@ -17,4 +17,11 @@ public class Usage {
     private Long idUsage;
     private String usage;
 
+    public Long getIdUsage() {
+        return idUsage;
+    }
+
+    public void setIdUsage(Long idUsage) {
+        this.idUsage = idUsage;
+    }
 }

@@ -26,4 +26,11 @@ public class Sortie {
     private String commentaire;
     private String document;
 
+    public Long getIdSortie() {
+        return idSortie;
+    }
+
+    public void setIdSortie(Long idSortie) {
+        this.idSortie = idSortie;
+    }
 }

@@ -24,5 +24,11 @@ public class Personne {
     private String email;
 
 
+    public Long getIdPersonne() {
+        return idPersonne;
+    }
 
+    public void setIdPersonne(Long idPersonne) {
+        this.idPersonne = idPersonne;
+    }
 }

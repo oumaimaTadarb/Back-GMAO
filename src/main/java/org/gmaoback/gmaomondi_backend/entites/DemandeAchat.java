@@ -16,7 +16,7 @@ import java.util.Date;
 public class DemandeAchat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idDA;
+    private Long idDa;
     //private List<ArticleDemande> articles_demandes; // List to hold requested articles and quantities
     private String typeDemande;
     private Date dateSouhaitee;
@@ -26,4 +26,11 @@ public class DemandeAchat {
     private int NumDevis;
     private String docDevis;
 
+    public Long getIdDa() {
+        return idDa;
+    }
+
+    public void setIdDa(Long idDa) {
+        this.idDa = idDa;
+    }
 }

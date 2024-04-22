@@ -10,6 +10,4 @@ public interface FamilleService {
     Famille getFamilleById(Long idFamille);
     void deleteFamilleById(Long idFamille);
 
-
-
 }

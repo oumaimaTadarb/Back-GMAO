@@ -1,6 +1,7 @@
 package org.gmaoback.gmaomondi_backend.services;
 
 import org.gmaoback.gmaomondi_backend.entites.Personne;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,5 +13,5 @@ public interface PersonneService {
     Personne getPersonneById(Long idPersonne);
     List<Personne> getAllPersonnes();
      void deletePersonneById(Long idPersonne);
-    //Page<Personne> getAllArticlesByPage(int page , int size);
+    Page<Personne> getAllPersonnesByPage(int page, int size);
 }

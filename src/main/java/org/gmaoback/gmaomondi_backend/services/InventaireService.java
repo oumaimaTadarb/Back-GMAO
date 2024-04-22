@@ -12,7 +12,7 @@ public interface InventaireService {
     Inventaire updateInventaire(Inventaire inventaire);
     Inventaire getInventaireById(Long idBC);
     List<Inventaire> getAllInventaires();
-    //void deleteInventaireById(Long idBC);
-    //List<Inventaire>finAllByIdFournisseur(Long idFournisseur);
-    Page<Inventaire> getAllArticlesByPage(int page , int size);
+   void deleteInventaireById(Long idBC);
+
+    Page<Inventaire> getAllInventairesByPage(int page, int size);
 }

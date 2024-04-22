@@ -25,6 +25,14 @@ public class Article {
     private int stockSecurite;
     private String famille;
     private String donneeTechnique;
+
+    public Long getIdArticle() {
+        return idArticle;
+    }
+
+    public void setIdArticle(Long idArticle) {
+        this.idArticle = idArticle;
+    }
     //private ArrayList<Long> idUsage;
    // private String documentTechnique;
 

@@ -20,4 +20,11 @@ public class User {
     private String password;
     private String role;
 
+    public Long getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(Long idUser) {
+        this.idUser = idUser;
+    }
 }

@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class FamilleServiceImpl implements FamilleService{
-   @Autowired
-    FamilleRepository familleRepository;
+public class FamilleServiceImpl implements FamilleService {
+
+    @Autowired
+    private FamilleRepository familleRepository;
+
     @Override
     public Famille saveFamille(Famille famille) {
         return familleRepository.save(famille);
@@ -16,12 +18,17 @@ public class FamilleServiceImpl implements FamilleService{
 
     @Override
     public Famille updateFamille(Famille famille) {
-        return familleRepository.save(famille);
+        if (familleRepository.existsById(famille.getIdFamille())) {
+            return familleRepository.save(famille);
+        } else {
+            throw new IllegalArgumentException("Famille non trouvée avec l'identifiant : " + famille.getIdFamille());
+        }
     }
 
     @Override
     public Famille getFamilleById(Long idFamille) {
-        return familleRepository.findById(idFamille).get();
+        return familleRepository.findById(idFamille)
+                .orElseThrow(() -> new IllegalArgumentException("Famille non trouvée avec l'identifiant : " + idFamille));
     }
 
     @Override

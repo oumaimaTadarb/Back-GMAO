@@ -13,7 +13,6 @@ public interface SortieService {
     Sortie getSortieById(Long idSortie);
     List<Sortie> getAllSorties();
     void deleteSortieById(Long idSortie);
-
     Page<Sortie> getAllSortiesByPage(int page, int size);
 }
 

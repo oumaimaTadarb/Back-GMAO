@@ -19,24 +19,34 @@ public class BonCommandeServiceImpl implements BonCommandeService{
     }
     @Override
     public BonCommande updateBonCommande(BonCommande bonCommande) {
-        return bonCommandeRepository.save(bonCommande);
+        if (bonCommandeRepository.existsById(bonCommande.getIdBC())) {
+            return bonCommandeRepository.save(bonCommande);
+        } else {
+            throw new IllegalArgumentException("Bon de commande non trouvé avec l'identifiant : " + bonCommande.getIdBC());
+        }
     }
     @Override
     public BonCommande getBonCommandeById(Long idBC) {
-        return bonCommandeRepository.findById(idBC).get();
+        return bonCommandeRepository.findById(idBC)
+                .orElseThrow(() -> new IllegalArgumentException("Bon de commande non trouvé avec l'identifiant : " + idBC));
+    }
+    @Override
+    public void deleteBonCommandeById(Long idBC) {
+        bonCommandeRepository.deleteById(idBC);
     }
 
+    @Override
+    public Page<BonCommande> getAllBonCommandesByPage(int page, int size) {
+        return bonCommandeRepository.findAll(PageRequest.of(page, size));
+
+    }
+    @Override
+    public List<BonCommande> findAllByIdFournisseur(Long idFournisseur) {
+        return bonCommandeRepository.findAllByIdFournisseur(idFournisseur);
+    }
     @Override
     public List<BonCommande> getAllBonCommandes() {
         return bonCommandeRepository.findAll();
     }
-    //@Override
-    // public List<BonCommande> finAllByIdFournisseur(Long idFournisseur) {
-    //     return bonCommandeRepository.findAllByIdFournisseur(IdFournisseur);
-    // }
 
-    @Override
-    public Page<BonCommande> getAllArticlesByPage(int page, int size) {
-        return bonCommandeRepository.findAll(PageRequest.of(page,size));
-    }
 }

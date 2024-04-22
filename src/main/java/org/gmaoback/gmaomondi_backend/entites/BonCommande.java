@@ -27,4 +27,12 @@ public class BonCommande {
     private Date dateDemissionProforma;
     private int numProforma;
     private String docProforma;
+
+    public Long getIdBC() {
+        return idBC;
+    }
+
+    public void setIdBC(Long idBC) {
+        this.idBC = idBC;
+    }
 }

@@ -21,4 +21,11 @@ public class Fournisseur {
     private String adresse;
 
 
+    public Long getIdFournisseur() {
+        return idFournisseur;
+    }
+
+    public void setIdFournisseur(Long idFournisseur) {
+        this.idFournisseur = idFournisseur;
+    }
 }

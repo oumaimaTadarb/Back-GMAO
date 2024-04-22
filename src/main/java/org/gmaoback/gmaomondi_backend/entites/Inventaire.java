@@ -23,4 +23,11 @@ public class Inventaire {
     private String justification;
     private Long idPersonne;
 
+    public Long getIdInventaire() {
+        return idInventaire;
+    }
+
+    public void setIdInventaire(Long idInventaire) {
+        this.idInventaire = idInventaire;
+    }
 }

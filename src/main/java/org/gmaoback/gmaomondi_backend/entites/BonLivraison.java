@@ -26,4 +26,11 @@ public class BonLivraison {
     private String StatusBL;
     private String DocBL;
 
+    public Long getIdBL() {
+        return idBL;
+    }
+
+    public void setIdBL(Long idBL) {
+        this.idBL = idBL;
+    }
 }
