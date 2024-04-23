@@ -1,14 +1,13 @@
 package org.gmaoback.gmaomondi_backend.entites;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
 import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -35,4 +34,7 @@ public class BonCommande {
     public void setIdBC(Long idBC) {
         this.idBC = idBC;
     }
+
+    @OneToMany(mappedBy = "bonCommande", cascade = CascadeType.ALL)
+    private List<ArticleCommande> articleCommandes;
 }
