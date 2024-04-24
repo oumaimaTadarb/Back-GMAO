@@ -1,13 +1,11 @@
 package org.gmaoback.gmaomondi_backend.entites;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -17,8 +15,6 @@ public class Sortie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idSortie;
-    private String idPersonne;
-    //private List<ArticleSortie> articlesSorties;
     private Date dateDemande;
     private Date dateValidation;
     private String usage;
@@ -33,4 +29,7 @@ public class Sortie {
     public void setIdSortie(Long idSortie) {
         this.idSortie = idSortie;
     }
+
+    @OneToMany(mappedBy = "sortie", cascade = CascadeType.ALL)
+    private List<ArticleSortie> articleSorties;
 }

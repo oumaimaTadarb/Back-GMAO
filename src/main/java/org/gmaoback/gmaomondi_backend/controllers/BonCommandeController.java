@@ -21,7 +21,7 @@ public class BonCommandeController {
 
     @PutMapping("/{id}")
     public BonCommande updateBonCommande(@PathVariable("id") Long id, @RequestBody BonCommande bonCommande) {
-        bonCommande.setIdBC(id); // Assurez-vous que l'id du bon de commande est défini
+        bonCommande.setIdBC(id);
         return bonCommandeService.updateBonCommande(bonCommande);
     }
 

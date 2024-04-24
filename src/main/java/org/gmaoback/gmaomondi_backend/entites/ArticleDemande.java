@@ -1,5 +1,6 @@
 package org.gmaoback.gmaomondi_backend.entites;
 import jakarta.persistence.*;
+
 @Entity
 public class ArticleDemande {
     @Id
@@ -12,17 +13,16 @@ public class ArticleDemande {
 
     @ManyToOne
     @JoinColumn(name = "idDa")
-    private BonCommande bonCommande;
+    private DemandeAchat demandeAchat;
 
     private int quantiteCommandee;
-
 
     public ArticleDemande() {
     }
 
-    public ArticleDemande(Article article, BonCommande bonCommande, int quantiteCommandee) {
+    public ArticleDemande(Article article, DemandeAchat demandeAchat, int quantiteCommandee) {
         this.article = article;
-        this.bonCommande = bonCommande;
+        this.demandeAchat = demandeAchat;
         this.quantiteCommandee = quantiteCommandee;
     }
 
@@ -42,12 +42,12 @@ public class ArticleDemande {
         this.article = article;
     }
 
-    public BonCommande getBonCommande() {
-        return bonCommande;
+    public DemandeAchat getDemandeAchat() {
+        return demandeAchat;
     }
 
-    public void setBonCommande(BonCommande bonCommande) {
-        this.bonCommande = bonCommande;
+    public void setDemandeAchat(DemandeAchat demandeAchat) {
+        this.demandeAchat = demandeAchat;
     }
 
     public int getQuantiteCommandee() {
