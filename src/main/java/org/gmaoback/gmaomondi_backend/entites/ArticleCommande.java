@@ -56,5 +56,6 @@ public class ArticleCommande {
     public void setQuantiteCommandee(int quantiteCommandee) {
         this.quantiteCommandee = quantiteCommandee;
     }
+
 }
 
