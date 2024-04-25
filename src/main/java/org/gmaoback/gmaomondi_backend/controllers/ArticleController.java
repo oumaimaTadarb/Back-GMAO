@@ -23,7 +23,7 @@ public class ArticleController {
     public Article getArticleById(@PathVariable("idArticle")Long idArticle){
         return articleService.getArticleById(idArticle );
     }
-    @PostMapping
+    @PostMapping("/saveArticle")
     public Article saveArticle(@RequestBody Article article) {
         return articleService.saveArticle(article);
     }

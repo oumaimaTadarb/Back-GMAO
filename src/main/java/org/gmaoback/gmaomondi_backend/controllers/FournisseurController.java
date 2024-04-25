@@ -13,7 +13,7 @@ public class FournisseurController {
     @Autowired
     private FournisseurService fournisseurService;
 
-    @PostMapping
+    @PostMapping("/saveFournisseur")
     public Fournisseur saveFournisseur(@RequestBody Fournisseur fournisseur) {
         return fournisseurService.saveFournisseur(fournisseur);
     }

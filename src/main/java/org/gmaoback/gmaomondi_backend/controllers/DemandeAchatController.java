@@ -14,7 +14,7 @@ public class DemandeAchatController {
     @Autowired
     private DemandeAchatService demandeAchatService;
 
-    @PostMapping
+    @PostMapping("/saveDA")
     public DemandeAchat saveDemandeAchat(@RequestBody DemandeAchat demandeAchat) {
         return demandeAchatService.saveDemandeAchat(demandeAchat);
     }

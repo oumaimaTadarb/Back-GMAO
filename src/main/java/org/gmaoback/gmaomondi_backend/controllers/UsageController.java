@@ -14,7 +14,7 @@ public class UsageController {
     @Autowired
     private UsageService usageService;
 
-    @PostMapping
+    @PostMapping("/saveUsage")
     public Usage saveUsage(@RequestBody Usage usage) {
         return usageService.saveUsage(usage);
     }

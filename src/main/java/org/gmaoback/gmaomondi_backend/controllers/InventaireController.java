@@ -15,7 +15,7 @@ public class InventaireController {
     @Autowired
     private InventaireService inventaireService;
 
-    @PostMapping
+    @PostMapping("/saveInventaire")
     public Inventaire saveInventaire(@RequestBody Inventaire inventaire) {
         return inventaireService.saveInventaire(inventaire);
     }

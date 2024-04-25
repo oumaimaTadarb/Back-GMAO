@@ -14,7 +14,7 @@ public class BonLivraisonController {
     @Autowired
     private BonLivraisonService bonLivraisonService;
 
-    @PostMapping
+    @PostMapping("/saveBL")
     public BonLivraison saveBonLivraison(@RequestBody BonLivraison bonLivraison) {
         return bonLivraisonService.saveBonLivraison(bonLivraison);
     }

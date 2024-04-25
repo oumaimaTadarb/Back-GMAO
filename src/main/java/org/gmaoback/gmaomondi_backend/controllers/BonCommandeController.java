@@ -14,7 +14,7 @@ public class BonCommandeController {
     @Autowired
     private BonCommandeService bonCommandeService;
 
-    @PostMapping
+    @PostMapping("/saveBC")
     public BonCommande saveBonCommande(@RequestBody BonCommande bonCommande) {
         return bonCommandeService.saveBonCommande(bonCommande);
     }

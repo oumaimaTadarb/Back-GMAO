@@ -14,7 +14,7 @@ public class PersonneController {
     @Autowired
     private PersonneService personneService;
 
-    @PostMapping
+    @PostMapping("/savePersonne")
     public Personne savePersonne(@RequestBody Personne personne) {
         return personneService.savePersonne(personne);
     }

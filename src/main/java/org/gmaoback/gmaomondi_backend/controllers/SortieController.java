@@ -15,7 +15,7 @@ public class SortieController {
     @Autowired
     private SortieService sortieService;
 
-    @PostMapping
+    @PostMapping("/saveSortie")
     public Sortie saveSortie(@RequestBody Sortie sortie) {
         return sortieService.saveSortie(sortie);
     }
