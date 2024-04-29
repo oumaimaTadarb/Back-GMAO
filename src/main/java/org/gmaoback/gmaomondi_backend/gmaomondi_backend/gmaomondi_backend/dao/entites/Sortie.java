@@ -1,0 +1,28 @@
+package org.gmaoback.gmaomondi_backend.gmaomondi_backend.gmaomondi_backend.dao.entites;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.Date;
+import java.util.List;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+public class Sortie {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idSortie;
+    private Date dateDemande;
+    private Date dateValidation;
+    private String usage;
+    private String etat;
+    private String commentaire;
+    private String document;
+
+
+    @OneToMany(mappedBy = "sortie", cascade = CascadeType.ALL)
+    private List<ArticleSortie> articleSorties;
+}

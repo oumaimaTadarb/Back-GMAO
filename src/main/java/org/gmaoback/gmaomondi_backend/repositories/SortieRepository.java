@@ -1,8 +1,0 @@
-package org.gmaoback.gmaomondi_backend.repositories;
-import org.gmaoback.gmaomondi_backend.entites.Sortie;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-
-@Repository
-public interface SortieRepository extends JpaRepository<Sortie,Long> {
-}
