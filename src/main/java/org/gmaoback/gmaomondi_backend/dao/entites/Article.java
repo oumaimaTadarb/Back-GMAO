@@ -23,7 +23,7 @@ public class Article {
     private int stockSecurite;
     private String famille;
     private String donneeTechnique;
-
+    private String refFournisseur;
 
 
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
