@@ -2,8 +2,6 @@ package org.gmaoback.gmaomondi_backend.services;
 
 import org.gmaoback.gmaomondi_backend.dao.entites.Article;
 import org.springframework.stereotype.Service;
-import org.xml.sax.helpers.AttributesImpl;
-
 import java.util.List;
 
 @Service
