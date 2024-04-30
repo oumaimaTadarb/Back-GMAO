@@ -25,7 +25,6 @@ public class Article {
     private String donneeTechnique;
     private String refFournisseur;
     @ManyToOne
-    @JoinColumn(name = " nomFamille")
     private Famille famille;
 
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
