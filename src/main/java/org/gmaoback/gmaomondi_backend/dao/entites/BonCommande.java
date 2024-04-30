@@ -22,7 +22,7 @@ public class BonCommande {
     private double montant;
     private Date dateLivraisonConfirmee;
     private Date dateDemissionProforma;
-    private int numProforma;
+    private Long numProforma;
     private String docProforma;
     @ManyToOne
     @JoinColumn(name = "idFournisseur")

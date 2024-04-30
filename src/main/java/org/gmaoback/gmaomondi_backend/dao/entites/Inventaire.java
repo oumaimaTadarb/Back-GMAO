@@ -18,9 +18,8 @@ public class Inventaire {
     private Date dateInventaire;
     private String justification;
     @ManyToOne
-    @JoinColumn(name = " idPersonne")
     private Personne personne;
     @ManyToOne
-    private Article idArticle;
+    private Article article;
 
    }
