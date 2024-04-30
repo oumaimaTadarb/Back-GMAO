@@ -40,10 +40,10 @@ public class BonCommandeServiceImpl implements BonCommandeService{
         return bonCommandeRepository.findAll(PageRequest.of(page, size));
 
     }
-    @Override
+   /* @Override
     public List<BonCommande> findAllByIdFournisseur(Long idFournisseur) {
         return bonCommandeRepository.findAllByIdFournisseur(idFournisseur);
-    }
+    }*/
     @Override
     public List<BonCommande> getAllBonCommandes() {
         return bonCommandeRepository.findAll();

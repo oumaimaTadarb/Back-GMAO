@@ -39,10 +39,10 @@ public class BonCommandeController {
         bonCommandeService.deleteBonCommandeById(id);
     }
 
-    @GetMapping("/fournisseur/{idFournisseur}")
+   /* @GetMapping("/fournisseur/{idFournisseur}")
     public List<BonCommande> getAllBonCommandesByFournisseur(@PathVariable("idFournisseur") Long idFournisseur) {
         return bonCommandeService.findAllByIdFournisseur(idFournisseur);
-    }
+    }*/
 
     @GetMapping("/page")
     public Page<BonCommande> getAllBonCommandesByPage(@RequestParam("page") int page, @RequestParam("size") int size) {

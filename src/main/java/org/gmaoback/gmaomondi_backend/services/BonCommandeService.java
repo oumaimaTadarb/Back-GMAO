@@ -12,7 +12,7 @@ public interface BonCommandeService {
     BonCommande updateBonCommande(BonCommande bonCommande);
     BonCommande getBonCommandeById(Long idBC);
 
-    List<BonCommande> findAllByIdFournisseur(Long idFournisseur);
+   // List<BonCommande> findAllByIdFournisseur(Long idFournisseur);
 
     List<BonCommande>getAllBonCommandes();
     void deleteBonCommandeById(Long idBC);

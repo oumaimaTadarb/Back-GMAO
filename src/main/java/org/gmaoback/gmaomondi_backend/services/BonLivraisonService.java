@@ -17,7 +17,7 @@ public interface BonLivraisonService {
     List<BonLivraison> getAllBonLivraison();
 
     void deleteBonLivraisonById(Long idBL);
-    List<BonLivraison> findAllByIdFournisseur(Long idFournisseur);
+   // List<BonLivraison> findAllByIdFournisseur(Long idFournisseur);
 
     Page<BonLivraison> getAllBonLivraisonByPage(int page, int size);
 }

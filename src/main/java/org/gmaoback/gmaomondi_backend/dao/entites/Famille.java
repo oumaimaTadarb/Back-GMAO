@@ -1,8 +1,5 @@
 package org.gmaoback.gmaomondi_backend.dao.entites;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,10 +11,11 @@ import lombok.NoArgsConstructor;
 public class Famille {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idFournisseur;
     private Long idFamille;
     private String nomFamille;
-
+    @ManyToOne(optional = true)
+    @JoinColumn(name = "id_famille_mere")
+    private Famille familleMere;
 
 
 }

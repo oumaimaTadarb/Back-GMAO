@@ -39,11 +39,11 @@ public class BonLivraisonController {
     public void deleteBonLivraisonById(@PathVariable("id") Long id) {
         bonLivraisonService.deleteBonLivraisonById(id);
     }
-
+/*
     @GetMapping("/fournisseur/{idFournisseur}")
     public List<BonLivraison> getAllBonLivraisonsByFournisseur(@PathVariable("idFournisseur") Long idFournisseur) {
         return bonLivraisonService.findAllByIdFournisseur(idFournisseur);
-    }
+    }*/
 
     @GetMapping("/page")
     public Page<BonLivraison> getAllBonLivraisonsByPage(@RequestParam("page") int page, @RequestParam("size") int size) {

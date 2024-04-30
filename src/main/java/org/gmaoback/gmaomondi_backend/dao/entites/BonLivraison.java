@@ -15,13 +15,15 @@ public class BonLivraison {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idBL;
-    private Long idFournisseur;
+    private Long  codeSapBL;
     private String documentBL;
     private Date dateReception;
     private Long idRecepteur;
     private String StatusBL;
     private String DocBL;
-
+    @ManyToOne
+    @JoinColumn(name = " idFournisseur")
+    private Fournisseur fournisseur;
 
 
     @OneToMany(mappedBy = "bonLivraison", cascade = CascadeType.ALL)

@@ -7,14 +7,15 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 import java.util.List;
 
+@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
 public class DemandeAchat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idDa;
+    private Long  codeSapDA;
      private String typeDemande;
     private Date dateSouhaitee;
     private String Commentaire;

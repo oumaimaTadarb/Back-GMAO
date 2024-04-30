@@ -45,10 +45,10 @@ public class BonLivraisonServiceImpl implements BonLivraisonService {
         bonLivraisonRepository.deleteById(idBL);
     }
 
-    @Override
+   /* @Override
     public List<BonLivraison> findAllByIdFournisseur(Long idFournisseur) {
         return bonLivraisonRepository.findAllByIdFournisseur(idFournisseur);
-    }
+    }*/
 
     @Override
     public Page<BonLivraison> getAllBonLivraisonByPage(int page, int size) {
