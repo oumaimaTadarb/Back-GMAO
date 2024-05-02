@@ -44,4 +44,9 @@ public class FournisseurServiceImpl implements FournisseurService {
     public List<Fournisseur> getAllFournisseurs() {
         return fournisseurRepository.findAll();
     }
+
+    @Override
+    public Fournisseur getFournisseurBycodeSapFr(Long codeSapFr) {
+        return fournisseurRepository.findBycodeSapFr(codeSapFr);
+    }
 }

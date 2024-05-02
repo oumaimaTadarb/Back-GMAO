@@ -1,4 +1,5 @@
 package org.gmaoback.gmaomondi_backend.controllers;
+import org.gmaoback.gmaomondi_backend.dao.entites.BonCommande;
 import org.gmaoback.gmaomondi_backend.dao.entites.DemandeAchat;
 import org.gmaoback.gmaomondi_backend.services.DemandeAchatService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class DemandeAchatController {
 
     @PutMapping("/{id}")
     public DemandeAchat updateDemandeAchat(@PathVariable("id") Long id, @RequestBody DemandeAchat demandeAchat) {
-        demandeAchat.setIdDa(id); // Assurez-vous que l'id de la demande d'achat est défini
+        demandeAchat.setIdDa(id);
         return demandeAchatService.updateDemandeAchat(demandeAchat);
     }
 
@@ -38,5 +39,9 @@ public class DemandeAchatController {
     @GetMapping("/page")
     public Page<DemandeAchat> getAllDemandeAchatByPage(@RequestParam("page") int page, @RequestParam("size") int size) {
         return demandeAchatService.getAllDemandeAchatByPage(page, size);
+    }
+    @GetMapping("/codeSapDA/{codeSapDA}")
+    public DemandeAchat getDemandeAchatByCodeSapBC(@PathVariable Long codeSapDA) {
+        return demandeAchatService.getDemandeAchatBycodeSapDA(codeSapDA);
     }
 }

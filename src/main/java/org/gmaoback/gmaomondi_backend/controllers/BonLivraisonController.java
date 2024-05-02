@@ -1,4 +1,5 @@
 package org.gmaoback.gmaomondi_backend.controllers;
+import org.gmaoback.gmaomondi_backend.dao.entites.BonCommande;
 import org.gmaoback.gmaomondi_backend.dao.entites.BonLivraison;
 import org.gmaoback.gmaomondi_backend.services.BonLivraisonService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,11 +40,12 @@ public class BonLivraisonController {
     public void deleteBonLivraisonById(@PathVariable("id") Long id) {
         bonLivraisonService.deleteBonLivraisonById(id);
     }
-/*
-    @GetMapping("/fournisseur/{idFournisseur}")
-    public List<BonLivraison> getAllBonLivraisonsByFournisseur(@PathVariable("idFournisseur") Long idFournisseur) {
-        return bonLivraisonService.findAllByIdFournisseur(idFournisseur);
-    }*/
+
+    @GetMapping("/codeSapBL/{codeSapBL}")
+    public BonLivraison getBonLivraisonByCodeSapBL(@PathVariable Long codeSapBL) {
+        return bonLivraisonService.getBonLivraisonByCodeSapBL(codeSapBL);
+
+    }
 
     @GetMapping("/page")
     public Page<BonLivraison> getAllBonLivraisonsByPage(@RequestParam("page") int page, @RequestParam("size") int size) {

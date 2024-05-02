@@ -40,5 +40,10 @@ public class ArticleServiceImpl implements ArticleService {
         articleRepository.deleteById(idArticle);
     }
 
+    @Override
+    public Article getArticleByCodeSapAr(Long codeSapAr) {
+        return articleRepository.findByCodeSapAr(codeSapAr);
+    }
+
 
 }

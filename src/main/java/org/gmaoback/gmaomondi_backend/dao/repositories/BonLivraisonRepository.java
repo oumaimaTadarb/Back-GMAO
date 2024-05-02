@@ -7,5 +7,6 @@ import java.util.List;
 
 @Repository
 public interface BonLivraisonRepository extends JpaRepository<BonLivraison,Long> {
-    //List<BonLivraison> findAllByIdFournisseur(Long idFournisseur);
+
+    BonLivraison findByCodeSapBL(Long codeSapBL);
 }

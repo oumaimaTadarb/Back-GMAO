@@ -1,9 +1,12 @@
 package org.gmaoback.gmaomondi_backend.controllers;
+
+import org.gmaoback.gmaomondi_backend.dao.entites.Article;
 import org.gmaoback.gmaomondi_backend.dao.entites.BonCommande;
 import org.gmaoback.gmaomondi_backend.services.BonCommandeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -39,11 +42,11 @@ public class BonCommandeController {
         bonCommandeService.deleteBonCommandeById(id);
     }
 
-   /* @GetMapping("/fournisseur/{idFournisseur}")
-    public List<BonCommande> getAllBonCommandesByFournisseur(@PathVariable("idFournisseur") Long idFournisseur) {
-        return bonCommandeService.findAllByIdFournisseur(idFournisseur);
-    }*/
+    @GetMapping("/codeSapBC/{codeSapBC}")
+    public BonCommande getBonCommandeByCodeSapBC(@PathVariable Long codeSapBc) {
+        return bonCommandeService.getBonCommandeByCodeSapBC(codeSapBc);
 
+    }
     @GetMapping("/page")
     public Page<BonCommande> getAllBonCommandesByPage(@RequestParam("page") int page, @RequestParam("size") int size) {
         return bonCommandeService.getAllBonCommandesByPage(page, size);

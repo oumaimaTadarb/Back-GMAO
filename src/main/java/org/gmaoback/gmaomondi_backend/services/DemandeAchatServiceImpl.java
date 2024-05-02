@@ -1,5 +1,6 @@
 package org.gmaoback.gmaomondi_backend.services;
 
+import org.gmaoback.gmaomondi_backend.dao.entites.BonCommande;
 import org.gmaoback.gmaomondi_backend.dao.entites.DemandeAchat;
 import org.gmaoback.gmaomondi_backend.dao.repositories.DemandeAchatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,5 +41,11 @@ public class DemandeAchatServiceImpl implements DemandeAchatService {
     @Override
     public Page<DemandeAchat> getAllDemandeAchatByPage(int page, int size) {
         return demandeAchatRepository.findAll(PageRequest.of(page,size));
+    }
+
+    @Override
+    public DemandeAchat getDemandeAchatBycodeSapDA(Long codeSapDA) {
+
+        return demandeAchatRepository.findByCodeSapBC(codeSapDA);
     }
 }

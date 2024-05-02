@@ -1,5 +1,6 @@
 package org.gmaoback.gmaomondi_backend.services;
 
+import org.gmaoback.gmaomondi_backend.dao.entites.BonCommande;
 import org.gmaoback.gmaomondi_backend.dao.entites.DemandeAchat;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
@@ -13,4 +14,5 @@ public interface DemandeAchatService {
     DemandeAchat getDemandeAchatById(Long idDa);
     List<DemandeAchat> getAllDemandeAchat();
     Page<DemandeAchat> getAllDemandeAchatByPage(int page, int size);
+    DemandeAchat getDemandeAchatBycodeSapDA(Long codeSapDA);
 }

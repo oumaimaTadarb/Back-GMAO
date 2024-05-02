@@ -8,5 +8,6 @@ import java.util.List;
 
 @Repository
 public interface BonCommandeRepository extends JpaRepository<BonCommande,Long> {
-   // List<BonCommande> findAllByIdFournisseur(Long idFournisseur);
+
+    BonCommande findByCodeSapBC(Long codeSapBC);
 }

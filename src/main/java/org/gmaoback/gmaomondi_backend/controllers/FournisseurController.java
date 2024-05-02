@@ -1,4 +1,5 @@
 package org.gmaoback.gmaomondi_backend.controllers;
+import org.gmaoback.gmaomondi_backend.dao.entites.BonLivraison;
 import org.gmaoback.gmaomondi_backend.dao.entites.Fournisseur;
 import org.gmaoback.gmaomondi_backend.services.FournisseurService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,11 @@ public class FournisseurController {
     public Fournisseur getFournisseurById(@PathVariable("id") Long id) {
         return fournisseurService.getFournisseurById(id);
     }
+    @GetMapping("/codeSapFr/{codeSapFr}")
+    public Fournisseur getBonLivraisonBycodeSapFr(@PathVariable Long codeSapFr) {
+        return fournisseurService.getFournisseurBycodeSapFr(codeSapFr);
 
+    }
     @DeleteMapping("/{id}")
     public void deleteFournisseurById(@PathVariable("id") Long id) {
         fournisseurService.deleteFournisseurById(id);

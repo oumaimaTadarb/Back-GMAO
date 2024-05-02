@@ -11,6 +11,7 @@ public interface ArticleService {
     Article getArticleById(Long idArticle);
     List<Article> getAllArticles();
     void deleteArticleById(Long idArticle);
+    Article getArticleByCodeSapAr(Long codeSapAr);
 
 
 

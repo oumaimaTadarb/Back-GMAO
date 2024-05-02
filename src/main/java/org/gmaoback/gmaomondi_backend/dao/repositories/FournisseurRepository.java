@@ -5,4 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FournisseurRepository extends JpaRepository<Fournisseur,Long> {
+    Fournisseur findBycodeSapFr(Long codeSapFr);
 }

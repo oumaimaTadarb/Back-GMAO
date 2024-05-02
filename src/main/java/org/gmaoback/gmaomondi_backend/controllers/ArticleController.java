@@ -43,4 +43,9 @@ public class ArticleController {
         articleService.deleteArticleById(id);
     }
 
+    @GetMapping("/codeSapAr/{codeSapAr}")
+    public Article getArticleByCodeSapAr(@PathVariable Long codeSapAr) {
+       return articleService.getArticleByCodeSapAr(codeSapAr);
+
+    }
 }

@@ -11,11 +11,8 @@ public interface BonCommandeService {
     BonCommande saveBonCommande(BonCommande bonCommande);
     BonCommande updateBonCommande(BonCommande bonCommande);
     BonCommande getBonCommandeById(Long idBC);
-
-   // List<BonCommande> findAllByIdFournisseur(Long idFournisseur);
-
     List<BonCommande>getAllBonCommandes();
     void deleteBonCommandeById(Long idBC);
-
     Page<BonCommande> getAllBonCommandesByPage(int page, int size);
+    BonCommande getBonCommandeByCodeSapBC(Long codeSapBC);
 }
