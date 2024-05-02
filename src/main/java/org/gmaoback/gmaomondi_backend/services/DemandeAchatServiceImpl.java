@@ -48,4 +48,11 @@ public class DemandeAchatServiceImpl implements DemandeAchatService {
 
         return demandeAchatRepository.findByCodeSapDA(codeSapDA);
     }
+
+    @Override
+    public DemandeAchat findDevisByCodeSapDA(Long codeSapDA) {
+        return demandeAchatRepository.findDevisByCodeSapDA(codeSapDA);
+    }
+
+
 }

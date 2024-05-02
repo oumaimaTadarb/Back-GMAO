@@ -16,7 +16,7 @@ public class DemandeAchat {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idDa;
     private Long  codeSapDA;
-     private String typeDemande;
+    private String typeDemande;
     private Date dateSouhaitee;
     private String Commentaire;
     private Date dateDA;

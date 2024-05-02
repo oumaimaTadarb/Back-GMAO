@@ -15,4 +15,5 @@ public interface BonCommandeService {
     void deleteBonCommandeById(Long idBC);
     Page<BonCommande> getAllBonCommandesByPage(int page, int size);
     BonCommande getBonCommandeByCodeSapBC(Long codeSapBC);
+
 }

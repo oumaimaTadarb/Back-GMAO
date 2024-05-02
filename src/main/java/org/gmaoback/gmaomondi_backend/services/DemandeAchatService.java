@@ -15,4 +15,5 @@ public interface DemandeAchatService {
     List<DemandeAchat> getAllDemandeAchat();
     Page<DemandeAchat> getAllDemandeAchatByPage(int page, int size);
     DemandeAchat getDemandeAchatBycodeSapDA(Long codeSapDA);
+    DemandeAchat findDevisByCodeSapDA(Long codeSapDA);
 }
