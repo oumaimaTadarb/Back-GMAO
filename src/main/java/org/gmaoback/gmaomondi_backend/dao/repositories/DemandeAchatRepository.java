@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DemandeAchatRepository extends JpaRepository<DemandeAchat,Long> {
-    DemandeAchat findByCodeSapBC(Long codeSapDA);
+    DemandeAchat findByCodeSapDA(Long codeSapDA);
 }

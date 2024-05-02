@@ -41,7 +41,7 @@ public class DemandeAchatController {
         return demandeAchatService.getAllDemandeAchatByPage(page, size);
     }
     @GetMapping("/codeSapDA/{codeSapDA}")
-    public DemandeAchat getDemandeAchatByCodeSapBC(@PathVariable Long codeSapDA) {
+    public DemandeAchat getDemandeAchatByCodeSapBA(@PathVariable Long codeSapDA) {
         return demandeAchatService.getDemandeAchatBycodeSapDA(codeSapDA);
     }
 }
