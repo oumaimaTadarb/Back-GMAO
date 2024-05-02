@@ -16,5 +16,5 @@ public class User {
     private String password;
     private String role;
     @OneToOne
-    private Personne idPersonne;
+    private Personne personne;
   }

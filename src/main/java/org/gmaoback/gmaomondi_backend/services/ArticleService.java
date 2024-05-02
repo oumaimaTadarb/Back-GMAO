@@ -11,7 +11,7 @@ public interface ArticleService {
     Article getArticleById(Long idArticle);
     List<Article> getAllArticles();
     void deleteArticleById(Long idArticle);
-    //List<Article>getpersonnalise();
+
 
 
 }

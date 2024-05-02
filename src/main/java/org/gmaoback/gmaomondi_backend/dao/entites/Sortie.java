@@ -17,7 +17,6 @@ public class Sortie {
     private Long idSortie;
     private Date dateDemande;
     private Date dateValidation;
-  //  private String usage;
     private String etat;
     private String commentaire;
     private String document;
