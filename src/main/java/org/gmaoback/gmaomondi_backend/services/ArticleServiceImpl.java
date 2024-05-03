@@ -45,5 +45,10 @@ public class ArticleServiceImpl implements ArticleService {
         return articleRepository.findByCodeSapAr(codeSapAr);
     }
 
+    @Override
+    public List<Article> getBesoin() {
+        return articleRepository.findArticlesBesoin();
+    }
+
 
 }

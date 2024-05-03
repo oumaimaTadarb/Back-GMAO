@@ -20,7 +20,7 @@ public class BonLivraison {
     private Date dateReception;
     private Long idRecepteur;
     private String StatusBL;
-    private String DocBL;
+
     @ManyToOne
     @JoinColumn(name = " idFournisseur")
     private Fournisseur fournisseur;

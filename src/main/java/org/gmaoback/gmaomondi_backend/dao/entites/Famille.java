@@ -13,7 +13,7 @@ public class Famille {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idFamille;
     private String nomFamille;
-    @ManyToOne(optional = true)
+    @ManyToOne
     @JoinColumn(name = "id_famille_mere")
     private Famille familleMere;
 
