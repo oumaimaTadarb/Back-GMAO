@@ -15,26 +15,26 @@ public class DemandeAchatController {
     @Autowired
     private DemandeAchatService demandeAchatService;
 
-    @PostMapping("/saveDA")
-    public DemandeAchat saveDemandeAchat(@RequestBody DemandeAchat demandeAchat) {
-        return demandeAchatService.saveDemandeAchat(demandeAchat);
-    }
-
-    @PutMapping("/{id}")
-    public DemandeAchat updateDemandeAchat(@PathVariable("id") Long id, @RequestBody DemandeAchat demandeAchat) {
-        demandeAchat.setIdDa(id);
-        return demandeAchatService.updateDemandeAchat(demandeAchat);
-    }
-
-    @GetMapping("/{id}")
-    public DemandeAchat getDemandeAchatById(@PathVariable("id") Long id) {
-        return demandeAchatService.getDemandeAchatById(id);
-    }
-
-    @GetMapping
-    public List<DemandeAchat> getAllDemandeAchat() {
-        return demandeAchatService.getAllDemandeAchat();
-    }
+//    @PostMapping("/saveDA")
+//    public DemandeAchat saveDemandeAchat(@RequestBody DemandeAchat demandeAchat) {
+//        return demandeAchatService.saveDemandeAchat(demandeAchat);
+//    }
+//
+//    @PutMapping("/{id}")
+//    public DemandeAchat updateDemandeAchat(@PathVariable("id") Long id, @RequestBody DemandeAchat demandeAchat) {
+//        demandeAchat.setIdDa(id);
+//        return demandeAchatService.updateDemandeAchat(demandeAchat);
+//    }
+//
+//    @GetMapping("/{id}")
+//    public DemandeAchat getDemandeAchatById(@PathVariable("id") Long id) {
+//        return demandeAchatService.getDemandeAchatById(id);
+//    }
+//
+//    @GetMapping
+//    public List<DemandeAchat> getAllDemandeAchat() {
+//        return demandeAchatService.getAllDemandeAchat();
+//    }
 
     @GetMapping("/page")
     public Page<DemandeAchat> getAllDemandeAchatByPage(@RequestParam("page") int page, @RequestParam("size") int size) {

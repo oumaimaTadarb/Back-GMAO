@@ -15,31 +15,31 @@ public class BonLivraisonController {
     @Autowired
     private BonLivraisonService bonLivraisonService;
 
-    @PostMapping("/saveBL")
-    public BonLivraison saveBonLivraison(@RequestBody BonLivraison bonLivraison) {
-        return bonLivraisonService.saveBonLivraison(bonLivraison);
-    }
+//    @PostMapping("/saveBL")
+//    public BonLivraison saveBonLivraison(@RequestBody BonLivraison bonLivraison) {
+//        return bonLivraisonService.saveBonLivraison(bonLivraison);
+//    }
+//
+//    @PutMapping("/{id}")
+//    public BonLivraison updateBonLivraison(@PathVariable("id") Long id, @RequestBody BonLivraison bonLivraison) {
+//        bonLivraison.setIdBL(id);
+//        return bonLivraisonService.updateBonLivraison(bonLivraison);
+//    }
+//
+//    @GetMapping("/{id}")
+//    public BonLivraison getBonLivraisonById(@PathVariable("id") Long id) {
+//        return bonLivraisonService.getBonLivraisonById(id);
+//    }
 
-    @PutMapping("/{id}")
-    public BonLivraison updateBonLivraison(@PathVariable("id") Long id, @RequestBody BonLivraison bonLivraison) {
-        bonLivraison.setIdBL(id);
-        return bonLivraisonService.updateBonLivraison(bonLivraison);
-    }
+//    @GetMapping
+//    public List<BonLivraison> getAllBonLivraisons() {
+//        return bonLivraisonService.getAllBonLivraison();
+//    }
 
-    @GetMapping("/{id}")
-    public BonLivraison getBonLivraisonById(@PathVariable("id") Long id) {
-        return bonLivraisonService.getBonLivraisonById(id);
-    }
-
-    @GetMapping
-    public List<BonLivraison> getAllBonLivraisons() {
-        return bonLivraisonService.getAllBonLivraison();
-    }
-
-    @DeleteMapping("/{id}")
-    public void deleteBonLivraisonById(@PathVariable("id") Long id) {
-        bonLivraisonService.deleteBonLivraisonById(id);
-    }
+//    @DeleteMapping("/{id}")
+//    public void deleteBonLivraisonById(@PathVariable("id") Long id) {
+//        bonLivraisonService.deleteBonLivraisonById(id);
+//    }
 
     @GetMapping("/codeSapBL/{codeSapBL}")
     public BonLivraison getBonLivraisonByCodeSapBL(@PathVariable Long codeSapBL) {

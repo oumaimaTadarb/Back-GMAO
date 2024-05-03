@@ -16,7 +16,7 @@ public class BonCommandeController {
     @Autowired
     private BonCommandeService bonCommandeService;
 
-    @PostMapping("/saveBC")
+   /* @PostMapping("/saveBC")
     public BonCommande saveBonCommande(@RequestBody BonCommande bonCommande) {
         return bonCommandeService.saveBonCommande(bonCommande);
     }
@@ -40,7 +40,7 @@ public class BonCommandeController {
     @DeleteMapping("/{id}")
     public void deleteBonCommandeById(@PathVariable("id") Long id) {
         bonCommandeService.deleteBonCommandeById(id);
-    }
+    }*/
 
     @GetMapping("/codeSapBC/{codeSapBC}")
     public BonCommande getBonCommandeByCodeSapBC(@PathVariable Long codeSapBc) {

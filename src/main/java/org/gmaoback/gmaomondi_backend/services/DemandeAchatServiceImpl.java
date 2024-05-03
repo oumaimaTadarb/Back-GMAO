@@ -13,31 +13,31 @@ import java.util.List;
 public class DemandeAchatServiceImpl implements DemandeAchatService {
     @Autowired
     DemandeAchatRepository demandeAchatRepository;
-    @Override
-    public DemandeAchat saveDemandeAchat(DemandeAchat demandeAchat) {
-        return demandeAchatRepository.save(demandeAchat);
-    }
-
-    @Override
-    public DemandeAchat updateDemandeAchat(DemandeAchat demandeAchat) {
-        if (demandeAchatRepository.existsById(demandeAchat.getIdDa())) {
-            return demandeAchatRepository.save(demandeAchat);
-        } else {
-            throw new IllegalArgumentException("Demande d'achat non trouvée avec l'identifiant : " + demandeAchat.getIdDa());
-        }
-         }
-
-    @Override
-    public DemandeAchat getDemandeAchatById(Long idDa) {
-        return demandeAchatRepository.findById(idDa)
-                .orElseThrow(() -> new IllegalArgumentException("Demande d'achat non trouvée avec l'identifiant : " + idDa));
-    }
-
-    @Override
-    public List<DemandeAchat> getAllDemandeAchat() {
-        return demandeAchatRepository.findAll();
-    }
-
+//    @Override
+//    public DemandeAchat saveDemandeAchat(DemandeAchat demandeAchat) {
+//        return demandeAchatRepository.save(demandeAchat);
+//    }
+//
+//    @Override
+//    public DemandeAchat updateDemandeAchat(DemandeAchat demandeAchat) {
+//        if (demandeAchatRepository.existsById(demandeAchat.getIdDa())) {
+//            return demandeAchatRepository.save(demandeAchat);
+//        } else {
+//            throw new IllegalArgumentException("Demande d'achat non trouvée avec l'identifiant : " + demandeAchat.getIdDa());
+//        }
+//         }
+//
+//    @Override
+//    public DemandeAchat getDemandeAchatById(Long idDa) {
+//        return demandeAchatRepository.findById(idDa)
+//                .orElseThrow(() -> new IllegalArgumentException("Demande d'achat non trouvée avec l'identifiant : " + idDa));
+//    }
+//
+//    @Override
+//    public List<DemandeAchat> getAllDemandeAchat() {
+//        return demandeAchatRepository.findAll();
+//    }
+//
     @Override
     public Page<DemandeAchat> getAllDemandeAchatByPage(int page, int size) {
         return demandeAchatRepository.findAll(PageRequest.of(page,size));

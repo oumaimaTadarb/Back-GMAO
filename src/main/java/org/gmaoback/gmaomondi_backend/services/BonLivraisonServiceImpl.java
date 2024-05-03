@@ -19,7 +19,7 @@ public class BonLivraisonServiceImpl implements BonLivraisonService {
     private BonLivraisonRepository bonLivraisonRepository;
     @Autowired
     private ArticleRepository articleRepository;
-  @Override
+ /* @Override
     public BonLivraison saveBonLivraison(BonLivraison bonLivraison) {
       BonLivraison savedBonLivraison = bonLivraisonRepository.save(bonLivraison);
       bonLivraisonRepository.updateStockDisponibleByBonLivraison(savedBonLivraison);
@@ -49,7 +49,7 @@ public class BonLivraisonServiceImpl implements BonLivraisonService {
     @Override
     public void deleteBonLivraisonById(Long idBL) {
         bonLivraisonRepository.deleteById(idBL);
-    }
+    }*/
 
     @Override
     public BonLivraison getBonLivraisonByCodeSapBL(Long codeSapBL) {

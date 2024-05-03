@@ -11,24 +11,24 @@ public class FamilleController {
     @Autowired
     private FamilleService familleService;
 
-    @PostMapping("/saveFamille")
-    public Famille saveFamille(@RequestBody Famille famille) {
-        return familleService.saveFamille(famille);
-    }
-
-    @PutMapping("/{id}")
-    public Famille updateFamille(@PathVariable("id") Long id, @RequestBody Famille famille) {
-        famille.setIdFamille(id);
-        return familleService.updateFamille(famille);
-    }
-
-    @GetMapping("/{id}")
-    public Famille getFamilleById(@PathVariable("id") Long id) {
-        return familleService.getFamilleById(id);
-    }
-
-    @DeleteMapping("/{id}")
-    public void deleteFamilleById(@PathVariable("id") Long id) {
-        familleService.deleteFamilleById(id);
-    }
+//    @PostMapping("/saveFamille")
+//    public Famille saveFamille(@RequestBody Famille famille) {
+//        return familleService.saveFamille(famille);
+//    }
+//
+//    @PutMapping("/{id}")
+//    public Famille updateFamille(@PathVariable("id") Long id, @RequestBody Famille famille) {
+//        famille.setIdFamille(id);
+//        return familleService.updateFamille(famille);
+//    }
+//
+//    @GetMapping("/{id}")
+//    public Famille getFamilleById(@PathVariable("id") Long id) {
+//        return familleService.getFamilleById(id);
+//    }
+//
+//    @DeleteMapping("/{id}")
+//    public void deleteFamilleById(@PathVariable("id") Long id) {
+//        familleService.deleteFamilleById(id);
+//    }
 }

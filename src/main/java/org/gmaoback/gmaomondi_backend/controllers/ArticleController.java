@@ -17,7 +17,7 @@ public class ArticleController {
     @Autowired
     ArticleService articleService;
 
-    @GetMapping("/articles")
+   /* @GetMapping("/articles")
     public List<Article> getAllArticles() {
         return articleService.getAllArticles();
     }
@@ -41,7 +41,7 @@ public class ArticleController {
     @DeleteMapping("/{id}")
     public void deleteArticleById(@PathVariable("id") Long id) {
         articleService.deleteArticleById(id);
-    }
+    }*/
 
     @GetMapping("/codeSapAr/{codeSapAr}")
     public Article getArticleByCodeSapAr(@PathVariable Long codeSapAr) {

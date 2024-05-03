@@ -13,7 +13,7 @@ import java.util.List;
 public class BonCommandeServiceImpl implements BonCommandeService{
     @Autowired
     BonCommandeRepository bonCommandeRepository;
-    @Override
+ /*   @Override
     public BonCommande saveBonCommande(BonCommande bonCommande) {
         return bonCommandeRepository.save(bonCommande);
     }
@@ -34,7 +34,7 @@ public class BonCommandeServiceImpl implements BonCommandeService{
     public void deleteBonCommandeById(Long idBC) {
         bonCommandeRepository.deleteById(idBC);
     }
-
+*/
     @Override
     public Page<BonCommande> getAllBonCommandesByPage(int page, int size) {
         return bonCommandeRepository.findAll(PageRequest.of(page, size));
@@ -50,9 +50,9 @@ public class BonCommandeServiceImpl implements BonCommandeService{
      public List<BonCommande> findAllByIdFournisseur(Long idFournisseur) {
          return bonCommandeRepository.findAllByIdFournisseur(idFournisseur);
      }*/
-    @Override
+    /*@Override
     public List<BonCommande> getAllBonCommandes() {
         return bonCommandeRepository.findAll();
     }
-
+*/
 }

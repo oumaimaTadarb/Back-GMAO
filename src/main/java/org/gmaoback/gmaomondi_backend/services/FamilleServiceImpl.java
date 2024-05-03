@@ -11,28 +11,28 @@ public class FamilleServiceImpl implements FamilleService {
     @Autowired
     private FamilleRepository familleRepository;
 
-    @Override
-    public Famille saveFamille(Famille famille) {
-        return familleRepository.save(famille);
-    }
-
-    @Override
-    public Famille updateFamille(Famille famille) {
-        if (familleRepository.existsById(famille.getIdFamille())) {
-            return familleRepository.save(famille);
-        } else {
-            throw new IllegalArgumentException("Famille non trouvée avec l'identifiant : " + famille.getIdFamille());
-        }
-    }
-
-    @Override
-    public Famille getFamilleById(Long idFamille) {
-        return familleRepository.findById(idFamille)
-                .orElseThrow(() -> new IllegalArgumentException("Famille non trouvée avec l'identifiant : " + idFamille));
-    }
-
-    @Override
-    public void deleteFamilleById(Long idFamille) {
-        familleRepository.deleteById(idFamille);
-    }
+//    @Override
+//    public Famille saveFamille(Famille famille) {
+//        return familleRepository.save(famille);
+//    }
+//
+//    @Override
+//    public Famille updateFamille(Famille famille) {
+//        if (familleRepository.existsById(famille.getIdFamille())) {
+//            return familleRepository.save(famille);
+//        } else {
+//            throw new IllegalArgumentException("Famille non trouvée avec l'identifiant : " + famille.getIdFamille());
+//        }
+//    }
+//
+//    @Override
+//    public Famille getFamilleById(Long idFamille) {
+//        return familleRepository.findById(idFamille)
+//                .orElseThrow(() -> new IllegalArgumentException("Famille non trouvée avec l'identifiant : " + idFamille));
+//    }
+//
+//    @Override
+//    public void deleteFamilleById(Long idFamille) {
+//        familleRepository.deleteById(idFamille);
+//    }
 }

@@ -10,7 +10,7 @@ import java.util.List;
 public class ArticleServiceImpl implements ArticleService {
     @Autowired
     ArticleRepository articleRepository;
-    @Override
+    /*@Override
     public Article saveArticle(Article article) {
         return articleRepository.save(article);
     }
@@ -38,7 +38,7 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public void deleteArticleById(Long idArticle) {
         articleRepository.deleteById(idArticle);
-    }
+    }*/
 
     @Override
     public Article getArticleByCodeSapAr(Long codeSapAr) {

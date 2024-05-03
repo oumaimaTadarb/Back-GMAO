@@ -9,15 +9,15 @@ import java.util.List;
 
 @Service
 public interface BonLivraisonService {
-    BonLivraison saveBonLivraison(BonLivraison bonLivraison);
+    //BonLivraison saveBonLivraison(BonLivraison bonLivraison);
 
-    BonLivraison updateBonLivraison(BonLivraison bonLivraison);
+    //BonLivraison updateBonLivraison(BonLivraison bonLivraison);
 
-    BonLivraison getBonLivraisonById(Long idBL);
+   // BonLivraison getBonLivraisonById(Long idBL);
 
-    List<BonLivraison> getAllBonLivraison();
+    //List<BonLivraison> getAllBonLivraison();
 
-    void deleteBonLivraisonById(Long idBL);
+    //void deleteBonLivraisonById(Long idBL);
 
     BonLivraison getBonLivraisonByCodeSapBL(Long codeSapBL);
 

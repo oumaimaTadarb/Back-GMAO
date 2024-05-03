@@ -9,10 +9,10 @@ import java.util.List;
 
 @Service
 public interface DemandeAchatService {
-    DemandeAchat saveDemandeAchat(DemandeAchat demandeAchat);
-    DemandeAchat updateDemandeAchat(DemandeAchat demandeAchat);
-    DemandeAchat getDemandeAchatById(Long idDa);
-    List<DemandeAchat> getAllDemandeAchat();
+//    DemandeAchat saveDemandeAchat(DemandeAchat demandeAchat);
+//    DemandeAchat updateDemandeAchat(DemandeAchat demandeAchat);
+//    DemandeAchat getDemandeAchatById(Long idDa);
+//    List<DemandeAchat> getAllDemandeAchat();
     Page<DemandeAchat> getAllDemandeAchatByPage(int page, int size);
     DemandeAchat getDemandeAchatBycodeSapDA(Long codeSapDA);
     DemandeAchat findDevisByCodeSapDA(Long codeSapDA);
