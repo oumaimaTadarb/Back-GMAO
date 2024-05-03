@@ -48,4 +48,8 @@ public class ArticleController {
        return articleService.getArticleByCodeSapAr(codeSapAr);
 
     }
+    @GetMapping("/besoin")
+    public List<Article> getArticlesBesoin() {
+        return articleService.getBesoin();
+    }
 }

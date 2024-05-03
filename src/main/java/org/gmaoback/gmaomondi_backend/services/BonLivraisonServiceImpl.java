@@ -1,6 +1,9 @@
 package org.gmaoback.gmaomondi_backend.services;
 
+import org.gmaoback.gmaomondi_backend.dao.entites.Article;
+import org.gmaoback.gmaomondi_backend.dao.entites.ArticleLivraison;
 import org.gmaoback.gmaomondi_backend.dao.entites.BonLivraison;
+import org.gmaoback.gmaomondi_backend.dao.repositories.ArticleRepository;
 import org.gmaoback.gmaomondi_backend.dao.repositories.BonLivraisonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -14,11 +17,14 @@ public class BonLivraisonServiceImpl implements BonLivraisonService {
 
     @Autowired
     private BonLivraisonRepository bonLivraisonRepository;
-
-    @Override
+    @Autowired
+    private ArticleRepository articleRepository;
+  @Override
     public BonLivraison saveBonLivraison(BonLivraison bonLivraison) {
-        return bonLivraisonRepository.save(bonLivraison);
-    }
+      BonLivraison savedBonLivraison = bonLivraisonRepository.save(bonLivraison);
+      bonLivraisonRepository.updateStockDisponibleByBonLivraison(savedBonLivraison);
+      return savedBonLivraison;
+  }
 
     @Override
     public BonLivraison updateBonLivraison(BonLivraison bonLivraison) {

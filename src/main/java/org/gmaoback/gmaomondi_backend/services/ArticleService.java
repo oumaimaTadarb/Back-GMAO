@@ -12,7 +12,7 @@ public interface ArticleService {
     List<Article> getAllArticles();
     void deleteArticleById(Long idArticle);
     Article getArticleByCodeSapAr(Long codeSapAr);
-
+    List<Article>getBesoin();
 
 
 }
