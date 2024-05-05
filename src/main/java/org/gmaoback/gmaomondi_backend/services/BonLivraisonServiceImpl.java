@@ -16,8 +16,6 @@ public class BonLivraisonServiceImpl implements BonLivraisonService {
 
     @Autowired
     private BonLivraisonRepository bonLivraisonRepository;
-    @Autowired
-    private ArticleRepository articleRepository;
 
 
     @Override
@@ -26,7 +24,7 @@ public class BonLivraisonServiceImpl implements BonLivraisonService {
         if (existingBonLivraison != null) {
             return bonLivraisonRepository.save(existingBonLivraison);
         } else {
-            throw new IllegalArgumentException("Bon de Livraison non trouvé avec le codeSapBC : " + codeSapBL);
+            throw new IllegalArgumentException("Bon de Livraison non trouvé avec le codeSapBL : " + codeSapBL);
         }
     }
 
@@ -36,16 +34,19 @@ public class BonLivraisonServiceImpl implements BonLivraisonService {
         if (existingBonLivraison != null) {
             bonLivraisonRepository.delete(existingBonLivraison);
         } else {
-            throw new IllegalArgumentException("Bon de Livraison non trouvé avec le codeSapBC : " + codeSapBL);
+            throw new IllegalArgumentException("Bon de Livraison non trouvé avec le codeSapBL : " + codeSapBL);
         }
-
     }
 
     @Override
     public BonLivraison getBonLivraisonByCodeSapBL(Long codeSapBL) {
-        return bonLivraisonRepository.findByCodeSapBL(codeSapBL);
-
+        BonLivraison bonLivraison = bonLivraisonRepository.findByCodeSapBL(codeSapBL);
+        if (bonLivraison == null) {
+            throw new IllegalArgumentException("Bon de Livraison non trouvé avec le codeSapBL : " + codeSapBL);
+        }
+        return bonLivraison;
     }
+
     @Override
     public Page<BonLivraison> getAllBonLivraisonByPage(int page, int size) {
         return bonLivraisonRepository.findAll(PageRequest.of(page, size));
