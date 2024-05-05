@@ -24,6 +24,7 @@ public class Article {
     private int stockDisponible ;
     private String donneeTechnique;
     private String refFournisseur;
+
     @ManyToOne
     private Famille famille;
 

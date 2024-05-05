@@ -19,7 +19,15 @@ public class BonLivraison {
     private String documentBL;
     private Date dateReception;
     private Long idRecepteur;
-    private String StatusBL;
+    public enum StatusBL {
+        VALIDE,
+        NON_Conforme;
+    }
+
+    @Enumerated(EnumType.STRING)
+    private BonLivraison.StatusBL statut;
+
+
 
     @ManyToOne
     @JoinColumn(name = " idFournisseur")

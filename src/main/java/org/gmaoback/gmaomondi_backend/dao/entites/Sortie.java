@@ -17,9 +17,18 @@ public class Sortie {
     private Long idSortie;
     private Date dateDemande;
     private Date dateValidation;
-    private String etat;
     private String commentaire;
     private String document;
+
+    public enum EtatSortie {
+        VALIDE,
+        NON_VALIDE
+    }
+
+    @Enumerated(EnumType.STRING)
+    private EtatSortie etat;
+
+
     @ManyToOne
     private Personne personne;
 

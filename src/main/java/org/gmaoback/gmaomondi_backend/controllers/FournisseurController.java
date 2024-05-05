@@ -18,29 +18,13 @@ public class FournisseurController {
         return fournisseurService.getFournisseurBycodeSapFr(codeSapFr);
 
     }
-//
-//    @PostMapping("/saveFournisseur")
-//    public Fournisseur saveFournisseur(@RequestBody Fournisseur fournisseur) {
-//        return fournisseurService.saveFournisseur(fournisseur);
-//    }
-//
-//    @PutMapping("/{id}")
-//    public Fournisseur updateFournisseur(@PathVariable("id") Long id, @RequestBody Fournisseur fournisseur) {
-//        fournisseur.setIdFournisseur(id);
-//        return fournisseurService.updateFournisseur(fournisseur);
-//    }
-//
-//    @GetMapping("/{id}")
-//    public Fournisseur getFournisseurById(@PathVariable("id") Long id) {
-//        return fournisseurService.getFournisseurById(id);
-//    }
-//    @DeleteMapping("/{id}")
-//    public void deleteFournisseurById(@PathVariable("id") Long id) {
-//        fournisseurService.deleteFournisseurById(id);
-//    }
-//
-//    @GetMapping
-//    public List<Fournisseur> getAllFournisseurs() {
-//        return fournisseurService.getAllFournisseurs();
-//    }
+    @PutMapping("/{codeSapFr}")
+    public Fournisseur updateFournisseurByCodeSapFr(@PathVariable("codeSapFr") Long codeSapFr, @RequestBody Fournisseur updatedFournisseur) {
+        return fournisseurService.updateFournisseurByCodeSapFr(codeSapFr, updatedFournisseur);
+    }
+
+    @DeleteMapping("/{codeSapFr}")
+    public void deleteFournisseurByCodeSapFr(@PathVariable("codeSapFr") Long codeSapFr) {
+        fournisseurService.deleteFournisseurByCodeSapFr(codeSapFr);
+    }
 }

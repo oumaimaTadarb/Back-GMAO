@@ -1,10 +1,7 @@
 package org.gmaoback.gmaomondi_backend.dao.entites;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,9 +10,12 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "utilisations")
 public class Usage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUsage;
-    private String usage;
+
+    @Column(name = "usage")
+    private String nomUsage;
 }
