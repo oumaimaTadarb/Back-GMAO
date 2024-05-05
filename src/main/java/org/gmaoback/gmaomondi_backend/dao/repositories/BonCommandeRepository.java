@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface BonCommandeRepository extends JpaRepository<BonCommande,Long> {
     BonCommande findByCodeSapBC(Long codeSapBC);
+
 }
