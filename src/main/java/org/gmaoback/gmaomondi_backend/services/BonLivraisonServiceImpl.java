@@ -1,7 +1,6 @@
 package org.gmaoback.gmaomondi_backend.services;
 
-import org.gmaoback.gmaomondi_backend.dao.entites.Article;
-import org.gmaoback.gmaomondi_backend.dao.entites.ArticleLivraison;
+import org.gmaoback.gmaomondi_backend.dao.entites.*;
 import org.gmaoback.gmaomondi_backend.dao.entites.BonLivraison;
 import org.gmaoback.gmaomondi_backend.dao.repositories.ArticleRepository;
 import org.gmaoback.gmaomondi_backend.dao.repositories.BonLivraisonRepository;
@@ -19,45 +18,34 @@ public class BonLivraisonServiceImpl implements BonLivraisonService {
     private BonLivraisonRepository bonLivraisonRepository;
     @Autowired
     private ArticleRepository articleRepository;
- /* @Override
-    public BonLivraison saveBonLivraison(BonLivraison bonLivraison) {
-      BonLivraison savedBonLivraison = bonLivraisonRepository.save(bonLivraison);
-      bonLivraisonRepository.updateStockDisponibleByBonLivraison(savedBonLivraison);
-      return savedBonLivraison;
-  }
+
 
     @Override
-    public BonLivraison updateBonLivraison(BonLivraison bonLivraison) {
-        if (bonLivraisonRepository.existsById(bonLivraison.getIdBL())) {
-            return bonLivraisonRepository.save(bonLivraison);
+    public BonLivraison updateBonLivraisonByCodeSapBL(Long codeSapBL, BonLivraison updatedBonLivraison) {
+        BonLivraison existingBonLivraison = bonLivraisonRepository.findByCodeSapBL(codeSapBL);
+        if (existingBonLivraison != null) {
+            return bonLivraisonRepository.save(existingBonLivraison);
         } else {
-            throw new IllegalArgumentException("Bon de livraison non trouvé avec l'identifiant : " + bonLivraison.getIdBL());
+            throw new IllegalArgumentException("Bon de Livraison non trouvé avec le codeSapBC : " + codeSapBL);
         }
     }
 
     @Override
-    public BonLivraison getBonLivraisonById(Long idBL) {
-        return bonLivraisonRepository.findById(idBL)
-                .orElseThrow(() -> new IllegalArgumentException("Bon de livraison non trouvé avec l'identifiant : " + idBL));
-    }
+    public void deleteBonLivraisonByCodeSapBL(Long codeSapBL) {
+        BonLivraison existingBonLivraison = bonLivraisonRepository.findByCodeSapBL(codeSapBL);
+        if (existingBonLivraison != null) {
+            bonLivraisonRepository.delete(existingBonLivraison);
+        } else {
+            throw new IllegalArgumentException("Bon de Livraison non trouvé avec le codeSapBC : " + codeSapBL);
+        }
 
-    @Override
-    public List<BonLivraison> getAllBonLivraison() {
-        return bonLivraisonRepository.findAll();
     }
-
-    @Override
-    public void deleteBonLivraisonById(Long idBL) {
-        bonLivraisonRepository.deleteById(idBL);
-    }*/
 
     @Override
     public BonLivraison getBonLivraisonByCodeSapBL(Long codeSapBL) {
         return bonLivraisonRepository.findByCodeSapBL(codeSapBL);
 
     }
-
-
     @Override
     public Page<BonLivraison> getAllBonLivraisonByPage(int page, int size) {
         return bonLivraisonRepository.findAll(PageRequest.of(page, size));

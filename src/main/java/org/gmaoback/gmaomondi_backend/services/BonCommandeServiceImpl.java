@@ -15,7 +15,7 @@ import java.util.List;
 @Service
 public class BonCommandeServiceImpl implements BonCommandeService{
     @Autowired
-    BonCommandeRepository bonCommandeRepository;
+    private BonCommandeRepository bonCommandeRepository;
 
     @Override
     @Transactional
@@ -24,7 +24,7 @@ public class BonCommandeServiceImpl implements BonCommandeService{
         if (existingBonCommande != null) {
             return bonCommandeRepository.save(existingBonCommande);
         } else {
-            throw new IllegalArgumentException("BonCommande non trouvé avec le codeSapBC : " + codeSapBC);
+            throw new IllegalArgumentException("Bon de commande non trouvé avec le codeSapBC : " + codeSapBC);
         }
     }
 
@@ -35,19 +35,21 @@ public class BonCommandeServiceImpl implements BonCommandeService{
         if (existingBonCommande != null) {
             bonCommandeRepository.delete(existingBonCommande);
         } else {
-            throw new IllegalArgumentException("Article non trouvé avec le codeSapAr : " + codeSapBC);
+            throw new IllegalArgumentException("Bon de commande non trouvé avec le codeSapBC : " + codeSapBC);
         }
     }
 
     @Override
     public Page<BonCommande> getAllBonCommandesByPage(int page, int size) {
         return bonCommandeRepository.findAll(PageRequest.of(page, size));
-
     }
 
     @Override
     public BonCommande getBonCommandeByCodeSapBC(Long codeSapBC) {
-        return bonCommandeRepository.findByCodeSapBC(codeSapBC);
+        BonCommande bonCommande = bonCommandeRepository.findByCodeSapBC(codeSapBC);
+        if (bonCommande == null) {
+            throw new IllegalArgumentException("Bon de commande non trouvé avec le codeSapBC : " + codeSapBC);
+        }
+        return bonCommande;
     }
-
 }

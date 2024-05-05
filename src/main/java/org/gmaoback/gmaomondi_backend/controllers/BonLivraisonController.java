@@ -1,5 +1,5 @@
 package org.gmaoback.gmaomondi_backend.controllers;
-import org.gmaoback.gmaomondi_backend.dao.entites.BonCommande;
+import org.gmaoback.gmaomondi_backend.dao.entites.BonLivraison;
 import org.gmaoback.gmaomondi_backend.dao.entites.BonLivraison;
 import org.gmaoback.gmaomondi_backend.services.BonLivraisonService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,31 +25,14 @@ public class BonLivraisonController {
         return bonLivraisonService.getAllBonLivraisonByPage(page, size);
     }
 
-//    @PostMapping("/saveBL")
-//    public BonLivraison saveBonLivraison(@RequestBody BonLivraison bonLivraison) {
-//        return bonLivraisonService.saveBonLivraison(bonLivraison);
-//    }
-//
-//    @PutMapping("/{id}")
-//    public BonLivraison updateBonLivraison(@PathVariable("id") Long id, @RequestBody BonLivraison bonLivraison) {
-//        bonLivraison.setIdBL(id);
-//        return bonLivraisonService.updateBonLivraison(bonLivraison);
-//    }
-//
-//    @GetMapping("/{id}")
-//    public BonLivraison getBonLivraisonById(@PathVariable("id") Long id) {
-//        return bonLivraisonService.getBonLivraisonById(id);
-//    }
+    @PutMapping("/update/{codeSapBL}")
+    public BonLivraison updateBonLivraisonByCodeSapBL(@PathVariable Long codeSapBL, @RequestBody BonLivraison updatedBonLivraison) {
+        return bonLivraisonService.updateBonLivraisonByCodeSapBL(codeSapBL, updatedBonLivraison);
+    }
 
-//    @GetMapping
-//    public List<BonLivraison> getAllBonLivraisons() {
-//        return bonLivraisonService.getAllBonLivraison();
-//    }
-
-//    @DeleteMapping("/{id}")
-//    public void deleteBonLivraisonById(@PathVariable("id") Long id) {
-//        bonLivraisonService.deleteBonLivraisonById(id);
-//    }
-
+    @DeleteMapping("/delete/{codeSapBL}")
+    public void deleteBonLivraisonByCodeSapBL(@PathVariable Long codeSapBL) {
+        bonLivraisonService.deleteBonLivraisonByCodeSapBL(codeSapBL);
+    }
 
 }
