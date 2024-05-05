@@ -16,6 +16,16 @@ public class BonCommandeController {
     @Autowired
     private BonCommandeService bonCommandeService;
 
+    @GetMapping("/codeSapBC/{codeSapBC}")
+    public BonCommande getBonCommandeByCodeSapBC(@PathVariable Long codeSapBc) {
+        return bonCommandeService.getBonCommandeByCodeSapBC(codeSapBc);
+
+    }
+    @GetMapping("/page")
+    public Page<BonCommande> getAllBonCommandesByPage(@RequestParam("page") int page, @RequestParam("size") int size) {
+        return bonCommandeService.getAllBonCommandesByPage(page, size);
+    }
+
    /* @PostMapping("/saveBC")
     public BonCommande saveBonCommande(@RequestBody BonCommande bonCommande) {
         return bonCommandeService.saveBonCommande(bonCommande);
@@ -42,14 +52,5 @@ public class BonCommandeController {
         bonCommandeService.deleteBonCommandeById(id);
     }*/
 
-    @GetMapping("/codeSapBC/{codeSapBC}")
-    public BonCommande getBonCommandeByCodeSapBC(@PathVariable Long codeSapBc) {
-        return bonCommandeService.getBonCommandeByCodeSapBC(codeSapBc);
-
-    }
-    @GetMapping("/page")
-    public Page<BonCommande> getAllBonCommandesByPage(@RequestParam("page") int page, @RequestParam("size") int size) {
-        return bonCommandeService.getAllBonCommandesByPage(page, size);
-    }
 }
 

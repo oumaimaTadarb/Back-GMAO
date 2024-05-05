@@ -30,4 +30,6 @@ public class BonCommande {
 
     @OneToMany(mappedBy = "bonCommande", cascade = CascadeType.ALL)
     private List<ArticleCommande> articleCommandes;
+    @OneToMany(mappedBy = "bonCommande", cascade = CascadeType.ALL)
+    private List<ArticleLivraison> articleLivraisons;
 }

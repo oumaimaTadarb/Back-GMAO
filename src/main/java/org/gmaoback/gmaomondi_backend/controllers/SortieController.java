@@ -14,6 +14,10 @@ public class SortieController {
 
     @Autowired
     private SortieService sortieService;
+    @GetMapping("/page")
+    public Page<Sortie> getAllSortiesByPage(@RequestParam("page") int page, @RequestParam("size") int size) {
+        return sortieService.getAllSortiesByPage(page, size);
+    }
 
 //    @PostMapping("/saveSortie")
 //    public Sortie saveSortie(@RequestBody Sortie sortie) {
@@ -41,8 +45,5 @@ public class SortieController {
 //        return sortieService.getAllSorties();
 //    }
 
-    @GetMapping("/page")
-    public Page<Sortie> getAllSortiesByPage(@RequestParam("page") int page, @RequestParam("size") int size) {
-        return sortieService.getAllSortiesByPage(page, size);
-    }
+
 }

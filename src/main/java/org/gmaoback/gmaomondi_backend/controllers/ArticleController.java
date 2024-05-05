@@ -4,6 +4,7 @@ import org.gmaoback.gmaomondi_backend.dao.entites.Article;
 import org.gmaoback.gmaomondi_backend.dao.repositories.ArticleRepository;
 import org.gmaoback.gmaomondi_backend.services.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,40 +17,29 @@ public class ArticleController {
     ArticleRepository articleRepository;
     @Autowired
     ArticleService articleService;
-
-   /* @GetMapping("/articles")
-    public List<Article> getAllArticles() {
-        return articleService.getAllArticles();
+    @PutMapping("/update/{codeSapAr}")
+    public Article updateArticleByCodeSapAr(@PathVariable Long codeSapAr, @RequestBody Article updatedArticle) {
+        return articleService.updateArticleByCodeSapAr(codeSapAr, updatedArticle);
     }
 
-    @GetMapping(value = "/articles/{idArticle}")
-    public Article getArticleById(@PathVariable("idArticle") Long idArticle) {
-        return articleService.getArticleById(idArticle);
+    @DeleteMapping("/delete/{codeSapAr}")
+    public void deleteArticleByCodeSapAr(@PathVariable Long codeSapAr) {
+        articleService.deleteArticleByCodeSapAr(codeSapAr);
     }
-
-    @PostMapping("/saveArticle")
-    public Article saveArticle(@RequestBody Article article) {
-        return articleService.saveArticle(article);
-    }
-
-    @PutMapping("/{id}")
-    public Article updateArticle(@PathVariable("id") Long id, @RequestBody Article article) {
-        article.setIdArticle(id);
-        return articleService.updateArticle(article);
-    }
-
-    @DeleteMapping("/{id}")
-    public void deleteArticleById(@PathVariable("id") Long id) {
-        articleService.deleteArticleById(id);
-    }*/
-
     @GetMapping("/codeSapAr/{codeSapAr}")
     public Article getArticleByCodeSapAr(@PathVariable Long codeSapAr) {
-       return articleService.getArticleByCodeSapAr(codeSapAr);
+        return articleService.getArticleByCodeSapAr(codeSapAr);
 
     }
     @GetMapping("/besoin")
     public List<Article> getArticlesBesoin() {
         return articleService.getBesoin();
     }
+    @GetMapping("/page")
+    public Page<Article> getAllArticlesByPage(@RequestParam("page") int page, @RequestParam("size") int size) {
+        return articleService.getAllArticlesByPage(page, size);
+    }
+
+
+
 }

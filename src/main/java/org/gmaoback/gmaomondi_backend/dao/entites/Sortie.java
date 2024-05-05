@@ -20,7 +20,8 @@ public class Sortie {
     private String etat;
     private String commentaire;
     private String document;
-
+    @ManyToOne
+    private Personne personne;
 
     @OneToMany(mappedBy = "sortie", cascade = CascadeType.ALL)
     private List<ArticleSortie> articleSorties;

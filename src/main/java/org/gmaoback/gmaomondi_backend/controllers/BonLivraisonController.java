@@ -14,6 +14,16 @@ public class BonLivraisonController {
 
     @Autowired
     private BonLivraisonService bonLivraisonService;
+    @GetMapping("/codeSapBL/{codeSapBL}")
+    public BonLivraison getBonLivraisonByCodeSapBL(@PathVariable Long codeSapBL) {
+        return bonLivraisonService.getBonLivraisonByCodeSapBL(codeSapBL);
+
+    }
+
+    @GetMapping("/page")
+    public Page<BonLivraison> getAllBonLivraisonsByPage(@RequestParam("page") int page, @RequestParam("size") int size) {
+        return bonLivraisonService.getAllBonLivraisonByPage(page, size);
+    }
 
 //    @PostMapping("/saveBL")
 //    public BonLivraison saveBonLivraison(@RequestBody BonLivraison bonLivraison) {
@@ -41,14 +51,5 @@ public class BonLivraisonController {
 //        bonLivraisonService.deleteBonLivraisonById(id);
 //    }
 
-    @GetMapping("/codeSapBL/{codeSapBL}")
-    public BonLivraison getBonLivraisonByCodeSapBL(@PathVariable Long codeSapBL) {
-        return bonLivraisonService.getBonLivraisonByCodeSapBL(codeSapBL);
 
-    }
-
-    @GetMapping("/page")
-    public Page<BonLivraison> getAllBonLivraisonsByPage(@RequestParam("page") int page, @RequestParam("size") int size) {
-        return bonLivraisonService.getAllBonLivraisonByPage(page, size);
-    }
 }

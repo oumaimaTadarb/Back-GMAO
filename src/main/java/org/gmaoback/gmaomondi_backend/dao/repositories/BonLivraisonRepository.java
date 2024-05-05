@@ -10,7 +10,6 @@ import java.util.List;
 
 @Repository
 public interface BonLivraisonRepository extends JpaRepository<BonLivraison,Long> {
-
     @Modifying
     @Transactional
     @Query("UPDATE Article a SET a.stockDisponible = a.stockDisponible + (SELECT al.quantiteLivree FROM ArticleLivraison al WHERE al.article = a AND al.bonLivraison = :bonLivraison)")

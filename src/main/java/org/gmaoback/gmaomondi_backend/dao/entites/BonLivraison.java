@@ -28,4 +28,5 @@ public class BonLivraison {
 
     @OneToMany(mappedBy = "bonLivraison", cascade = CascadeType.ALL)
     private List<ArticleLivraison> articleLivraisons;
+
 }

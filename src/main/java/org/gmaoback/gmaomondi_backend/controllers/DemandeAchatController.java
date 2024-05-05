@@ -14,6 +14,19 @@ public class DemandeAchatController {
 
     @Autowired
     private DemandeAchatService demandeAchatService;
+    @GetMapping("/page")
+    public Page<DemandeAchat> getAllDemandeAchatByPage(@RequestParam("page") int page, @RequestParam("size") int size) {
+        return demandeAchatService.getAllDemandeAchatByPage(page, size);
+    }
+    @GetMapping("/codeSapDA/{codeSapDA}")
+    public DemandeAchat getDemandeAchatByCodeSapDA(@PathVariable Long codeSapDA) {
+        return demandeAchatService.getDemandeAchatBycodeSapDA(codeSapDA);
+    }
+
+    @GetMapping("/devis/{codeSapDA}")
+    public DemandeAchat getDevisByCodeSapDA(@PathVariable Long codeSapDA) {
+        return demandeAchatService.findDevisByCodeSapDA(codeSapDA);
+    }
 
 //    @PostMapping("/saveDA")
 //    public DemandeAchat saveDemandeAchat(@RequestBody DemandeAchat demandeAchat) {
@@ -36,17 +49,5 @@ public class DemandeAchatController {
 //        return demandeAchatService.getAllDemandeAchat();
 //    }
 
-    @GetMapping("/page")
-    public Page<DemandeAchat> getAllDemandeAchatByPage(@RequestParam("page") int page, @RequestParam("size") int size) {
-        return demandeAchatService.getAllDemandeAchatByPage(page, size);
-    }
-    @GetMapping("/codeSapDA/{codeSapDA}")
-    public DemandeAchat getDemandeAchatByCodeSapDA(@PathVariable Long codeSapDA) {
-        return demandeAchatService.getDemandeAchatBycodeSapDA(codeSapDA);
-    }
 
-    @GetMapping("/devis/{codeSapDA}")
-    public DemandeAchat getDevisByCodeSapDA(@PathVariable Long codeSapDA) {
-        return demandeAchatService.findDevisByCodeSapDA(codeSapDA);
-    }
 }

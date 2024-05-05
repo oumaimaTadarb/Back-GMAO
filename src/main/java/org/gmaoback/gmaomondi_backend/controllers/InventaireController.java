@@ -14,6 +14,10 @@ public class InventaireController {
 
     @Autowired
     private InventaireService inventaireService;
+    @GetMapping("/page")
+    public Page<Inventaire> getAllInventairesByPage(@RequestParam("page") int page, @RequestParam("size") int size) {
+        return inventaireService.getAllInventairesByPage(page, size);
+    }
 
 //    @PostMapping("/saveInventaire")
 //    public Inventaire saveInventaire(@RequestBody Inventaire inventaire) {
@@ -41,8 +45,5 @@ public class InventaireController {
 //        return inventaireService.getAllInventaires();
 //    }
 
-    @GetMapping("/page")
-    public Page<Inventaire> getAllInventairesByPage(@RequestParam("page") int page, @RequestParam("size") int size) {
-        return inventaireService.getAllInventairesByPage(page, size);
-    }
+
 }
