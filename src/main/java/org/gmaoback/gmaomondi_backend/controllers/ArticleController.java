@@ -17,6 +17,27 @@ public class ArticleController {
     ArticleRepository articleRepository;
     @Autowired
     ArticleService articleService;
+    @GetMapping("/articles")
+    public List<Article> getAllArticles() {
+        return articleService.getAllArticles();
+    }
+    @GetMapping(value = "/articles/{idArticle}")
+    public Article getArticleById(@PathVariable("idArticle") Long idArticle) {
+        return articleService.getArticleById(idArticle);
+    }
+    @PostMapping("/saveArticle")
+    public Article saveArticle(@RequestBody Article article) {
+        return articleService.saveArticle(article);
+    }
+    @PutMapping("/{id}")
+    public Article updateArticle(@PathVariable("id") Long id, @RequestBody Article article) {
+        article.setIdArticle(id);
+        return articleService.updateArticle(article);
+    }
+    @DeleteMapping("/{id}")
+    public void deleteArticleById(@PathVariable("id") Long id) {
+        articleService.deleteArticleById(id);
+    }
     @PutMapping("/update/{codeSapAr}")
     public Article updateArticleByCodeSapAr(@PathVariable Long codeSapAr, @RequestBody Article updatedArticle) {
         return articleService.updateArticleByCodeSapAr(codeSapAr, updatedArticle);

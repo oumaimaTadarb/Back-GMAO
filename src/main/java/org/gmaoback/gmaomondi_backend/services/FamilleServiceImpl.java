@@ -14,6 +14,7 @@ public class FamilleServiceImpl implements FamilleService {
 
     @Autowired
     private FamilleRepository familleRepository;
+   @Override
     public Famille saveFamille(Famille famille) {
         if (famille.getFamilleMere() == null) {
             throw new IllegalArgumentException("La famille mère ne peut pas être null.");
@@ -61,5 +62,23 @@ public class FamilleServiceImpl implements FamilleService {
                 .map(Article::getCodeSapAr)
                 .collect(Collectors.toList());
     }
+
+
+    @Override
+    public Famille updateFamille(Famille famille) {
+        if (familleRepository.existsById(famille.getIdFamille())) {
+            return familleRepository.save(famille);
+        } else {
+            throw new IllegalArgumentException("Famille non trouvée avec l'identifiant : " + famille.getIdFamille());
+        }
+    }
+
+    @Override
+    public Famille getFamilleById(Long idFamille) {
+        return familleRepository.findById(idFamille)
+                .orElseThrow(() -> new IllegalArgumentException("Famille non trouvée avec l'identifiant : " + idFamille));
+    }
+
+
 }
 

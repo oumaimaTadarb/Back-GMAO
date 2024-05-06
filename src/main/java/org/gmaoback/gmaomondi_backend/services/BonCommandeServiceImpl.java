@@ -52,4 +52,29 @@ public class BonCommandeServiceImpl implements BonCommandeService{
         }
         return bonCommande;
     }
+    @Override
+    public BonCommande saveBonCommande(BonCommande bonCommande) {
+        return bonCommandeRepository.save(bonCommande);
+    }
+    @Override
+    public BonCommande updateBonCommande(BonCommande bonCommande) {
+        if (bonCommandeRepository.existsById(bonCommande.getIdBC())) {
+            return bonCommandeRepository.save(bonCommande);
+        } else {
+            throw new IllegalArgumentException("Bon de commande non trouvé avec l'identifiant : " + bonCommande.getIdBC());
+        }
+    }
+    @Override
+    public BonCommande getBonCommandeById(Long idBC) {
+        return bonCommandeRepository.findById(idBC)
+                .orElseThrow(() -> new IllegalArgumentException("Bon de commande non trouvé avec l'identifiant : " + idBC));
+    }
+    @Override
+    public void deleteBonCommandeById(Long idBC) {
+        bonCommandeRepository.deleteById(idBC);
+    }
+    @Override
+    public List<BonCommande> getAllBonCommandes() {
+        return bonCommandeRepository.findAll();
+    }
 }

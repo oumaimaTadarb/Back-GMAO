@@ -8,11 +8,11 @@ import java.util.List;
 
 @Service
 public interface SortieService {
-//    Sortie saveSortie(Sortie sortie);
-//    Sortie updateSortie(Sortie sortie);
-//    Sortie getSortieById(Long idSortie);
-//    List<Sortie> getAllSorties();
-//    void deleteSortieById(Long idSortie);
+    Sortie saveSortie(Sortie sortie);
+    Sortie updateSortie(Sortie sortie);
+    Sortie getSortieById(Long idSortie);
+    List<Sortie> getAllSorties();
+    void deleteSortieById(Long idSortie);
     Page<Sortie> getAllSortiesByPage(int page, int size);
 }
 

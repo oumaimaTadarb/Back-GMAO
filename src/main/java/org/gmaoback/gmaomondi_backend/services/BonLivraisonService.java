@@ -17,4 +17,16 @@ public interface BonLivraisonService {
     BonLivraison getBonLivraisonByCodeSapBL(Long codeSapBL);
 
     Page<BonLivraison> getAllBonLivraisonByPage(int page, int size);
+
+   // BonLivraison saveBonLivraison(BonLivraison bonLivraison);
+
+    BonLivraison updateBonLivraison(BonLivraison bonLivraison);
+
+    BonLivraison getBonLivraisonById(Long idBL);
+
+    List<BonLivraison> getAllBonLivraison();
+
+    void deleteBonLivraisonById(Long idBL);
+
+    BonLivraison saveBonLivraison(BonLivraison bonLivraison);
 }

@@ -13,6 +13,21 @@ public class FournisseurController {
 
     @Autowired
     private FournisseurService fournisseurService;
+    @PostMapping("/saveFournisseur")
+    public Fournisseur saveFournisseur(@RequestBody Fournisseur fournisseur) {
+        return fournisseurService.saveFournisseur(fournisseur);
+    }
+
+    @PutMapping("/{id}")
+    public Fournisseur updateFournisseur(@PathVariable("id") Long id, @RequestBody Fournisseur fournisseur) {
+        fournisseur.setIdFournisseur(id);
+        return fournisseurService.updateFournisseur(fournisseur);
+    }
+
+    @GetMapping("/{id}")
+    public Fournisseur getFournisseurById(@PathVariable("id") Long id) {
+        return fournisseurService.getFournisseurById(id);
+    }
     @GetMapping("/codeSapFr/{codeSapFr}")
     public Fournisseur getBonLivraisonBycodeSapFr(@PathVariable Long codeSapFr) {
         return fournisseurService.getFournisseurBycodeSapFr(codeSapFr);
@@ -26,5 +41,14 @@ public class FournisseurController {
     @DeleteMapping("/{codeSapFr}")
     public void deleteFournisseurByCodeSapFr(@PathVariable("codeSapFr") Long codeSapFr) {
         fournisseurService.deleteFournisseurByCodeSapFr(codeSapFr);
+    }
+    @DeleteMapping("/{id}")
+    public void deleteFournisseurById(@PathVariable("id") Long id) {
+        fournisseurService.deleteFournisseurById(id);
+    }
+
+    @GetMapping
+    public List<Fournisseur> getAllFournisseurs() {
+        return fournisseurService.getAllFournisseurs();
     }
 }

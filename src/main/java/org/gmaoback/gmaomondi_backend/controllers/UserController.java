@@ -19,31 +19,31 @@ public class UserController {
         return userService.getAllUsersByPage(page, size);
     }
 
-//    @PostMapping("/saveUser")
-//    public User saveUser(@RequestBody User user) {
-//        return userService.saveUser(user);
-//    }
-//
-//    @PutMapping("/{id}")
-//    public User updateUser(@PathVariable("id") Long id, @RequestBody User user) {
-//        user.setIdUser(id); // Assurez-vous que l'ID de l'utilisateur est défini
-//        return userService.updateUser(user);
-//    }
-//
-//    @GetMapping("/{id}")
-//    public User getUserById(@PathVariable("id") Long id) {
-//        return userService.getUserById(id);
-//    }
-//
-//    @DeleteMapping("/{id}")
-//    public void deleteUserById(@PathVariable("id") Long id) {
-//        userService.deleteUserById(id);
-//    }
-//
-//    @GetMapping
-//    public List<User> getAllUsers() {
-//        return userService.getAllUsers();
-//    }
+    @PostMapping("/saveUser")
+    public User saveUser(@RequestBody User user) {
+        return userService.saveUser(user);
+    }
+
+    @PutMapping("/{id}")
+    public User updateUser(@PathVariable("id") Long id, @RequestBody User user) {
+        user.setIdUser(id); // Assurez-vous que l'ID de l'utilisateur est défini
+        return userService.updateUser(user);
+    }
+
+    @GetMapping("/{id}")
+    public User getUserById(@PathVariable("id") Long id) {
+        return userService.getUserById(id);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteUserById(@PathVariable("id") Long id) {
+        userService.deleteUserById(id);
+    }
+
+    @GetMapping
+    public List<User> getAllUsers() {
+        return userService.getAllUsers();
+    }
 
 
 }

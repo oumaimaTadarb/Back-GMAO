@@ -18,31 +18,31 @@ public class PersonneController {
         return personneService.getAllPersonnesByPage(page, size);
     }
 
-//    @PostMapping("/savePersonne")
-//    public Personne savePersonne(@RequestBody Personne personne) {
-//        return personneService.savePersonne(personne);
-//    }
-//
-//    @PutMapping("/{id}")
-//    public Personne updatePersonne(@PathVariable("id") Long id, @RequestBody Personne personne) {
-//        personne.setIdPersonne(id);
-//        return personneService.updatePersonne(personne);
-//    }
-//
-//    @GetMapping("/{id}")
-//    public Personne getPersonneById(@PathVariable("id") Long id) {
-//        return personneService.getPersonneById(id);
-//    }
-//
-//    @DeleteMapping("/{id}")
-//    public void deletePersonneById(@PathVariable("id") Long id) {
-//        personneService.deletePersonneById(id);
-//    }
-//
-//    @GetMapping
-//    public List<Personne> getAllPersonnes() {
-//        return personneService.getAllPersonnes();
-//    }
+    @PostMapping("/savePersonne")
+    public Personne savePersonne(@RequestBody Personne personne) {
+        return personneService.savePersonne(personne);
+    }
+
+    @PutMapping("/{id}")
+    public Personne updatePersonne(@PathVariable("id") Long id, @RequestBody Personne personne) {
+        personne.setIdPersonne(id);
+        return personneService.updatePersonne(personne);
+    }
+
+    @GetMapping("/{id}")
+    public Personne getPersonneById(@PathVariable("id") Long id) {
+        return personneService.getPersonneById(id);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deletePersonneById(@PathVariable("id") Long id) {
+        personneService.deletePersonneById(id);
+    }
+
+    @GetMapping
+    public List<Personne> getAllPersonnes() {
+        return personneService.getAllPersonnes();
+    }
 
 
 }

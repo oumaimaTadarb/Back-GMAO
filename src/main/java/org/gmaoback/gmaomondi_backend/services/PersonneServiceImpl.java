@@ -15,35 +15,35 @@ public class PersonneServiceImpl implements PersonneService {
     @Autowired
     private PersonneRepository personneRepository;
 
-//    @Override
-//    public Personne savePersonne(Personne personne) {
-//        return personneRepository.save(personne);
-//    }
-//
-//    @Override
-//    public Personne updatePersonne(Personne personne) {
-//        if (personneRepository.existsById(personne.getIdPersonne())) {
-//            return personneRepository.save(personne);
-//        } else {
-//            throw new IllegalArgumentException("Personne non trouvée avec l'identifiant : " + personne.getIdPersonne());
-//        }
-//    }
-//
-//    @Override
-//    public Personne getPersonneById(Long idPersonne) {
-//        return personneRepository.findById(idPersonne)
-//                .orElseThrow(() -> new IllegalArgumentException("Personne non trouvée avec l'identifiant : " + idPersonne));
-//    }
-//
-//    @Override
-//    public List<Personne> getAllPersonnes() {
-//        return personneRepository.findAll();
-//    }
-//
-//    @Override
-//    public void deletePersonneById(Long idPersonne) {
-//        personneRepository.deleteById(idPersonne);
-//    }
+    @Override
+    public Personne savePersonne(Personne personne) {
+        return personneRepository.save(personne);
+    }
+
+    @Override
+    public Personne updatePersonne(Personne personne) {
+        if (personneRepository.existsById(personne.getIdPersonne())) {
+            return personneRepository.save(personne);
+        } else {
+            throw new IllegalArgumentException("Personne non trouvée avec l'identifiant : " + personne.getIdPersonne());
+        }
+    }
+
+    @Override
+    public Personne getPersonneById(Long idPersonne) {
+        return personneRepository.findById(idPersonne)
+                .orElseThrow(() -> new IllegalArgumentException("Personne non trouvée avec l'identifiant : " + idPersonne));
+    }
+
+    @Override
+    public List<Personne> getAllPersonnes() {
+        return personneRepository.findAll();
+    }
+
+    @Override
+    public void deletePersonneById(Long idPersonne) {
+        personneRepository.deleteById(idPersonne);
+    }
 
     @Override
     public Page<Personne> getAllPersonnesByPage(int page, int size) {

@@ -15,7 +15,27 @@ public class BonCommandeController {
 
     @Autowired
     private BonCommandeService bonCommandeService;
-
+    @PostMapping("/saveBC")
+    public BonCommande saveBonCommande(@RequestBody BonCommande bonCommande) {
+        return bonCommandeService.saveBonCommande(bonCommande);
+    }
+    @PutMapping("/{id}")
+    public BonCommande updateBonCommande(@PathVariable("id") Long id, @RequestBody BonCommande bonCommande) {
+        bonCommande.setIdBC(id);
+        return bonCommandeService.updateBonCommande(bonCommande);
+    }
+    @GetMapping("/{id}")
+    public BonCommande getBonCommandeById(@PathVariable("id") Long id) {
+        return bonCommandeService.getBonCommandeById(id);
+    }
+    @GetMapping
+    public List<BonCommande> getAllBonCommandes() {
+        return bonCommandeService.getAllBonCommandes();
+    }
+    @DeleteMapping("/{id}")
+    public void deleteBonCommandeById(@PathVariable("id") Long id) {
+        bonCommandeService.deleteBonCommandeById(id);
+    }
     @GetMapping("/codeSapBC/{codeSapBC}")
     public BonCommande getBonCommandeByCodeSapBC(@PathVariable Long codeSapBC) {
         return bonCommandeService.getBonCommandeByCodeSapBC(codeSapBC);

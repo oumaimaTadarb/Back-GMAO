@@ -14,7 +14,11 @@ public interface ArticleService {
     Article getArticleByCodeSapAr(Long codeSapAr);
     List<Article>getBesoin();
     Page<Article> getAllArticlesByPage(int page, int size);
-
+    Article saveArticle(Article article);
+    Article updateArticle(Article article);
+    Article getArticleById(Long idArticle);
+    List<Article> getAllArticles();
+    void deleteArticleById(Long idArticle);
 
 
 }

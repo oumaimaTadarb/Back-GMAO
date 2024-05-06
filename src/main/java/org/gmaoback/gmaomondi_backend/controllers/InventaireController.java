@@ -19,31 +19,31 @@ public class InventaireController {
         return inventaireService.getAllInventairesByPage(page, size);
     }
 
-//    @PostMapping("/saveInventaire")
-//    public Inventaire saveInventaire(@RequestBody Inventaire inventaire) {
-//        return inventaireService.saveInventaire(inventaire);
-//    }
-//
-//    @PutMapping("/{id}")
-//    public Inventaire updateInventaire(@PathVariable("id") Long id, @RequestBody Inventaire inventaire) {
-//        inventaire.setIdInventaire(id); // Assurez-vous que l'ID de l'inventaire est défini
-//        return inventaireService.updateInventaire(inventaire);
-//    }
-//
-//    @GetMapping("/{id}")
-//    public Inventaire getInventaireById(@PathVariable("id") Long id) {
-//        return inventaireService.getInventaireById(id);
-//    }
-//
-//    @DeleteMapping("/{id}")
-//    public void deleteInventaireById(@PathVariable("id") Long id) {
-//        inventaireService.deleteInventaireById(id);
-//    }
-//
-//    @GetMapping
-//    public List<Inventaire> getAllInventaires() {
-//        return inventaireService.getAllInventaires();
-//    }
+    @PostMapping("/saveInventaire")
+    public Inventaire saveInventaire(@RequestBody Inventaire inventaire) {
+        return inventaireService.saveInventaire(inventaire);
+    }
+
+    @PutMapping("/{id}")
+    public Inventaire updateInventaire(@PathVariable("id") Long id, @RequestBody Inventaire inventaire) {
+        inventaire.setIdInventaire(id); // Assurez-vous que l'ID de l'inventaire est défini
+        return inventaireService.updateInventaire(inventaire);
+    }
+
+    @GetMapping("/{id}")
+    public Inventaire getInventaireById(@PathVariable("id") Long id) {
+        return inventaireService.getInventaireById(id);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteInventaireById(@PathVariable("id") Long id) {
+        inventaireService.deleteInventaireById(id);
+    }
+
+    @GetMapping
+    public List<Inventaire> getAllInventaires() {
+        return inventaireService.getAllInventaires();
+    }
 
 
 }

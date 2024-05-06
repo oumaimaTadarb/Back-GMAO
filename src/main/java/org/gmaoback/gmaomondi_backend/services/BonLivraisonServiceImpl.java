@@ -52,5 +52,41 @@ public class BonLivraisonServiceImpl implements BonLivraisonService {
         return bonLivraisonRepository.findAll(PageRequest.of(page, size));
     }
 
+    @Override
+    public BonLivraison saveBonLivraison(BonLivraison bonLivraison) {
+        if (bonLivraison.getStatut() != BonLivraison.StatusBL.VALIDE) {
+            throw new IllegalArgumentException("Le statut du bon de livraison est non conforme.");
+        }
+        if (bonLivraison.getFournisseur() == null) {
+            throw new IllegalArgumentException("Le fournisseur du bon de livraison ne peut pas être null.");
+        }
+        BonLivraison savedBonLivraison = bonLivraisonRepository.save(bonLivraison);
+        bonLivraisonRepository.updateStockDisponibleByBonLivraison(savedBonLivraison);
+        return bonLivraisonRepository.save(bonLivraison);
+    }
 
+    @Override
+    public BonLivraison updateBonLivraison(BonLivraison bonLivraison) {
+        if (bonLivraisonRepository.existsById(bonLivraison.getIdBL())) {
+            return bonLivraisonRepository.save(bonLivraison);
+        } else {
+            throw new IllegalArgumentException("Bon de livraison non trouvé avec l'identifiant : " + bonLivraison.getIdBL());
+        }
+    }
+    @Override
+    public BonLivraison getBonLivraisonById(Long idBL) {
+        return bonLivraisonRepository.findById(idBL)
+                .orElseThrow(() -> new IllegalArgumentException("Bon de livraison non trouvé avec l'identifiant : " + idBL));
+    }
+    @Override
+    public List<BonLivraison> getAllBonLivraison() {
+        return bonLivraisonRepository.findAll();
+    }
+    @Override
+    public void deleteBonLivraisonById(Long idBL) {
+        bonLivraisonRepository.deleteById(idBL);
+    }
 }
+
+
+
