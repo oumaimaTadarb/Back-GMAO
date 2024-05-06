@@ -21,7 +21,7 @@ public class Article {
     private int stockMin;
     private int stockMax;
     private int stockSecurite;
-    private int stockDisponiblezedcv  ;
+    private int stockDisponible;
     private String famille;
     private String donneeTechnique;
     private String refFournisseur;
