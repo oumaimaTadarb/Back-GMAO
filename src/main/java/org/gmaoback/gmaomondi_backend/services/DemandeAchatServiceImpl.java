@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public class DemandeAchatServiceImpl implements DemandeAchatService {
+
     @Autowired
     private DemandeAchatRepository demandeAchatRepository;
 
@@ -40,49 +41,77 @@ public class DemandeAchatServiceImpl implements DemandeAchatService {
 
     @Override
     public Page<DemandeAchat> getAllDemandeAchatByPage(int page, int size) {
-        return demandeAchatRepository.findAll(PageRequest.of(page, size));
+        try {
+            return demandeAchatRepository.findAll(PageRequest.of(page, size));
+        } catch (Exception e) {
+            throw new IllegalStateException("Erreur lors de la récupération des demandes d'achat par page : " + e.getMessage());
+        }
     }
 
     @Override
     public DemandeAchat getDemandeAchatBycodeSapDA(Long codeSapDA) {
-        DemandeAchat demandeAchat = demandeAchatRepository.findByCodeSapDA(codeSapDA);
-        if (demandeAchat == null) {
-            throw new IllegalArgumentException("Demande d'achat non trouvée avec le codeSapDA : " + codeSapDA);
+        try {
+            DemandeAchat demandeAchat = demandeAchatRepository.findByCodeSapDA(codeSapDA);
+            if (demandeAchat == null) {
+                throw new IllegalArgumentException("Demande d'achat non trouvée avec le codeSapDA : " + codeSapDA);
+            }
+            return demandeAchat;
+        } catch (Exception e) {
+            throw new IllegalStateException("Erreur lors de la récupération de la demande d'achat par codeSapDA : " + e.getMessage());
         }
-        return demandeAchat;
     }
 
     @Override
     public DemandeAchat findDevisByCodeSapDA(Long codeSapDA) {
-        DemandeAchat demandeAchat = demandeAchatRepository.findDevisByCodeSapDA(codeSapDA);
-        if (demandeAchat == null) {
-            throw new IllegalArgumentException("Devis non trouvé avec le codeSapDA : " + codeSapDA);
+        try {
+            DemandeAchat demandeAchat = demandeAchatRepository.findDevisByCodeSapDA(codeSapDA);
+            if (demandeAchat == null) {
+                throw new IllegalArgumentException("Devis non trouvé avec le codeSapDA : " + codeSapDA);
+            }
+            return demandeAchat;
+        } catch (Exception e) {
+            throw new IllegalStateException("Erreur lors de la récupération du devis par codeSapDA : " + e.getMessage());
         }
-        return demandeAchat;
     }
+
     @Override
     public DemandeAchat saveDemandeAchat(DemandeAchat demandeAchat) {
-        return demandeAchatRepository.save(demandeAchat);
+        try {
+            return demandeAchatRepository.save(demandeAchat);
+        } catch (Exception e) {
+            throw new IllegalStateException("Erreur lors de l'enregistrement de la demande d'achat : " + e.getMessage());
+        }
     }
 
     @Override
     public DemandeAchat updateDemandeAchat(DemandeAchat demandeAchat) {
-        if (demandeAchatRepository.existsById(demandeAchat.getIdDa())) {
-            return demandeAchatRepository.save(demandeAchat);
-        } else {
-            throw new IllegalArgumentException("Demande d'achat non trouvée avec l'identifiant : " + demandeAchat.getIdDa());
+        try {
+            if (demandeAchatRepository.existsById(demandeAchat.getIdDa())) {
+                return demandeAchatRepository.save(demandeAchat);
+            } else {
+                throw new IllegalArgumentException("Demande d'achat non trouvée avec l'identifiant : " + demandeAchat.getIdDa());
+            }
+        } catch (Exception e) {
+            throw new IllegalStateException("Erreur lors de la mise à jour de la demande d'achat : " + e.getMessage());
         }
     }
 
     @Override
     public DemandeAchat getDemandeAchatById(Long idDa) {
-        return demandeAchatRepository.findById(idDa)
-                .orElseThrow(() -> new IllegalArgumentException("Demande d'achat non trouvée avec l'identifiant : " + idDa));
+        try {
+            return demandeAchatRepository.findById(idDa)
+                    .orElseThrow(() -> new IllegalArgumentException("Demande d'achat non trouvée avec l'identifiant : " + idDa));
+        } catch (Exception e) {
+            throw new IllegalStateException("Erreur lors de la récupération de la demande d'achat par ID : " + e.getMessage());
+        }
     }
 
     @Override
     public List<DemandeAchat> getAllDemandeAchat() {
-        return demandeAchatRepository.findAll();
+        try {
+            return demandeAchatRepository.findAll();
+        } catch (Exception e) {
+            throw new IllegalStateException("Erreur lors de la récupération de toutes les demandes d'achat : " + e.getMessage());
+        }
     }
-
 }

@@ -17,7 +17,6 @@ public class BonLivraisonServiceImpl implements BonLivraisonService {
     @Autowired
     private BonLivraisonRepository bonLivraisonRepository;
 
-
     @Override
     public BonLivraison updateBonLivraisonByCodeSapBL(Long codeSapBL, BonLivraison updatedBonLivraison) {
         BonLivraison existingBonLivraison = bonLivraisonRepository.findByCodeSapBL(codeSapBL);
@@ -49,42 +48,69 @@ public class BonLivraisonServiceImpl implements BonLivraisonService {
 
     @Override
     public Page<BonLivraison> getAllBonLivraisonByPage(int page, int size) {
-        return bonLivraisonRepository.findAll(PageRequest.of(page, size));
+        try {
+            return bonLivraisonRepository.findAll(PageRequest.of(page, size));
+        } catch (Exception e) {
+            throw new IllegalStateException("Erreur lors de la récupération des bons de livraison par page : " + e.getMessage());
+        }
     }
 
     @Override
     public BonLivraison saveBonLivraison(BonLivraison bonLivraison) {
-        if (bonLivraison.getStatut() != BonLivraison.StatusBL.VALIDE) {
-            throw new IllegalArgumentException("Le statut du bon de livraison est non conforme.");
+        try {
+            if (bonLivraison.getStatut() != BonLivraison.StatusBL.VALIDE) {
+                throw new IllegalArgumentException("Le statut du bon de livraison est non conforme.");
+            }
+            if (bonLivraison.getFournisseur() == null) {
+                throw new IllegalArgumentException("Le fournisseur du bon de livraison ne peut pas être null.");
+            }
+            BonLivraison savedBonLivraison = bonLivraisonRepository.save(bonLivraison);
+            bonLivraisonRepository.updateStockDisponibleByBonLivraison(savedBonLivraison);
+            return savedBonLivraison;
+        } catch (Exception e) {
+            throw new IllegalStateException("Erreur lors de l'enregistrement du bon de livraison : " + e.getMessage());
         }
-        if (bonLivraison.getFournisseur() == null) {
-            throw new IllegalArgumentException("Le fournisseur du bon de livraison ne peut pas être null.");
-        }
-        BonLivraison savedBonLivraison = bonLivraisonRepository.save(bonLivraison);
-        bonLivraisonRepository.updateStockDisponibleByBonLivraison(savedBonLivraison);
-        return bonLivraisonRepository.save(bonLivraison);
     }
 
     @Override
     public BonLivraison updateBonLivraison(BonLivraison bonLivraison) {
-        if (bonLivraisonRepository.existsById(bonLivraison.getIdBL())) {
-            return bonLivraisonRepository.save(bonLivraison);
-        } else {
-            throw new IllegalArgumentException("Bon de livraison non trouvé avec l'identifiant : " + bonLivraison.getIdBL());
+        try {
+            if (bonLivraisonRepository.existsById(bonLivraison.getIdBL())) {
+                return bonLivraisonRepository.save(bonLivraison);
+            } else {
+                throw new IllegalArgumentException("Bon de livraison non trouvé avec l'identifiant : " + bonLivraison.getIdBL());
+            }
+        } catch (Exception e) {
+            throw new IllegalStateException("Erreur lors de la mise à jour du bon de livraison : " + e.getMessage());
         }
     }
+
     @Override
     public BonLivraison getBonLivraisonById(Long idBL) {
-        return bonLivraisonRepository.findById(idBL)
-                .orElseThrow(() -> new IllegalArgumentException("Bon de livraison non trouvé avec l'identifiant : " + idBL));
+        try {
+            return bonLivraisonRepository.findById(idBL)
+                    .orElseThrow(() -> new IllegalArgumentException("Bon de livraison non trouvé avec l'identifiant : " + idBL));
+        } catch (Exception e) {
+            throw new IllegalStateException("Erreur lors de la récupération du bon de livraison par ID : " + e.getMessage());
+        }
     }
+
     @Override
     public List<BonLivraison> getAllBonLivraison() {
-        return bonLivraisonRepository.findAll();
+        try {
+            return bonLivraisonRepository.findAll();
+        } catch (Exception e) {
+            throw new IllegalStateException("Erreur lors de la récupération de tous les bons de livraison : " + e.getMessage());
+        }
     }
+
     @Override
     public void deleteBonLivraisonById(Long idBL) {
-        bonLivraisonRepository.deleteById(idBL);
+        try {
+            bonLivraisonRepository.deleteById(idBL);
+        } catch (Exception e) {
+            throw new IllegalStateException("Erreur lors de la suppression du bon de livraison par ID : " + e.getMessage());
+        }
     }
 }
 

@@ -8,7 +8,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
 @Service
 public class InventaireServiceImpl implements InventaireService {
 
@@ -17,37 +16,60 @@ public class InventaireServiceImpl implements InventaireService {
 
     @Override
     public Inventaire saveInventaire(Inventaire inventaire) {
-        return inventaireRepository.save(inventaire);
+        try {
+            return inventaireRepository.save(inventaire);
+        } catch (Exception e) {
+            throw new IllegalStateException("Erreur lors de l'enregistrement de l'inventaire : " + e.getMessage());
+        }
     }
 
     @Override
     public Inventaire updateInventaire(Inventaire inventaire) {
-        if (inventaireRepository.existsById(inventaire.getIdInventaire())) {
-            return inventaireRepository.save(inventaire);
-        } else {
-            throw new IllegalArgumentException("Inventaire non trouvé avec l'identifiant : " + inventaire.getIdInventaire());
+        try {
+            if (inventaireRepository.existsById(inventaire.getIdInventaire())) {
+                return inventaireRepository.save(inventaire);
+            } else {
+                throw new IllegalArgumentException("Inventaire non trouvé avec l'identifiant : " + inventaire.getIdInventaire());
+            }
+        } catch (Exception e) {
+            throw new IllegalStateException("Erreur lors de la mise à jour de l'inventaire : " + e.getMessage());
         }
     }
 
     @Override
     public Inventaire getInventaireById(Long idInventaire) {
-        return inventaireRepository.findById(idInventaire)
-                .orElseThrow(() -> new IllegalArgumentException("Inventaire non trouvé avec l'identifiant : " + idInventaire));
+        try {
+            return inventaireRepository.findById(idInventaire)
+                    .orElseThrow(() -> new IllegalArgumentException("Inventaire non trouvé avec l'identifiant : " + idInventaire));
+        } catch (Exception e) {
+            throw new IllegalStateException("Erreur lors de la récupération de l'inventaire par ID : " + e.getMessage());
+        }
     }
 
     @Override
     public List<Inventaire> getAllInventaires() {
-        return inventaireRepository.findAll();
+        try {
+            return inventaireRepository.findAll();
+        } catch (Exception e) {
+            throw new IllegalStateException("Erreur lors de la récupération de tous les inventaires : " + e.getMessage());
+        }
     }
 
     @Override
     public void deleteInventaireById(Long idInventaire) {
-        inventaireRepository.deleteById(idInventaire);
+        try {
+            inventaireRepository.deleteById(idInventaire);
+        } catch (Exception e) {
+            throw new IllegalStateException("Erreur lors de la suppression de l'inventaire par ID : " + e.getMessage());
+        }
     }
 
     @Override
     public Page<Inventaire> getAllInventairesByPage(int page, int size) {
-     return inventaireRepository.findAll(PageRequest.of(page, size));
+        try {
+            return inventaireRepository.findAll(PageRequest.of(page, size));
+        } catch (Exception e) {
+            throw new IllegalStateException("Erreur lors de la récupération des inventaires par page : " + e.getMessage());
+        }
     }
-
 }

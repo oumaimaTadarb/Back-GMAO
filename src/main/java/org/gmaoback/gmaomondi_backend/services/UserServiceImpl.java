@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -17,36 +18,60 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User saveUser(User user) {
-        return userRepository.save(user);
+        try {
+            return userRepository.save(user);
+        } catch (Exception e) {
+            throw new IllegalStateException("Erreur lors de l'enregistrement de l'utilisateur : " + e.getMessage());
+        }
     }
 
     @Override
     public User updateUser(User user) {
-        if (userRepository.existsById(user.getIdUser())) {
-            return userRepository.save(user);
-        } else {
-            throw new IllegalArgumentException("Utilisateur non trouvé avec l'identifiant : " + user.getIdUser());
+        try {
+            if (userRepository.existsById(user.getIdUser())) {
+                return userRepository.save(user);
+            } else {
+                throw new IllegalArgumentException("Utilisateur non trouvé avec l'identifiant : " + user.getIdUser());
+            }
+        } catch (Exception e) {
+            throw new IllegalStateException("Erreur lors de la mise à jour de l'utilisateur : " + e.getMessage());
         }
     }
 
     @Override
     public User getUserById(Long idUser) {
-        return userRepository.findById(idUser)
-                .orElseThrow(() -> new IllegalArgumentException("Utilisateur non trouvé avec l'identifiant : " + idUser));
+        try {
+            return userRepository.findById(idUser)
+                    .orElseThrow(() -> new IllegalArgumentException("Utilisateur non trouvé avec l'identifiant : " + idUser));
+        } catch (Exception e) {
+            throw new IllegalStateException("Erreur lors de la récupération de l'utilisateur par ID : " + e.getMessage());
+        }
     }
 
     @Override
     public List<User> getAllUsers() {
-        return userRepository.findAll();
+        try {
+            return userRepository.findAll();
+        } catch (Exception e) {
+            throw new IllegalStateException("Erreur lors de la récupération de tous les utilisateurs : " + e.getMessage());
+        }
     }
 
     @Override
     public void deleteUserById(Long idUser) {
-        userRepository.deleteById(idUser);
+        try {
+            userRepository.deleteById(idUser);
+        } catch (Exception e) {
+            throw new IllegalStateException("Erreur lors de la suppression de l'utilisateur par ID : " + e.getMessage());
+        }
     }
 
     @Override
     public Page<User> getAllUsersByPage(int page, int size) {
-        return userRepository.findAll(PageRequest.of(page, size));
+        try {
+            return userRepository.findAll(PageRequest.of(page, size));
+        } catch (Exception e) {
+            throw new IllegalStateException("Erreur lors de la récupération des utilisateurs par page : " + e.getMessage());
+        }
     }
 }
