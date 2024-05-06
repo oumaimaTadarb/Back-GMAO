@@ -1,8 +1,5 @@
 package org.gmaoback.gmaomondi_backend.dao.entites;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,10 +14,12 @@ public class Inventaire {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idInventaire;
-    private Long idArticle;
     private int quantiteReel;
     private Date dateInventaire;
     private String justification;
-    private Long idPersonne;
+    @ManyToOne
+    private Personne personne;
+    @ManyToOne
+    private Article article;
 
    }

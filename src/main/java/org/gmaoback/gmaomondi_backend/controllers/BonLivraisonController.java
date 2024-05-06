@@ -1,5 +1,6 @@
 package org.gmaoback.gmaomondi_backend.controllers;
 import org.gmaoback.gmaomondi_backend.dao.entites.BonLivraison;
+import org.gmaoback.gmaomondi_backend.dao.entites.BonLivraison;
 import org.gmaoback.gmaomondi_backend.services.BonLivraisonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -13,7 +14,6 @@ public class BonLivraisonController {
 
     @Autowired
     private BonLivraisonService bonLivraisonService;
-
     @PostMapping("/saveBL")
     public BonLivraison saveBonLivraison(@RequestBody BonLivraison bonLivraison) {
         return bonLivraisonService.saveBonLivraison(bonLivraison);
@@ -39,14 +39,25 @@ public class BonLivraisonController {
     public void deleteBonLivraisonById(@PathVariable("id") Long id) {
         bonLivraisonService.deleteBonLivraisonById(id);
     }
+    @GetMapping("/codeSapBL/{codeSapBL}")
+    public BonLivraison getBonLivraisonByCodeSapBL(@PathVariable Long codeSapBL) {
+        return bonLivraisonService.getBonLivraisonByCodeSapBL(codeSapBL);
 
-    @GetMapping("/fournisseur/{idFournisseur}")
-    public List<BonLivraison> getAllBonLivraisonsByFournisseur(@PathVariable("idFournisseur") Long idFournisseur) {
-        return bonLivraisonService.findAllByIdFournisseur(idFournisseur);
     }
 
     @GetMapping("/page")
     public Page<BonLivraison> getAllBonLivraisonsByPage(@RequestParam("page") int page, @RequestParam("size") int size) {
         return bonLivraisonService.getAllBonLivraisonByPage(page, size);
     }
+
+    @PutMapping("/update/{codeSapBL}")
+    public BonLivraison updateBonLivraisonByCodeSapBL(@PathVariable Long codeSapBL, @RequestBody BonLivraison updatedBonLivraison) {
+        return bonLivraisonService.updateBonLivraisonByCodeSapBL(codeSapBL, updatedBonLivraison);
+    }
+
+    @DeleteMapping("/delete/{codeSapBL}")
+    public void deleteBonLivraisonByCodeSapBL(@PathVariable Long codeSapBL) {
+        bonLivraisonService.deleteBonLivraisonByCodeSapBL(codeSapBL);
+    }
+
 }

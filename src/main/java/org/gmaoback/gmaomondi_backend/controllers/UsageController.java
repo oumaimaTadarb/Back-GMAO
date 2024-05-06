@@ -13,7 +13,10 @@ public class UsageController {
 
     @Autowired
     private UsageService usageService;
-
+    @GetMapping("/page")
+    public Page<Usage> getAllUsagesByPage(@RequestParam("page") int page, @RequestParam("size") int size) {
+        return usageService.getAllUsagesByPage(page, size);
+    }
     @PostMapping("/saveUsage")
     public Usage saveUsage(@RequestBody Usage usage) {
         return usageService.saveUsage(usage);
@@ -40,8 +43,5 @@ public class UsageController {
         return usageService.getAllUsages();
     }
 
-    @GetMapping("/page")
-    public Page<Usage> getAllUsagesByPage(@RequestParam("page") int page, @RequestParam("size") int size) {
-        return usageService.getAllUsagesByPage(page, size);
-    }
+
 }

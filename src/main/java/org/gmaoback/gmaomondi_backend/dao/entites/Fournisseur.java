@@ -15,6 +15,7 @@ public class Fournisseur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idFournisseur;
+    private Long  codeSapFr;
     private String nom;
     private int tel;
     private String email;

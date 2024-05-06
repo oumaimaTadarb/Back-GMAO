@@ -16,17 +16,20 @@ public class BonCommande {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long idBC;
-    private Long idFournisseur;
     private Date dateBC;
-    //private ArrayList<ArticleCommande>
+    private Long  codeSapBC;
     private String documentBC;
     private double montant;
     private Date dateLivraisonConfirmee;
     private Date dateDemissionProforma;
-    private int numProforma;
+    private Long numProforma;
     private String docProforma;
-
+    @ManyToOne
+    @JoinColumn(name = "idFournisseur")
+    private Fournisseur fournisseur;
 
     @OneToMany(mappedBy = "bonCommande", cascade = CascadeType.ALL)
     private List<ArticleCommande> articleCommandes;
+    @OneToMany(mappedBy = "bonCommande", cascade = CascadeType.ALL)
+    private List<ArticleLivraison> articleLivraisons;
 }

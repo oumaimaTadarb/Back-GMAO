@@ -15,15 +15,26 @@ public class BonLivraison {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idBL;
-    private Long idFournisseur;
+    private Long  codeSapBL;
     private String documentBL;
     private Date dateReception;
     private Long idRecepteur;
-    private String StatusBL;
-    private String DocBL;
+    public enum StatusBL {
+        VALIDE,
+        NON_Conforme;
+    }
 
+    @Enumerated(EnumType.STRING)
+    private BonLivraison.StatusBL statut;
+
+
+
+    @ManyToOne
+    @JoinColumn(name = " idFournisseur")
+    private Fournisseur fournisseur;
 
 
     @OneToMany(mappedBy = "bonLivraison", cascade = CascadeType.ALL)
     private List<ArticleLivraison> articleLivraisons;
+
 }

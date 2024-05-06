@@ -20,7 +20,7 @@ public class Personne {
     private String nom;
     private String prenom;
     private String specialite;
-    private int tel;
+    private Long tel;
     private String email;
 
 

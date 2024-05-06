@@ -14,6 +14,10 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+    @GetMapping("/page")
+    public Page<User> getAllUsersByPage(@RequestParam("page") int page, @RequestParam("size") int size) {
+        return userService.getAllUsersByPage(page, size);
+    }
 
     @PostMapping("/saveUser")
     public User saveUser(@RequestBody User user) {
@@ -41,9 +45,6 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @GetMapping("/page")
-    public Page<User> getAllUsersByPage(@RequestParam("page") int page, @RequestParam("size") int size) {
-        return userService.getAllUsersByPage(page, size);
-    }
+
 }
 

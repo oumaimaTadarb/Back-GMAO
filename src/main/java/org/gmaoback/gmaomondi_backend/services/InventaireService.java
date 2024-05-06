@@ -10,9 +10,9 @@ import java.util.List;
 public interface InventaireService {
     Inventaire saveInventaire(Inventaire inventaire);
     Inventaire updateInventaire(Inventaire inventaire);
-    Inventaire getInventaireById(Long idBC);
+    Inventaire getInventaireById(Long idInventaire);
     List<Inventaire> getAllInventaires();
-   void deleteInventaireById(Long idBC);
+   void deleteInventaireById(Long idInventaire);
 
     Page<Inventaire> getAllInventairesByPage(int page, int size);
 }

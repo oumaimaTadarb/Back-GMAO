@@ -8,14 +8,14 @@ import java.util.List;
 
 @Service
 public interface BonCommandeService {
+
+    BonCommande updateBonCommandeByCodeSapBC (Long codeSapBC, BonCommande updatedBonCommande);
+    void deleteBonCommandeByCodeSapBC(Long codeSapBC);
+    Page<BonCommande> getAllBonCommandesByPage(int page, int size);
+    BonCommande getBonCommandeByCodeSapBC(Long codeSapBC);
     BonCommande saveBonCommande(BonCommande bonCommande);
     BonCommande updateBonCommande(BonCommande bonCommande);
     BonCommande getBonCommandeById(Long idBC);
-
-    List<BonCommande> findAllByIdFournisseur(Long idFournisseur);
-
     List<BonCommande>getAllBonCommandes();
     void deleteBonCommandeById(Long idBC);
-
-    Page<BonCommande> getAllBonCommandesByPage(int page, int size);
 }

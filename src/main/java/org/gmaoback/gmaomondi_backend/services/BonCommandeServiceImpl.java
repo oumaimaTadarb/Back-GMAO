@@ -1,5 +1,8 @@
 package org.gmaoback.gmaomondi_backend.services;
 
+import jakarta.transaction.Transactional;
+import org.gmaoback.gmaomondi_backend.dao.entites.Article;
+import org.gmaoback.gmaomondi_backend.dao.entites.BonCommande;
 import org.gmaoback.gmaomondi_backend.dao.entites.BonCommande;
 import org.gmaoback.gmaomondi_backend.dao.repositories.BonCommandeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +15,43 @@ import java.util.List;
 @Service
 public class BonCommandeServiceImpl implements BonCommandeService{
     @Autowired
-    BonCommandeRepository bonCommandeRepository;
+    private BonCommandeRepository bonCommandeRepository;
+
+    @Override
+    @Transactional
+    public BonCommande updateBonCommandeByCodeSapBC(Long codeSapBC, BonCommande updatedBonCommande) {
+        BonCommande existingBonCommande = bonCommandeRepository.findByCodeSapBC(codeSapBC);
+        if (existingBonCommande != null) {
+            return bonCommandeRepository.save(existingBonCommande);
+        } else {
+            throw new IllegalArgumentException("Bon de commande non trouvé avec le codeSapBC : " + codeSapBC);
+        }
+    }
+
+    @Override
+    @Transactional
+    public void deleteBonCommandeByCodeSapBC(Long codeSapBC) {
+        BonCommande existingBonCommande = bonCommandeRepository.findByCodeSapBC(codeSapBC);
+        if (existingBonCommande != null) {
+            bonCommandeRepository.delete(existingBonCommande);
+        } else {
+            throw new IllegalArgumentException("Bon de commande non trouvé avec le codeSapBC : " + codeSapBC);
+        }
+    }
+
+    @Override
+    public Page<BonCommande> getAllBonCommandesByPage(int page, int size) {
+        return bonCommandeRepository.findAll(PageRequest.of(page, size));
+    }
+
+    @Override
+    public BonCommande getBonCommandeByCodeSapBC(Long codeSapBC) {
+        BonCommande bonCommande = bonCommandeRepository.findByCodeSapBC(codeSapBC);
+        if (bonCommande == null) {
+            throw new IllegalArgumentException("Bon de commande non trouvé avec le codeSapBC : " + codeSapBC);
+        }
+        return bonCommande;
+    }
     @Override
     public BonCommande saveBonCommande(BonCommande bonCommande) {
         return bonCommandeRepository.save(bonCommande);
@@ -34,19 +73,8 @@ public class BonCommandeServiceImpl implements BonCommandeService{
     public void deleteBonCommandeById(Long idBC) {
         bonCommandeRepository.deleteById(idBC);
     }
-
-    @Override
-    public Page<BonCommande> getAllBonCommandesByPage(int page, int size) {
-        return bonCommandeRepository.findAll(PageRequest.of(page, size));
-
-    }
-    @Override
-    public List<BonCommande> findAllByIdFournisseur(Long idFournisseur) {
-        return bonCommandeRepository.findAllByIdFournisseur(idFournisseur);
-    }
     @Override
     public List<BonCommande> getAllBonCommandes() {
         return bonCommandeRepository.findAll();
     }
-
 }

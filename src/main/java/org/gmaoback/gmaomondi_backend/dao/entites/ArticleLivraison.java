@@ -20,12 +20,16 @@ public class ArticleLivraison {
         @ManyToOne
         @JoinColumn(name = "idBL")
         private BonLivraison bonLivraison;
+        @ManyToOne
+        @JoinColumn(name = "idBC")
+        private BonCommande bonCommande;
 
         private int quantiteLivree;
 
-    public ArticleLivraison(Article article, BonLivraison bonLivraison, int quantiteLivree) {
+    public ArticleLivraison(Article article, BonLivraison bonLivraison,BonCommande bonCommande, int quantiteLivree) {
             this.article = article;
             this.bonLivraison = bonLivraison;
+            this.bonCommande=bonCommande;
             this.quantiteLivree = quantiteLivree;
         }
 

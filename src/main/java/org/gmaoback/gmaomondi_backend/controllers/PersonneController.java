@@ -13,6 +13,10 @@ public class PersonneController {
 
     @Autowired
     private PersonneService personneService;
+    @GetMapping("/page")
+    public Page<Personne> getAllPersonnesByPage(@RequestParam("page") int page, @RequestParam("size") int size) {
+        return personneService.getAllPersonnesByPage(page, size);
+    }
 
     @PostMapping("/savePersonne")
     public Personne savePersonne(@RequestBody Personne personne) {
@@ -40,8 +44,5 @@ public class PersonneController {
         return personneService.getAllPersonnes();
     }
 
-    @GetMapping("/page")
-    public Page<Personne> getAllPersonnesByPage(@RequestParam("page") int page, @RequestParam("size") int size) {
-        return personneService.getAllPersonnesByPage(page, size);
-    }
+
 }

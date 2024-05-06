@@ -15,17 +15,18 @@ public class Article {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long idArticle;
-    private Long codeSap;
+    private Long codeSapAr;
     private String designation;
     private String emplacementPhysique;
     private int stockMin;
     private int stockMax;
     private int stockSecurite;
-    private int stockDisponible;
-    private String famille;
+    private int stockDisponible ;
     private String donneeTechnique;
     private String refFournisseur;
 
+    @ManyToOne
+    private Famille famille;
 
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
     private List<ArticleCommande> articleCommandes;
