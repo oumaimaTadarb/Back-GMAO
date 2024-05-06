@@ -4,6 +4,7 @@ import org.gmaoback.gmaomondi_backend.dao.entites.Article;
 import org.gmaoback.gmaomondi_backend.dao.repositories.ArticleRepository;
 import org.gmaoback.gmaomondi_backend.services.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
