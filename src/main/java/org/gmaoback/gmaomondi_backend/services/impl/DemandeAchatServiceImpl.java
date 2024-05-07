@@ -1,10 +1,11 @@
-package org.gmaoback.gmaomondi_backend.services;
+package org.gmaoback.gmaomondi_backend.services.impl;
 
 import jakarta.transaction.Transactional;
 import org.gmaoback.gmaomondi_backend.dao.entites.Article;
 import org.gmaoback.gmaomondi_backend.dao.entites.BonCommande;
 import org.gmaoback.gmaomondi_backend.dao.entites.DemandeAchat;
 import org.gmaoback.gmaomondi_backend.dao.repositories.DemandeAchatRepository;
+import org.gmaoback.gmaomondi_backend.services.DemandeAchatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

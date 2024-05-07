@@ -1,7 +1,8 @@
-package org.gmaoback.gmaomondi_backend.services;
+package org.gmaoback.gmaomondi_backend.services.impl;
 
 import org.gmaoback.gmaomondi_backend.dao.entites.Sortie;
 import org.gmaoback.gmaomondi_backend.dao.repositories.SortieRepository;
+import org.gmaoback.gmaomondi_backend.services.SortieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

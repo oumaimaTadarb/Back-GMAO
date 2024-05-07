@@ -1,9 +1,10 @@
-package org.gmaoback.gmaomondi_backend.services;
+package org.gmaoback.gmaomondi_backend.services.impl;
 
 import org.gmaoback.gmaomondi_backend.dao.entites.*;
 import org.gmaoback.gmaomondi_backend.dao.entites.BonLivraison;
 import org.gmaoback.gmaomondi_backend.dao.repositories.ArticleRepository;
 import org.gmaoback.gmaomondi_backend.dao.repositories.BonLivraisonRepository;
+import org.gmaoback.gmaomondi_backend.services.BonLivraisonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
