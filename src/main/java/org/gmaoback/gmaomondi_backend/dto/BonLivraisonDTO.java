@@ -1,20 +1,22 @@
 package org.gmaoback.gmaomondi_backend.dto;
 
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import org.gmaoback.gmaomondi_backend.dao.entites.BonLivraison;
-import org.gmaoback.gmaomondi_backend.dao.entites.Fournisseur;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class BonLivraisonDTO {
+
     private Long idBL;
-    private Long  codeSapBL;
+    private Long codeSapBL;
     private String documentBL;
     private Date dateReception;
     private Long idRecepteur;
-    public BonLivraison.StatusBL status  ;
-    private Long idFournisseur;
+    private String statut;
+
+    private Long fournisseurId;
 }

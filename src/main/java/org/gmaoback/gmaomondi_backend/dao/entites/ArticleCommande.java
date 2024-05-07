@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class ArticleCommande {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
