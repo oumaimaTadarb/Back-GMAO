@@ -1,5 +1,5 @@
 package org.gmaoback.gmaomondi_backend.controllers;
-import org.gmaoback.gmaomondi_backend.dao.models.Usage;
+import org.gmaoback.gmaomondi_backend.dao.entities.Usage;
 import org.gmaoback.gmaomondi_backend.services.UsageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

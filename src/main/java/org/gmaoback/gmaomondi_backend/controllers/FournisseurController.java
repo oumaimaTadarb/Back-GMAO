@@ -1,5 +1,5 @@
 package org.gmaoback.gmaomondi_backend.controllers;
-import org.gmaoback.gmaomondi_backend.dao.models.Fournisseur;
+import org.gmaoback.gmaomondi_backend.dao.entities.Fournisseur;
 import org.gmaoback.gmaomondi_backend.services.FournisseurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

@@ -1,6 +1,6 @@
 package org.gmaoback.gmaomondi_backend.dao.repositories;
 import jakarta.transaction.Transactional;
-import org.gmaoback.gmaomondi_backend.dao.models.BonLivraison;
+import org.gmaoback.gmaomondi_backend.dao.entities.BonLivraison;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

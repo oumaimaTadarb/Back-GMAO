@@ -1,7 +1,7 @@
 package org.gmaoback.gmaomondi_backend.services;
 
-import org.gmaoback.gmaomondi_backend.dao.models.Article;
-import org.gmaoback.gmaomondi_backend.dao.models.Famille;
+import org.gmaoback.gmaomondi_backend.dao.entities.Article;
+import org.gmaoback.gmaomondi_backend.dao.entities.Famille;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

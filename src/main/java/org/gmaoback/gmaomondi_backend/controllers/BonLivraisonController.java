@@ -1,5 +1,5 @@
 package org.gmaoback.gmaomondi_backend.controllers;
-import org.gmaoback.gmaomondi_backend.dao.models.BonLivraison;
+import org.gmaoback.gmaomondi_backend.dao.entities.BonLivraison;
 import org.gmaoback.gmaomondi_backend.services.BonLivraisonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

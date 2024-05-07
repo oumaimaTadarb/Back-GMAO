@@ -1,6 +1,6 @@
 package org.gmaoback.gmaomondi_backend.services.impl;
 
-import org.gmaoback.gmaomondi_backend.dao.models.BonLivraison;
+import org.gmaoback.gmaomondi_backend.dao.entities.BonLivraison;
 import org.gmaoback.gmaomondi_backend.dao.repositories.BonLivraisonRepository;
 import org.gmaoback.gmaomondi_backend.services.BonLivraisonService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,9 +57,7 @@ public class BonLivraisonServiceImpl implements BonLivraisonService {
     @Override
     public BonLivraison saveBonLivraison(BonLivraison bonLivraison) {
         try {
-            if (bonLivraison.getStatut() != BonLivraison.StatusBL.VALIDE) {
-                throw new IllegalArgumentException("Le statut du bon de livraison est non conforme.");
-            }
+
             if (bonLivraison.getFournisseur() == null) {
                 throw new IllegalArgumentException("Le fournisseur du bon de livraison ne peut pas être null.");
             }

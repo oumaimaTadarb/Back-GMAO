@@ -1,6 +1,6 @@
 package org.gmaoback.gmaomondi_backend.services;
 
-import org.gmaoback.gmaomondi_backend.dao.models.BonCommande;
+import org.gmaoback.gmaomondi_backend.dao.entities.BonCommande;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 

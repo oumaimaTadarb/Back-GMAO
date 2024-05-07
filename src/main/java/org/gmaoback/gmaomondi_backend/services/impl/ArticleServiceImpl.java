@@ -1,7 +1,7 @@
 package org.gmaoback.gmaomondi_backend.services.impl;
 
 import jakarta.transaction.Transactional;
-import org.gmaoback.gmaomondi_backend.dao.models.Article;
+import org.gmaoback.gmaomondi_backend.dao.entities.Article;
 import org.gmaoback.gmaomondi_backend.dao.repositories.ArticleRepository;
 import org.gmaoback.gmaomondi_backend.services.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;

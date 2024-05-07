@@ -1,6 +1,6 @@
 package org.gmaoback.gmaomondi_backend.services.impl;
 
-import org.gmaoback.gmaomondi_backend.dao.models.Fournisseur;
+import org.gmaoback.gmaomondi_backend.dao.entities.Fournisseur;
 import org.gmaoback.gmaomondi_backend.dao.repositories.FournisseurRepository;
 import org.gmaoback.gmaomondi_backend.services.FournisseurService;
 import org.springframework.stereotype.Service;

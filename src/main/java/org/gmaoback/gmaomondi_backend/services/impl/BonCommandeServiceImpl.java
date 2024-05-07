@@ -1,7 +1,7 @@
 package org.gmaoback.gmaomondi_backend.services.impl;
 
 import jakarta.transaction.Transactional;
-import org.gmaoback.gmaomondi_backend.dao.models.BonCommande;
+import org.gmaoback.gmaomondi_backend.dao.entities.BonCommande;
 import org.gmaoback.gmaomondi_backend.dao.repositories.BonCommandeRepository;
 import org.gmaoback.gmaomondi_backend.services.BonCommandeService;
 import org.springframework.beans.factory.annotation.Autowired;

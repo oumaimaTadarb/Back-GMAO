@@ -1,6 +1,6 @@
 package org.gmaoback.gmaomondi_backend.services;
 
-import org.gmaoback.gmaomondi_backend.dao.models.Fournisseur;
+import org.gmaoback.gmaomondi_backend.dao.entities.Fournisseur;
 
 import java.util.List;
 

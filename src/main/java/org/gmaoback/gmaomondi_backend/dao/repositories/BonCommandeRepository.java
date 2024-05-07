@@ -1,6 +1,6 @@
 package org.gmaoback.gmaomondi_backend.dao.repositories;
 
-import org.gmaoback.gmaomondi_backend.dao.models.BonCommande;
+import org.gmaoback.gmaomondi_backend.dao.entities.BonCommande;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

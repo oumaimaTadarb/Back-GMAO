@@ -1,7 +1,7 @@
 package org.gmaoback.gmaomondi_backend.services.impl;
 
-import org.gmaoback.gmaomondi_backend.dao.models.Article;
-import org.gmaoback.gmaomondi_backend.dao.models.Famille;
+import org.gmaoback.gmaomondi_backend.dao.entities.Article;
+import org.gmaoback.gmaomondi_backend.dao.entities.Famille;
 import org.gmaoback.gmaomondi_backend.dao.repositories.FamilleRepository;
 import org.gmaoback.gmaomondi_backend.services.FamilleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,7 +78,7 @@ public class FamilleServiceImpl implements FamilleService {
                     .orElseThrow(() -> new IllegalArgumentException("La famille n'existe pas."));
             List<Article> articles = famille.getArticles();
             return articles.stream()
-                    .map(Article::getCodeSapAr)
+                    .map(Article::getCodeSapArticle)
                     .collect(Collectors.toList());
         } catch (Exception e) {
             throw new IllegalStateException("Erreur lors de la récupération des codes SAP de la famille : " + e.getMessage());

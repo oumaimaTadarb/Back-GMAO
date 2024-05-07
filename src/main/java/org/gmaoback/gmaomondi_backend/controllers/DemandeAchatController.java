@@ -1,5 +1,5 @@
 package org.gmaoback.gmaomondi_backend.controllers;
-import org.gmaoback.gmaomondi_backend.dao.models.DemandeAchat;
+import org.gmaoback.gmaomondi_backend.dao.entities.DemandeAchat;
 import org.gmaoback.gmaomondi_backend.services.DemandeAchatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -20,7 +20,7 @@ public class DemandeAchatController {
 
     @PutMapping("/{id}")
     public DemandeAchat updateDemandeAchat(@PathVariable("id") Long id, @RequestBody DemandeAchat demandeAchat) {
-        demandeAchat.setIdDa(id);
+        demandeAchat.setIdDA(id);
         return demandeAchatService.updateDemandeAchat(demandeAchat);
     }
 

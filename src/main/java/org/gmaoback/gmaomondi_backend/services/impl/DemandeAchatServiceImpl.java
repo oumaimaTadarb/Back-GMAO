@@ -1,7 +1,7 @@
 package org.gmaoback.gmaomondi_backend.services.impl;
 
 import jakarta.transaction.Transactional;
-import org.gmaoback.gmaomondi_backend.dao.models.DemandeAchat;
+import org.gmaoback.gmaomondi_backend.dao.entities.DemandeAchat;
 import org.gmaoback.gmaomondi_backend.dao.repositories.DemandeAchatRepository;
 import org.gmaoback.gmaomondi_backend.services.DemandeAchatService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -85,10 +85,10 @@ public class DemandeAchatServiceImpl implements DemandeAchatService {
     @Override
     public DemandeAchat updateDemandeAchat(DemandeAchat demandeAchat) {
         try {
-            if (demandeAchatRepository.existsById(demandeAchat.getIdDa())) {
+            if (demandeAchatRepository.existsById(demandeAchat.getIdDA())) {
                 return demandeAchatRepository.save(demandeAchat);
             } else {
-                throw new IllegalArgumentException("Demande d'achat non trouvée avec l'identifiant : " + demandeAchat.getIdDa());
+                throw new IllegalArgumentException("Demande d'achat non trouvée avec l'identifiant : " + demandeAchat.getIdDA());
             }
         } catch (Exception e) {
             throw new IllegalStateException("Erreur lors de la mise à jour de la demande d'achat : " + e.getMessage());
