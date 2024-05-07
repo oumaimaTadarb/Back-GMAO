@@ -1,6 +1,6 @@
 package org.gmaoback.gmaomondi_backend.services.impl;
 
-import org.gmaoback.gmaomondi_backend.dao.entites.Inventaire;
+import org.gmaoback.gmaomondi_backend.dao.models.Inventaire;
 import org.gmaoback.gmaomondi_backend.dao.repositories.InventaireRepository;
 import org.gmaoback.gmaomondi_backend.services.InventaireService;
 import org.springframework.beans.factory.annotation.Autowired;

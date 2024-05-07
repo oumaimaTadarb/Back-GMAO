@@ -1,4 +1,4 @@
-package org.gmaoback.gmaomondi_backend.dao.entites;
+package org.gmaoback.gmaomondi_backend.dao.models;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;

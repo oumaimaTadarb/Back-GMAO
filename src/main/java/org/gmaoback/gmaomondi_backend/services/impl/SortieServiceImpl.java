@@ -1,6 +1,6 @@
 package org.gmaoback.gmaomondi_backend.services.impl;
 
-import org.gmaoback.gmaomondi_backend.dao.entites.Sortie;
+import org.gmaoback.gmaomondi_backend.dao.models.Sortie;
 import org.gmaoback.gmaomondi_backend.dao.repositories.SortieRepository;
 import org.gmaoback.gmaomondi_backend.services.SortieService;
 import org.springframework.beans.factory.annotation.Autowired;

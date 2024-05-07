@@ -1,4 +1,4 @@
-package org.gmaoback.gmaomondi_backend.dao.entites;
+package org.gmaoback.gmaomondi_backend.dao.models;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -6,11 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.gmaoback.gmaomondi_backend.enums.StatusBL;
-import org.gmaoback.gmaomondi_backend.enums.typeDA;
+import org.gmaoback.gmaomondi_backend.enums.TypeDA;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -45,7 +43,7 @@ public class DemandeAchat {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "type", length = 100)
-    private typeDA type ;
+    private TypeDA type ;
 
     @OneToMany(mappedBy = "demandeAchat")
     @JsonIgnore

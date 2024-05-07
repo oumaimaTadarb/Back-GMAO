@@ -1,6 +1,6 @@
 package org.gmaoback.gmaomondi_backend.enums;
 
-public enum typeDA {
+public enum TypeDA {
     Import,
     Local
 }

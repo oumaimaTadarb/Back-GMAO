@@ -1,5 +1,6 @@
-package org.gmaoback.gmaomondi_backend.dao.entites;
+package org.gmaoback.gmaomondi_backend.dao.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,17 +13,21 @@ import lombok.NoArgsConstructor;
 public class ArticleSortie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     private Long id;
-
-    @ManyToOne
+    @Column(name="quantiteSortie")
+    private int quantiteSortie;
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idArticle")
+    @JsonIgnore
     private Article article;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idSortie")
+    @JsonIgnore
     private Sortie sortie;
 
-    private int quantiteSortie;
+
 
     public ArticleSortie(Article article, Sortie sortie, int quantiteSortie) {
         this.article = article;

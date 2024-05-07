@@ -1,9 +1,6 @@
 package org.gmaoback.gmaomondi_backend.services.impl;
 
-import jakarta.transaction.Transactional;
-import org.gmaoback.gmaomondi_backend.dao.entites.Article;
-import org.gmaoback.gmaomondi_backend.dao.entites.Fournisseur;
-import org.gmaoback.gmaomondi_backend.dao.entites.Fournisseur;
+import org.gmaoback.gmaomondi_backend.dao.models.Fournisseur;
 import org.gmaoback.gmaomondi_backend.dao.repositories.FournisseurRepository;
 import org.gmaoback.gmaomondi_backend.services.FournisseurService;
 import org.springframework.stereotype.Service;

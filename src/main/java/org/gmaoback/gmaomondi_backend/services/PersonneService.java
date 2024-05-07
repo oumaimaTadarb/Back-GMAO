@@ -1,6 +1,6 @@
 package org.gmaoback.gmaomondi_backend.services;
 
-import org.gmaoback.gmaomondi_backend.dao.entites.Personne;
+import org.gmaoback.gmaomondi_backend.dao.models.Personne;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 

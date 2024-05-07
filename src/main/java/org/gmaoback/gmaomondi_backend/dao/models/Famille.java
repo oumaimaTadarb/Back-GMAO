@@ -1,6 +1,7 @@
-package org.gmaoback.gmaomondi_backend.dao.entites;
+package org.gmaoback.gmaomondi_backend.dao.models;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -11,6 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Builder
 public class Famille {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,6 +1,6 @@
 package org.gmaoback.gmaomondi_backend.services.impl;
 
-import org.gmaoback.gmaomondi_backend.dao.entites.Usage;
+import org.gmaoback.gmaomondi_backend.dao.models.Usage;
 import org.gmaoback.gmaomondi_backend.dao.repositories.UsageRepository;
 import org.gmaoback.gmaomondi_backend.services.UsageService;
 import org.springframework.beans.factory.annotation.Autowired;
