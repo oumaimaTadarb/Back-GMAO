@@ -70,13 +70,13 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     @Transactional
-    public Article updateArticleByCodeSapAr(Long codeSapAr, Article updatedArticle) {
+    public Article updateArticleByCodeSapAr(Long codeSapArticle, Article updatedArticle) {
         try {
-            Article existingArticle = articleRepository.findByCodeSapAr(codeSapAr);
+            Article existingArticle = articleRepository.findByCodeSapArticle(codeSapArticle);
             if (existingArticle != null) {
                 return articleRepository.save(existingArticle);
             } else {
-                throw new IllegalArgumentException("Article non trouvé avec le codeSapAr : " + codeSapAr);
+                throw new IllegalArgumentException("Article non trouvé avec le codeSapAr : " + codeSapArticle);
             }
         } catch (Exception e) {
             throw new IllegalStateException("Erreur lors de la mise à jour de l'article par codeSapAr : " + e.getMessage());
@@ -85,13 +85,13 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     @Transactional
-    public void deleteArticleByCodeSapAr(Long codeSapAr) {
+    public void deleteArticleByCodeSapAr(Long codeSapArticle) {
         try {
-            Article existingArticle = articleRepository.findByCodeSapAr(codeSapAr);
+            Article existingArticle = articleRepository.findByCodeSapArticle(codeSapArticle);
             if (existingArticle != null) {
                 articleRepository.delete(existingArticle);
             } else {
-                throw new IllegalArgumentException("Article non trouvé avec le codeSapAr : " + codeSapAr);
+                throw new IllegalArgumentException("Article non trouvé avec le codeSapAr : " + codeSapArticle);
             }
         } catch (Exception e) {
             throw new IllegalStateException("Erreur lors de la suppression de l'article par codeSapAr : " + e.getMessage());
@@ -99,11 +99,11 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public Article getArticleByCodeSapAr(Long codeSapAr) {
+    public Article getArticleByCodeSapAr(Long codeSapArticle) {
         try {
-            Article article = articleRepository.findByCodeSapAr(codeSapAr);
+            Article article = articleRepository.findByCodeSapArticle(codeSapArticle);
             if (article == null) {
-                throw new IllegalArgumentException("Article non trouvé avec le codeSapAr : " + codeSapAr);
+                throw new IllegalArgumentException("Article non trouvé avec le codeSapAr : " + codeSapArticle);
             }
             return article;
         } catch (Exception e) {
