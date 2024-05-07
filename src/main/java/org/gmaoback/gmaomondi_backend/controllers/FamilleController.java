@@ -14,7 +14,6 @@ public class FamilleController {
     @Autowired
     private FamilleService familleService;
 
-
     @PutMapping("/{id}")
     public Famille updateFamille(@PathVariable("id") Long id, @RequestBody Famille famille) {
         famille.setIdFamille(id);
@@ -49,4 +48,9 @@ public class FamilleController {
     public List<Long> getAllSapCodesByFamilleId(@PathVariable("id") Long idFamille) {
         return familleService.getAllSapCodesByFamilleId(idFamille);
     }
+/*
+    @PutMapping("/{idFamille}/mere/{idFamilleMere}")
+    public Famille assignFamilleMere(@PathVariable Long idFamille, @PathVariable Long idFamilleMere) {
+        return familleService.assignFamilleMere(idFamille, idFamilleMere);
+    }*/
 }
