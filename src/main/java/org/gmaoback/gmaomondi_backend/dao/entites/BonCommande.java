@@ -1,9 +1,14 @@
 package org.gmaoback.gmaomondi_backend.dao.entites;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -11,25 +16,46 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Builder
+@Table(name="BonCommande",indexes={
+        @Index(name="idFournisseurx",columnList="Fournisseur")
+})
 public class BonCommande {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
+    @Column(name="idBC")
     private Long idBC;
-    private Date dateBC;
-    private Long  codeSapBC;
+    @Column(name = "codeSapBC")
+    private Long codeSapBC;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+    @Column(name = "dateBC")
+    private LocalDateTime dateBC;
+    @Column(name = "documentBC", length = 100)
     private String documentBC;
+    @Column(name = "montant")
     private double montant;
-    private Date dateLivraisonConfirmee;
-    private Date dateDemissionProforma;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+    @Column(name = "dateLivraisonConfirmee")
+    private LocalDateTime dateLivraisonConfirmee;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+    @Column(name = "dateDemissionProforma")
+    private LocalDateTime dateDemissionProforma;
+    @Column(name = "numProforma")
     private Long numProforma;
+    @Column(name = "docProforma", length = 100)
     private String docProforma;
-    @ManyToOne
-    @JoinColumn(name = "idFournisseur")
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH,
+            CascadeType.DETACH })
+    @JsonIgnore
+    @JsonBackReference
+    @JoinColumn(name = "idFournisseur", referencedColumnName = "idFournisseur")
     private Fournisseur fournisseur;
 
-    @OneToMany(mappedBy = "bonCommande", cascade = CascadeType.ALL)
-    private List<ArticleCommande> articleCommandes;
-    @OneToMany(mappedBy = "bonCommande", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "bonCommande")
+    @JsonIgnore
+    private List<ArticleCommande> articleCommande;
+    @OneToMany(mappedBy = "bonCommande")
+    @JsonIgnore
     private List<ArticleLivraison> articleLivraisons;
 }

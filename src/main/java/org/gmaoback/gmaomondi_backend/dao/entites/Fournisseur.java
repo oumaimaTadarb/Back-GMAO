@@ -1,9 +1,7 @@
 package org.gmaoback.gmaomondi_backend.dao.entites;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,14 +9,21 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Builder
 public class Fournisseur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="idFournisseur")
     private Long idFournisseur;
-    private Long  codeSapFr;
+    @Column(name = "codeSapFournisseur")
+    private Long  codeSapFournisseur;
+    @Column(name = "nom", length = 100)
     private String nom;
-    private int tel;
+    @Column(name = "phone")
+    private int phone;
+    @Column(name = "email", length = 100)
     private String email;
+    @Column(name = "adresse", length = 100)
     private String adresse;
 
 
