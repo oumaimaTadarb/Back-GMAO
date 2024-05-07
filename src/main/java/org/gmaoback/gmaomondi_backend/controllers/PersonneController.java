@@ -4,6 +4,7 @@ import org.gmaoback.gmaomondi_backend.dto.PersonneDTO;
 import org.gmaoback.gmaomondi_backend.services.PersonneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,50 +14,67 @@ import java.util.List;
 @RequestMapping("api/personnes")
 public class PersonneController {
 
-    private final PersonneService personneService;
-
     @Autowired
-    public PersonneController(PersonneService personneService) {
-        this.personneService = personneService;
+    private PersonneService personneService;
+
+    @PostMapping("/add")
+    public ResponseEntity<Personne> addNewPersonne(@RequestBody PersonneDTO personneDto) {
+        Personne personne = personneService.addNewPersonne(personneDto);
+        return new ResponseEntity<>(personne, HttpStatus.CREATED);
     }
 
-    @GetMapping("/")
-    public List<Personne> getAllPersonnes() {
-        return personneService.listPersonnes();
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Personne> updatePersonne(@PathVariable Long id, @RequestBody PersonneDTO personneDTO) {
+        Personne personne = personneService.updatePersonne(id, personneDTO);
+        return new ResponseEntity<>(personne, HttpStatus.OK);
     }
 
-    @GetMapping("/dto")
-    public List<PersonneDTO> getAllPersonnesDTO() {
-        return personneService.listPersonnesDTO();
+    @PutMapping("/updateData/{id}")
+    public ResponseEntity<Personne> updateData(@PathVariable Long id, @RequestBody PersonneDTO personneDTO) {
+        Personne personne = personneService.updateData(personneService.loadPersonneById(id), personneDTO);
+        return new ResponseEntity<>(personne, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> deletePersonne(@PathVariable Long id) {
+        personneService.deletePersonne(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping("/listDTO")
+    public ResponseEntity<List<PersonneDTO>> listPersonnesDTO() {
+        List<PersonneDTO> personnesDTO = personneService.listPersonnesDTO();
+        return new ResponseEntity<>(personnesDTO, HttpStatus.OK);
+    }
+
+    @GetMapping("/list")
+    public ResponseEntity<List<Personne>> listPersonnes() {
+        List<Personne> personnes = personneService.listPersonnes();
+        return new ResponseEntity<>(personnes, HttpStatus.OK);
+    }
+
+    @GetMapping("/specialite/{specialite}")
+    public ResponseEntity<Personne> loadPersonneBySpecialite(@PathVariable String specialite) {
+        Personne personne = personneService.loadPersonneBySpecialite(specialite);
+        return new ResponseEntity<>(personne, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public PersonneDTO getPersonneById(@PathVariable Long id) {
-        return personneService.loadPersonneByPersonneId(id);
+    public ResponseEntity<Personne> loadPersonneById(@PathVariable Long id) {
+        Personne personne = personneService.loadPersonneById(id);
+        return new ResponseEntity<>(personne, HttpStatus.OK);
     }
 
-    @PostMapping("/add-personne")
-    public ResponseEntity<String> addNewPersonne(@RequestBody PersonneDTO personneDto) {
-        if (personneService.addNewPersonne(personneDto) != null) {
-            return ResponseEntity.ok("La personne a été ajoutée avec succès");
-        } else {
-            return ResponseEntity.badRequest().body("Une erreur s'est produite lors de l'ajout de la personne");
-        }
+    @GetMapping("/dto/{id}")
+    public ResponseEntity<PersonneDTO> loadPersonneByPersonneId(@PathVariable Long id) {
+        PersonneDTO personneDTO = personneService.loadPersonneByPersonneId(id);
+        return new ResponseEntity<>(personneDTO, HttpStatus.OK);
     }
 
-    @PutMapping("/update-personne/{id}")
-    public ResponseEntity<String> updatePersonne(@PathVariable Long id, @RequestBody PersonneDTO personneDto) {
-        if (personneService.updatePersonne(id, personneDto) != null) {
-            return ResponseEntity.ok("La personne a été modifiée avec succès");
-        } else {
-            return ResponseEntity.badRequest().body("Une erreur s'est produite lors de la modification de la personne");
-        }
-    }
-
-    @DeleteMapping("/delete-personne/{id}")
-    public ResponseEntity<String> deletePersonne(@PathVariable Long id) {
-        personneService.deletePersonne(id);
-        return ResponseEntity.ok("La personne a été supprimée avec succès");
+    @GetMapping("/nom/{nom}")
+    public ResponseEntity<Personne> loadPersonneByNom(@PathVariable String nom) {
+        Personne personne = personneService.loadPersonneByNom(nom);
+        return new ResponseEntity<>(personne, HttpStatus.OK);
     }
 }
 
