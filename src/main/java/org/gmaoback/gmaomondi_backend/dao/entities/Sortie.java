@@ -37,8 +37,6 @@ public class Sortie {
     @Column(name="document", length = 100)
     private String document;
 
-
-
     @Enumerated(EnumType.STRING)
     @Column(name = "etat", length = 100)
     private EtatSortie etat;

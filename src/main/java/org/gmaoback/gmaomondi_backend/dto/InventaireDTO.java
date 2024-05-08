@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
@@ -11,7 +12,7 @@ import java.time.LocalDate;
 public class InventaireDTO {
     private Long idInventaire;
     private int quantiteReel;
-    private LocalDate dateInventaire;
+    private LocalDateTime dateInventaire;
     private String justification;
 
     private Long idPersonne;

@@ -26,7 +26,7 @@ public class PersonneServiceImpl implements PersonneService {
         personne.setNom(personneDto.getNom());
         personne.setPrenom(personneDto.getPrenom());
         personne.setSpecialite(personneDto.getSpecialite());
-        personne.settel(personneDto.gettel());
+        personne.setPhone(personneDto.getPhone());
         personne.setEmail(personneDto.getEmail());
         return this.personneRepository.save(personne);
     }
@@ -35,14 +35,14 @@ public class PersonneServiceImpl implements PersonneService {
     @Override
     public Personne updatePersonne(Long id, PersonneDTO personneDto) {
         Personne personne = this.personneRepository.findById(id).orElse(null);
-        if(personne != null){
+        if (personne != null) {
             personne.setNom(personneDto.getNom());
             personne.setPrenom(personneDto.getPrenom());
             personne.setSpecialite(personneDto.getSpecialite());
-            personne.settel(personneDto.gettel());
+            personne.setPhone(personneDto.getPhone());
             personne.setEmail(personneDto.getEmail());
 
-         return this.personneRepository.save(personne);
+            return this.personneRepository.save(personne);
         }
         return null;
     }
@@ -52,9 +52,9 @@ public class PersonneServiceImpl implements PersonneService {
         personne.setNom(personneDto.getNom());
         personne.setPrenom(personneDto.getPrenom());
         personne.setSpecialite(personneDto.getSpecialite());
-        personne.settel(personneDto.gettel());
+        personne.setPhone(personneDto.getPhone());
         personne.setEmail(personneDto.getEmail());
-     return personne;
+        return personne;
     }
 
 
@@ -64,33 +64,33 @@ public class PersonneServiceImpl implements PersonneService {
         Personne personne = personneRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Personne non trouvée"));
 
-       personneRepository.delete(personne);
+        personneRepository.delete(personne);
     }
 
 
     @Override
     public List<PersonneDTO> listPersonnesDTO() {
-            List<Personne> personnes = this.personneRepository.findAll();
-            List<PersonneDTO> personnesDTO = personnes.stream()
-                    .map(this::convertToPersonneDTO)
-                    .collect(Collectors.toList());
-            return personnesDTO;
+        List<Personne> personnes = this.personneRepository.findAll();
+        List<PersonneDTO> personnesDTO = personnes.stream()
+                .map(this::convertToPersonneDTO)
+                .collect(Collectors.toList());
+        return personnesDTO;
+    }
+
+
+    public PersonneDTO convertToPersonneDTO(Personne personne) {
+        if (personne == null) {
+            return null;
         }
-
-
-        public PersonneDTO convertToPersonneDTO(Personne personne) {
-            if (personne == null) {
-                return null;
-            }
-            PersonneDTO personneDto = new PersonneDTO();
-            personneDto.setIdPersonne(personne.getIdPersonne());
-            personneDto.setNom(personne.getNom());
-            personneDto.setPrenom(personne.getPrenom());
-            personneDto.setSpecialite(personne.getSpecialite());
-            personneDto.settel(personne.gettel());
-            personneDto.setEmail(personne.getEmail());
+        PersonneDTO personneDto = new PersonneDTO();
+        personneDto.setIdPersonne(personne.getIdPersonne());
+        personneDto.setNom(personne.getNom());
+        personneDto.setPrenom(personne.getPrenom());
+        personneDto.setSpecialite(personne.getSpecialite());
+        personneDto.setPhone(personne.getPhone());
+        personneDto.setEmail(personne.getEmail());
         return personneDto;
-        }
+    }
 
 
 @Override
@@ -118,7 +118,7 @@ public class PersonneServiceImpl implements PersonneService {
         personneDto.setNom(personne.getNom());
         personneDto.setPrenom(personne.getPrenom());
         personneDto.setSpecialite(personne.getSpecialite());
-        personneDto.settel(personne.gettel());
+        personneDto.setPhone(personne.getPhone());
         personneDto.setEmail(personne.getEmail());
 
 

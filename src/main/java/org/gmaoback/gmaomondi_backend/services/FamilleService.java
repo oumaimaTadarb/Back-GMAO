@@ -32,7 +32,7 @@ public interface FamilleService {
 
 
     List<FamilleDTO> listSousFamillesDTO(Long idFamilleMere);
-;
+
     List<Famille> listFamilles();
     List<FamilleDTO> listFamillesDTO();
 

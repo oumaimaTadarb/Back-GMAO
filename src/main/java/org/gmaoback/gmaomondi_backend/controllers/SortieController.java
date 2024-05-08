@@ -14,6 +14,7 @@ public class SortieController {
 
     @Autowired
     private SortieService sortieService;
+}
 //    @GetMapping("/page")
 //    public Page<Sortie> getAllSortiesByPage(@RequestParam("page") int page, @RequestParam("size") int size) {
 //        return sortieService.getAllSortiesByPage(page, size);
@@ -46,4 +47,4 @@ public class SortieController {
 //    }
 //
 
-}
+

@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
@@ -14,9 +14,9 @@ public class BonLivraisonDTO {
     private Long idBL;
     private Long codeSapBL;
     private String documentBL;
-    private Date dateReception;
+    private LocalDateTime dateReception;
     private Long idRecepteur;
-    private String statut;
+    private String status;
 
-    private Long fournisseurId;
+    private Long idFournissseur;
 }
