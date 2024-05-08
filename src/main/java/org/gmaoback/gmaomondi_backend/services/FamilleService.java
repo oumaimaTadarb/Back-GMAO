@@ -18,7 +18,6 @@ public interface FamilleService {
    List<Article> getAllArticlesByFamilleId(Long idFamille);
    List<Famille> getFamillesFillesById(Long idFamille);
    List<Long> getAllSapCodesByFamilleId(Long idFamille);
-//////////////////////////////////////////////////////////////////////////////////////////////////
 
    Famille addNewFamille(FamilleDTO FamilleDTO);
 
