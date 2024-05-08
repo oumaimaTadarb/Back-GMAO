@@ -21,7 +21,6 @@ public class BonCommandeDTO {
     private Date dateDemissionProforma;
     private Long numProforma;
     private String docProforma;
-
     private Long fournisseurId;
 
 }

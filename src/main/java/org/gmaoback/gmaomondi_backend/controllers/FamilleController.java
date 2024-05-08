@@ -1,6 +1,7 @@
 package org.gmaoback.gmaomondi_backend.controllers;
 import org.gmaoback.gmaomondi_backend.dao.entities.Article;
 import org.gmaoback.gmaomondi_backend.dao.entities.Famille;
+import org.gmaoback.gmaomondi_backend.dto.FamilleDTO;
 import org.gmaoback.gmaomondi_backend.services.FamilleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -8,11 +9,25 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/familles")
+@RequestMapping("api/Familles")
 public class FamilleController {
 
+    private final FamilleService familleService;
+
     @Autowired
-    private FamilleService familleService;
+    public FamilleController(FamilleService familleService){
+        this.familleService = familleService;
+    }
+
+    @GetMapping("/")
+    public List<Famille> getAllFamilles(){
+        return this.familleService.listFamilles();
+    }
+
+    @GetMapping("/dto")
+    public List<FamilleDTO> listFamillesDTO() {
+        return this.familleService.listFamillesDTO();
+    }
 
     @PutMapping("/{id}")
     public Famille updateFamille(@PathVariable("id") Long id, @RequestBody Famille famille) {
