@@ -36,7 +36,8 @@ public class FamilleServiceImpl implements FamilleService {
 
         famille.setName(FamilleDTO.getNomFamille());
         if(FamilleDTO.getIdFamilleMere() != null) {
-            Famille FamilleMere = getFamilleById(FamilleDTO.getIdFamille());
+            Famille FamilleMere = getFamilleById(FamilleDTO.getIdFamilleMere());
+            System.out.println( FamilleMere);
             famille.setFamilleMere(FamilleMere);
         }
         return this.familleRepository.save(famille);

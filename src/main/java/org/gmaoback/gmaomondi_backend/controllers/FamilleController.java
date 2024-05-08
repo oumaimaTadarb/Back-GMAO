@@ -21,8 +21,6 @@ public class FamilleController {
         this.familleService = familleService;
     }
     
-    
-    
     @GetMapping("/all-dto")
     public List<FamilleDTO> listFamillesDTO() {
         return familleService.listFamillesDTO();
@@ -32,6 +30,12 @@ public class FamilleController {
     @PostMapping("/add")
     public Famille addNewFamille(@RequestBody FamilleDTO familleDTO) {
         return familleService.addNewFamille(familleDTO);
+    }
+
+
+    @GetMapping("/{id}/familles-filles")
+    public List<FamilleDTO> listSousFamillesDTO(@PathVariable Long id) {
+        return familleService.listSousFamillesDTO(id);
     }
 
 
@@ -74,11 +78,6 @@ public class FamilleController {
     // @GetMapping("/{id}/articles")
     // public List<ArticleDTO> listArticlesDtoOfFamille(@PathVariable Long id) {
     //     return familleService.listArticlesDtoOfFamille(id);
-    // }
-
-    // @GetMapping("/{id}/familles-filles")
-    // public List<FamilleDTO> listSousFamillesDTO(@PathVariable Long id) {
-    //     return familleService.listSousFamillesDTO(id);
     // }
 
     // @GetMapping("/all")

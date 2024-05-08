@@ -11,6 +11,7 @@ public class PersonneDTO {
     private String nom;
     private String prenom;
     private String specialite;
-    private String Phone;
+    private String tel;
     private String email;
+
 }

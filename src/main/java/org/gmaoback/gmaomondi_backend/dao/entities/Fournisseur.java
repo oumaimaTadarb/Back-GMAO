@@ -19,8 +19,8 @@ public class Fournisseur {
     private Long  codeSapFr;
     @Column(name = "nom", length = 100)
     private String nom;
-    @Column(name = "phone")
-    private int phone;
+    @Column(name = "tel")
+    private int tel;
     @Column(name = "email", length = 100)
     private String email;
     @Column(name = "adresse", length = 100)

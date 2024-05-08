@@ -26,7 +26,7 @@ public class PersonneServiceImpl implements PersonneService {
         personne.setNom(personneDto.getNom());
         personne.setPrenom(personneDto.getPrenom());
         personne.setSpecialite(personneDto.getSpecialite());
-        personne.setPhone(personneDto.getPhone());
+        personne.settel(personneDto.gettel());
         personne.setEmail(personneDto.getEmail());
         return this.personneRepository.save(personne);
     }
@@ -39,7 +39,7 @@ public class PersonneServiceImpl implements PersonneService {
             personne.setNom(personneDto.getNom());
             personne.setPrenom(personneDto.getPrenom());
             personne.setSpecialite(personneDto.getSpecialite());
-            personne.setPhone(personneDto.getPhone());
+            personne.settel(personneDto.gettel());
             personne.setEmail(personneDto.getEmail());
 
          return this.personneRepository.save(personne);
@@ -52,7 +52,7 @@ public class PersonneServiceImpl implements PersonneService {
         personne.setNom(personneDto.getNom());
         personne.setPrenom(personneDto.getPrenom());
         personne.setSpecialite(personneDto.getSpecialite());
-        personne.setPhone(personneDto.getPhone());
+        personne.settel(personneDto.gettel());
         personne.setEmail(personneDto.getEmail());
      return personne;
     }
@@ -87,7 +87,7 @@ public class PersonneServiceImpl implements PersonneService {
             personneDto.setNom(personne.getNom());
             personneDto.setPrenom(personne.getPrenom());
             personneDto.setSpecialite(personne.getSpecialite());
-            personneDto.setPhone(personne.getPhone());
+            personneDto.settel(personne.gettel());
             personneDto.setEmail(personne.getEmail());
         return personneDto;
         }
@@ -118,7 +118,7 @@ public class PersonneServiceImpl implements PersonneService {
         personneDto.setNom(personne.getNom());
         personneDto.setPrenom(personne.getPrenom());
         personneDto.setSpecialite(personne.getSpecialite());
-        personneDto.setPhone(personne.getPhone());
+        personneDto.settel(personne.gettel());
         personneDto.setEmail(personne.getEmail());
 
 
