@@ -133,7 +133,7 @@ public class InventaireServiceImpl implements InventaireService {
         InventaireDTO inventaireDto = new InventaireDTO();
         inventaireDto.setIdInventaire(inventaire.getIdInventaire());
         inventaireDto.setQuantiteReel(inventaire.getQuantiteReel());
-        inventaireDto.setDateInventaire(LocalDate.from(inventaire.getDateInventaire()));
+        inventaireDto.setDateInventaire(LocalDateTime.from(LocalDate.from(inventaire.getDateInventaire())));
         inventaireDto.setJustification(inventaire.getJustification());
         if (inventaire.getPersonne() != null) {
             inventaireDto.setIdPersonne(inventaire.getPersonne().getIdPersonne());
@@ -166,7 +166,7 @@ public class InventaireServiceImpl implements InventaireService {
             InventaireDTO inventaireDto = new InventaireDTO();
             inventaireDto.setIdInventaire(inventaire.getIdInventaire());
             inventaireDto.setQuantiteReel(inventaire.getQuantiteReel());
-            inventaireDto.setDateInventaire(LocalDate.from(inventaire.getDateInventaire()));
+            inventaireDto.setDateInventaire(LocalDateTime.from(LocalDate.from(inventaire.getDateInventaire())));
             inventaireDto.setJustification(inventaire.getJustification());
             if (inventaire.getPersonne() != null) {
                 inventaireDto.setIdPersonne(inventaire.getPersonne().getIdPersonne());

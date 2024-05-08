@@ -3,6 +3,7 @@ package org.gmaoback.gmaomondi_backend.dao.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,6 +11,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
+
 public class ArticleSortie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,8 +29,6 @@ public class ArticleSortie {
     @JoinColumn(name = "idSortie")
     @JsonIgnore
     private Sortie sortie;
-
-
 
     public ArticleSortie(Article article, Sortie sortie, int quantiteSortie) {
         this.article = article;

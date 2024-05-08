@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -31,16 +32,14 @@ public class InventaireController {
         InventaireDTO inventaireDto = new InventaireDTO();
         inventaireDto.setIdInventaire(inventaire.getIdInventaire());
         inventaireDto.setQuantiteReel(inventaire.getQuantiteReel());
-        inventaireDto.setDateInventaire(LocalDate.from(inventaire.getDateInventaire()));
+        inventaireDto.setDateInventaire(LocalDateTime.from(LocalDate.from(inventaire.getDateInventaire())));
         inventaireDto.setJustification(inventaire.getJustification());
         if (inventaire.getPersonne() != null) {
             inventaireDto.setIdPersonne(inventaire.getPersonne().getIdPersonne());
-            // Assuming you have a method to convert Personne entity to PersonneDTO
             inventaireDto.setIdInventaire(inventaire.getPersonne().getIdPersonne());
         }
         if (inventaire.getArticle() != null) {
             inventaireDto.setIdArticle(inventaire.getArticle().getIdArticle());
-            // Assuming you have a method to convert Article entity to ArticleDTO
             inventaireDto.setIdArticle(inventaire.getArticle().getIdArticle());
         }
 
@@ -75,7 +74,7 @@ public class InventaireController {
     public ResponseEntity<InventaireDTO> loadInventaireByInventaireId(@PathVariable Long id) {
         InventaireDTO inventaireDTO = inventaireService.loadInventaireByInventaireId(id);
         return new ResponseEntity<>(inventaireDTO, HttpStatus.OK);
-    }
+    }}
   //  @GetMapping("/page")
 //    public Page<Inventaire> getAllInventairesByPage(@RequestParam("page") int page, @RequestParam("size") int size) {
 //        return inventaireService.getAllInventairesByPage(page, size);
@@ -108,4 +107,4 @@ public class InventaireController {
 //    }
 //
 
-}
+

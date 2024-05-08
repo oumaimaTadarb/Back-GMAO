@@ -3,6 +3,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -14,10 +15,10 @@ public class DemandeAchatDTO {
     private Long idDa;
     private Long codeSapDA;
     private String typeDemande;
-    private Date dateSouhaitee;
+    private LocalDateTime dateSouhaitee;
     private String commentaire;
-    private Date dateDA;
-    private Date dateDemissionDevis;
+    private LocalDateTime dateDA;
+    private LocalDateTime dateDemissionDevis;
     private int numDevis;
     private String docDevis;
 }
