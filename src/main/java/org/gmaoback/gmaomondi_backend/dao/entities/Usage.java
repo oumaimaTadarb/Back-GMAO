@@ -12,13 +12,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "Usage")
+@Table(name = "usage_entity")
 public class Usage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="idUsage")
     private Long idUsage;
 
-    @Column(name = "usage", length = 100)
+    @Column(name = "usage_name", length = 100)
     private String nomUsage;
 }
