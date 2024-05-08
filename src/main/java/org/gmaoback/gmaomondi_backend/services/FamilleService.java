@@ -12,28 +12,27 @@ import java.util.List;
 public interface FamilleService {
 
    Famille updateFamille(Famille famille);
+    Famille affectFamilleMereToFamille(Long idFamille, Long idFamilleMere);
+    Famille saveFamille(Famille famille);
+    void deleteFamilleById(Long idFamille);
+    List<Long> getAllSapCodesByFamilleId(Long idFamille);
    Famille getFamilleById(Long idFamille);
-   Famille saveFamille(Famille famille);
-   void deleteFamilleById(Long idFamille);
+
    List<Article> getAllArticlesByFamilleId(Long idFamille);
    List<Famille> getFamillesFillesById(Long idFamille);
-   List<Long> getAllSapCodesByFamilleId(Long idFamille);
+
 
    Famille addNewFamille(FamilleDTO FamilleDTO);
-
-   Famille affectFamilleMereToFamille(Long idFamille, Long idFamilleMere);
 
     void deleteFamille(Long idFamille);
 
     Famille updateFamilleName(Long idFamille, String name);
 
     List<ArticleDTO> listArticlesDtoOfFamille(Long idFamille);
-    //List<Article> listArticlesOfFamille(Long idFamille);
+
 
     List<FamilleDTO> listSousFamillesDTO(Long idFamilleMere);
-
-    //List<Famille> listSousFamilles(Long idFamilleMere);
-
+;
     List<Famille> listFamilles();
     List<FamilleDTO> listFamillesDTO();
 
@@ -45,5 +44,6 @@ public interface FamilleService {
 
     FamilleDTO convertToFamilleDTO(Famille Famille);
 
-
+    //List<Article> listArticlesOfFamille(Long idFamille);
+    //List<Famille> listSousFamilles(Long idFamilleMere)
 }
