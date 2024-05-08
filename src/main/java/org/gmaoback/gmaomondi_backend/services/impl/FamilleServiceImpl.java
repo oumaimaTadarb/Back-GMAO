@@ -1,20 +1,156 @@
 package org.gmaoback.gmaomondi_backend.services.impl;
-
 import org.gmaoback.gmaomondi_backend.dao.entities.Article;
 import org.gmaoback.gmaomondi_backend.dao.entities.Famille;
 import org.gmaoback.gmaomondi_backend.dao.repositories.FamilleRepository;
+import org.gmaoback.gmaomondi_backend.dao.repositories.ArticleRepository;
+import org.gmaoback.gmaomondi_backend.dto.ArticleDTO;
+import org.gmaoback.gmaomondi_backend.dto.FamilleDTO;
 import org.gmaoback.gmaomondi_backend.services.FamilleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.transaction.annotation.Transactional;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import java.util.List;
+import java.util.stream.Collectors;
+@Transactional
 @Service
 public class FamilleServiceImpl implements FamilleService {
 
+    private final FamilleRepository familleRepository;
+
+    private final ArticleRepository ArticleRepository;
+
     @Autowired
-    private FamilleRepository familleRepository;
+    public FamilleServiceImpl(FamilleRepository familleRepository, ArticleRepository ArticleRepository) {
+        this.familleRepository = familleRepository;
+        this.ArticleRepository = ArticleRepository;
+    }
+
+    @Override
+    public Famille addNewFamille(FamilleDTO FamilleDTO){
+        Famille famille = new Famille();
+        famille.setIdFamille(FamilleDTO.getIdFamille());
+        famille.setName(FamilleDTO.getNomFamille());
+        if(FamilleDTO.getIdFamilleMere() != null) {
+            Famille FamilleMere = getFamilleById(FamilleDTO.getIdFamille());
+            famille.setFamilleMere(FamilleMere);
+        }
+        return this.familleRepository.save(famille);
+
+    }
+    @Override
+    public Famille affectFamilleMereToFamille(Long idFamille, Long idFamilleMere){
+        Famille FamilleMere = this.getFamilleById(idFamilleMere);
+        Famille Famille = this.getFamilleById(idFamille);
+        if(Famille != null && FamilleMere != null){
+            Famille.setFamilleMere(FamilleMere);
+            return this.familleRepository.save(Famille);
+        }
+        return null;
+    }
+    @Override
+    public void deleteFamille(Long idFamille){
+        Famille Famille = this.getFamilleById(idFamille);
+        Famille.setFamilleMere(null);
+        Famille.setArticles(null);
+        this.familleRepository.save(Famille);
+    }
+    @Override
+    public Famille loadFamilleById(Long id) {
+        return this.familleRepository
+                .findById(id)
+                .orElse(null);
+    }
+    @Override
+    public Famille loadFamilleMereByIdFamille(Long id) {
+        Famille Famille=this.familleRepository.findById(id).orElse(null);
+        if(Famille!=null){
+            return Famille.getFamilleMere();
+        } else
+            return null;
+    }
+
+    @Override
+    public FamilleDTO loadFamilleDTOByID(Long id) {
+        Famille Famille = loadFamilleById(id);
+        FamilleDTO FamilleDTO= new FamilleDTO();
+        if (Famille != null) {
+            FamilleDTO.setIdFamille(Famille.getIdFamille());
+            FamilleDTO.setNomFamille(Famille.getName());
+            if (Famille.getFamilleMere() != null) {
+                FamilleDTO.setIdFamilleMere(Famille.getFamilleMere().getIdFamille());
+            }
+        }
+        return FamilleDTO;
+    }
+
+    @Override
+    public FamilleDTO loadFamilleMereDTOByIdFamille(Long id) {
+        Famille Famille = loadFamilleMereByIdFamille(id);
+        FamilleDTO FamilleDTO= new FamilleDTO();
+        if (Famille != null) {
+            FamilleDTO.setIdFamille(Famille.getIdFamille());
+            FamilleDTO.setNomFamille(Famille.getName());
+            if (Famille.getFamilleMere() != null) {
+                FamilleDTO.setIdFamilleMere(Famille.getFamilleMere().getIdFamille());
+            }
+        }
+        return FamilleDTO;
+    }
+
+    @Override
+    public Famille updateFamilleName(Long idFamille, String name){
+        Famille famille = loadFamilleById(idFamille);
+        famille.setName(name);
+        return this.familleRepository.save(famille);
+    }
+
+    @Override
+    public List<Famille> listFamilles(){
+
+        return this.familleRepository.findAll();
+    }
+
+    @Override
+    public List<FamilleDTO> listFamillesDTO(){
+        List<Famille> Familles = this.familleRepository.findAll();
+        List<FamilleDTO> FamillesDTO = Familles.stream()
+                .map(this::convertToFamilleDTO)
+                .collect(Collectors.toList());
+        return FamillesDTO; // Return the list of ClientDTOs
+    }
+    @Override
+    public FamilleDTO convertToFamilleDTO(Famille Famille) {
+        if(Famille == null){
+            return null;
+        }
+        FamilleDTO FamilleDto = new FamilleDTO();
+        FamilleDto.setNomFamille(Famille.getName());
+        FamilleDto.setIdFamille(Famille.getIdFamille());
+        if(Famille.getFamilleMere() != null) {
+            FamilleDto.setIdFamilleMere(Famille.getFamilleMere().getIdFamille());
+        }
+        return FamilleDto;
+    }
+
+    @Override
+    public List<ArticleDTO> listArticlesDtoOfFamille(Long idFamille){
+        List<Article>Articles =getAllArticlesByFamilleId(idFamille);
+        return null;
+    }
+
+    @Override
+    public List<FamilleDTO> listSousFamillesDTO(Long idFamilleMere){
+        List<Famille> Familles =getFamillesFillesById(idFamilleMere);
+        List<FamilleDTO> FamillesDTO = Familles.stream()
+                .map(this::convertToFamilleDTO)
+                .collect(Collectors.toList());
+        return FamillesDTO;
+    }
 
     @Override
     public Famille saveFamille(Famille famille) {
@@ -107,4 +243,6 @@ public class FamilleServiceImpl implements FamilleService {
             throw new IllegalStateException("Erreur lors de la récupération de la famille par ID : " + e.getMessage());
         }
     }
+
+
 }
