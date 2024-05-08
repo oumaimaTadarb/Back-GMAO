@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 public interface BonLivraisonRepository extends JpaRepository<BonLivraison,Long> {
     @Modifying
     @Transactional
-    @Query("UPDATE Article a SET a.stockDisponible = a.stockDisponible + (SELECT al.quantiteLivree FROM ArticleLivraison al WHERE al.article = a AND al.bonLivraison = :bonLivraison)")
+    @Query("UPDATE Article a SET a.stockDisponible = a.stockDisponible + (SELECT al.quantiteLivraison FROM ArticleLivraison al WHERE al.article = a AND al.bonLivraison = :bonLivraison)")
     void updateStockDisponibleByBonLivraison(BonLivraison bonLivraison);
     BonLivraison findByCodeSapBL(Long codeSapBL);
 }

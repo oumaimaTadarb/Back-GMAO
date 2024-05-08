@@ -32,7 +32,7 @@ public class BonLivraison {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     @Column(name = "dateReception")
     private LocalDateTime dateReception;
-    @Column(name="idBL")
+    @Column(name="idRecepteur")
     private Long idRecepteur;
 
     @Enumerated(EnumType.STRING)

@@ -52,7 +52,7 @@ public class Sortie {
 
 
 
-    @OneToMany(mappedBy = "article")
+    @OneToMany(mappedBy = "sortie")
     @JsonIgnore
     private List<ArticleSortie> articleSorties;
 }
