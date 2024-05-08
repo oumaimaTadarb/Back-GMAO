@@ -16,10 +16,10 @@ public interface FournisseurService {
     List<FournisseurDTO> listFournisseursDTO();
     List<Fournisseur> listFournisseurs();
     FournisseurDTO loadFournisseurByFournisseurId(Long id);
-    Fournisseur loadFournisseurById(Long id);
     Fournisseur loadFournisseurBycodeSapFr(Long codeSapFr);
+    Fournisseur loadFournisseurById(Long id);
 
-
+    FournisseurDTO convertToFournisseurDTO(Fournisseur fournisseur);
 
 
 //    Fournisseur getFournisseurBycodeSapFr(Long codeSapFr);

@@ -13,8 +13,82 @@ import java.util.List;
 @RequestMapping("/fournisseurs")
 public class FournisseurController {
 
+    private final FournisseurService fournisseurService;
 
+    public FournisseurController(FournisseurService fournisseurService) {
+        this.fournisseurService = fournisseurService;
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity<FournisseurDTO> addNewFournisseur(@RequestBody FournisseurDTO fournisseurDto) {
+        Fournisseur fournisseur = fournisseurService.addNewFournisseur(fournisseurDto);
+        if (fournisseur != null) {
+            return new ResponseEntity<>(fournisseurService.convertToFournisseurDTO(fournisseur), HttpStatus.CREATED);
+        } else {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<FournisseurDTO> updateFournisseur(@PathVariable Long id, @RequestBody FournisseurDTO fournisseurDTO) {
+        Fournisseur fournisseur = fournisseurService.updateFournisseur(id, fournisseurDTO);
+        if (fournisseur != null) {
+            return new ResponseEntity<>(fournisseurService.convertToFournisseurDTO(fournisseur), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> deleteFournisseur(@PathVariable Long id) {
+        fournisseurService.deleteFournisseur(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping("/list")
+    public ResponseEntity<List<FournisseurDTO>> listFournisseursDTO() {
+        List<FournisseurDTO> fournisseursDTO = fournisseurService.listFournisseursDTO();
+        return new ResponseEntity<>(fournisseursDTO, HttpStatus.OK);
+    }
+
+    @GetMapping("/")
+    public ResponseEntity<List<Fournisseur>> listFournisseurs() {
+        List<Fournisseur> fournisseurs = fournisseurService.listFournisseurs();
+        return new ResponseEntity<>(fournisseurs, HttpStatus.OK);
+    }
+
+    @GetMapping("/byId/{id}")
+    public ResponseEntity<Fournisseur> loadFournisseurById(@PathVariable Long id) {
+        Fournisseur fournisseur = fournisseurService.loadFournisseurById(id);
+        if (fournisseur != null) {
+            return new ResponseEntity<>(fournisseur, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping("/byFournisseurId/{id}")
+    public ResponseEntity<FournisseurDTO> loadFournisseurByFournisseurId(@PathVariable Long id) {
+        FournisseurDTO fournisseur = fournisseurService.loadFournisseurByFournisseurId(id);
+        if (fournisseur != null) {
+            return new ResponseEntity<>(fournisseur, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping("/byCodeSapFr/{codeSapFr}")
+    public ResponseEntity<Fournisseur> loadFournisseurBycodeSapFr(@PathVariable Long codeSapFr) {
+        Fournisseur fournisseur = fournisseurService.loadFournisseurBycodeSapFr(codeSapFr);
+        if (fournisseur != null) {
+            return new ResponseEntity<>(fournisseur, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 }
+
 //    @PostMapping("/saveFournisseur")
 //    public Fournisseur saveFournisseur(@RequestBody Fournisseur fournisseur) {
 //        return fournisseurService.saveFournisseur(fournisseur);

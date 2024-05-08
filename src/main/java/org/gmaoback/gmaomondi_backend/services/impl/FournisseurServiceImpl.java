@@ -83,7 +83,10 @@ public class FournisseurServiceImpl implements FournisseurService {
         return fournisseursDTO;
     }
 
-    private FournisseurDTO convertToFournisseurDTO(Fournisseur fournisseur) {
+    public FournisseurDTO convertToFournisseurDTO(Fournisseur fournisseur) {
+        if (fournisseur == null) {
+            return null;
+        }
         FournisseurDTO fournisseurDto = new FournisseurDTO();
         fournisseurDto.setIdFournisseur(fournisseur.getIdFournisseur());
         fournisseurDto.setCodeSapFr(fournisseur.getCodeSapFr());
@@ -91,8 +94,11 @@ public class FournisseurServiceImpl implements FournisseurService {
         fournisseurDto.setTel(fournisseur.getPhone());
         fournisseurDto.setEmail(fournisseur.getEmail());
         fournisseurDto.setAdresse(fournisseur.getAdresse());
+        // Ajoutez d'autres attributs si nécessaire
+
         return fournisseurDto;
     }
+
 
     @Override
     public List<Fournisseur> listFournisseurs() {
