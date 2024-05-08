@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @Table(name="User",indexes={
-        @Index(name="idPersonnex",columnList="Personne")
+        @Index(name="idPersonnex",columnList="idPersonne")
 
 })
 public class User {

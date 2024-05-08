@@ -18,7 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Table(name="Sortie",indexes={
-        @Index(name="idPersonnex",columnList="Personne")
+        @Index(name="idPersonnex",columnList="idPersonne")
 
 })
 public class Sortie {

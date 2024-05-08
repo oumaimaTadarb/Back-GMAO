@@ -14,7 +14,7 @@ public class InventaireDTO {
     private LocalDate dateInventaire;
     private String justification;
 
-    private Long personneId;
-    private Long articleId;
+    private Long idPersonne;
+    private Long idArticle;
 }
 
