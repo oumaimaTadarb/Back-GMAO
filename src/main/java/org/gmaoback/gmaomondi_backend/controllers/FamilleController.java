@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/Familles")
+@CrossOrigin("*")
 public class FamilleController {
 
     private final FamilleService familleService;
@@ -19,89 +20,93 @@ public class FamilleController {
     public FamilleController(FamilleService familleService) {
         this.familleService = familleService;
     }
-    @PutMapping("/{id}/update")
-    public Famille updateFamille(@PathVariable Long id, @RequestBody Famille famille) {
-        famille.setIdFamille(id);
-        return familleService.updateFamille(famille);
-    }
-
-    @PutMapping("/{idFamille}/affect-mere/{idFamilleMere}")
-    public Famille affectFamilleMereToFamille(@PathVariable Long idFamille, @PathVariable Long idFamilleMere) {
-        return familleService.affectFamilleMereToFamille(idFamille, idFamilleMere);
-    }
-
-    @PostMapping("/save")
-    public Famille saveFamille(@RequestBody Famille famille) {
-        return familleService.saveFamille(famille);
-    }
-
-    @DeleteMapping("/{id}/delete")
-    public void deleteFamilleById(@PathVariable Long id) {
-        familleService.deleteFamilleById(id);
-    }
-    @GetMapping("/{id}")
-    public FamilleDTO getFamilleById(@PathVariable Long id) {
-        return familleService.loadFamilleDTOByID(id);
-    }
-
-    @PostMapping("/add")
-    public Famille addNewFamille(@RequestBody FamilleDTO familleDTO) {
-        return familleService.addNewFamille(familleDTO);
-    }
-
-    @PutMapping("/{id}/update-name")
-    public Famille updateFamilleName(@PathVariable Long id, @RequestParam String name) {
-        return familleService.updateFamilleName(id, name);
-    }
-
-    @DeleteMapping("/{id}/delete")
-    public void deleteFamille(@PathVariable Long id) {
-        familleService.deleteFamille(id);
-    }
-
-    @GetMapping("/{id}/articles")
-    public List<ArticleDTO> listArticlesDtoOfFamille(@PathVariable Long id) {
-        return familleService.listArticlesDtoOfFamille(id);
-    }
-
-    @GetMapping("/{id}/familles-filles")
-    public List<FamilleDTO> listSousFamillesDTO(@PathVariable Long id) {
-        return familleService.listSousFamillesDTO(id);
-    }
-
-    @GetMapping("/all")
-    public List<Famille> listFamilles() {
-        return familleService.listFamilles();
-    }
-
+    
+    
+    
     @GetMapping("/all-dto")
     public List<FamilleDTO> listFamillesDTO() {
         return familleService.listFamillesDTO();
-    }
+    }    
 
-    @GetMapping("/{id}/load")
-    public Famille loadFamilleById(@PathVariable Long id) {
-        return familleService.loadFamilleById(id);
-    }
 
-    @GetMapping("/{id}/load-dto")
-    public FamilleDTO loadFamilleDTOById(@PathVariable Long id) {
-        return familleService.loadFamilleDTOByID(id);
-    }
+    // @PutMapping("/{id}/update")
+    // public Famille updateFamille(@PathVariable Long id, @RequestBody Famille famille) {
+    //     famille.setIdFamille(id);
+    //     return familleService.updateFamille(famille);
+    // }
 
-    @GetMapping("/{id}/load-mere")
-    public Famille loadFamilleMereById(@PathVariable Long id) {
-        return familleService.loadFamilleMereByIdFamille(id);
-    }
+    // @PutMapping("/{idFamille}/affect-mere/{idFamilleMere}")
+    // public Famille affectFamilleMereToFamille(@PathVariable Long idFamille, @PathVariable Long idFamilleMere) {
+    //     return familleService.affectFamilleMereToFamille(idFamille, idFamilleMere);
+    // }
 
-    @GetMapping("/{id}/load-mere-dto")
-    public FamilleDTO loadFamilleMereDTOById(@PathVariable Long id) {
-        return familleService.loadFamilleMereDTOByIdFamille(id);
-    }
-    @GetMapping("/{id}/sap-codes")
-    public List<Long> getAllSapCodesByFamilleId(@PathVariable Long id) {
-        return familleService.getAllSapCodesByFamilleId(id);
-    }
+    // @PostMapping("/save")
+    // public Famille saveFamille(@RequestBody Famille famille) {
+    //     return familleService.saveFamille(famille);
+    // }
+
+    // @DeleteMapping("/{id}/delete")
+    // public void deleteFamilleById(@PathVariable Long id) {
+    //     familleService.deleteFamilleById(id);
+    // }
+    // @GetMapping("/{id}")
+    // public FamilleDTO getFamilleById(@PathVariable Long id) {
+    //     return familleService.loadFamilleDTOByID(id);
+    // }
+
+    // @PostMapping("/add")
+    // public Famille addNewFamille(@RequestBody FamilleDTO familleDTO) {
+    //     return familleService.addNewFamille(familleDTO);
+    // }
+
+    // @PutMapping("/{id}/update-name")
+    // public Famille updateFamilleName(@PathVariable Long id, @RequestParam String name) {
+    //     return familleService.updateFamilleName(id, name);
+    // }
+
+    // @DeleteMapping("/{id}/delete")
+    // public void deleteFamille(@PathVariable Long id) {
+    //     familleService.deleteFamille(id);
+    // }
+
+    // @GetMapping("/{id}/articles")
+    // public List<ArticleDTO> listArticlesDtoOfFamille(@PathVariable Long id) {
+    //     return familleService.listArticlesDtoOfFamille(id);
+    // }
+
+    // @GetMapping("/{id}/familles-filles")
+    // public List<FamilleDTO> listSousFamillesDTO(@PathVariable Long id) {
+    //     return familleService.listSousFamillesDTO(id);
+    // }
+
+    // @GetMapping("/all")
+    // public List<Famille> listFamilles() {
+    //     return familleService.listFamilles();
+    // }
+
+    // @GetMapping("/{id}/load")
+    // public Famille loadFamilleById(@PathVariable Long id) {
+    //     return familleService.loadFamilleById(id);
+    // }
+
+    // @GetMapping("/{id}/load-dto")
+    // public FamilleDTO loadFamilleDTOById(@PathVariable Long id) {
+    //     return familleService.loadFamilleDTOByID(id);
+    // }
+
+    // @GetMapping("/{id}/load-mere")
+    // public Famille loadFamilleMereById(@PathVariable Long id) {
+    //     return familleService.loadFamilleMereByIdFamille(id);
+    // }
+
+    // @GetMapping("/{id}/load-mere-dto")
+    // public FamilleDTO loadFamilleMereDTOById(@PathVariable Long id) {
+    //     return familleService.loadFamilleMereDTOByIdFamille(id);
+    // }
+    // @GetMapping("/{id}/sap-codes")
+    // public List<Long> getAllSapCodesByFamilleId(@PathVariable Long id) {
+    //     return familleService.getAllSapCodesByFamilleId(id);
+    // }
 }
 //    @Autowired
 //    public FamilleController(FamilleService familleService){
