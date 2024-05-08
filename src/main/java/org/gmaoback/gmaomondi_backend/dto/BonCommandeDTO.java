@@ -3,8 +3,9 @@ package org.gmaoback.gmaomondi_backend.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
 import java.util.Date;
-import java.util.List;
 
 
 @Data
@@ -17,10 +18,10 @@ public class BonCommandeDTO {
     private Long codeSapBC;
     private String documentBC;
     private double montant;
-    private Date dateLivraisonConfirmee;
-    private Date dateDemissionProforma;
+    private LocalDateTime dateLivraisonConfirmee;
+    private LocalDateTime dateDemissionProforma;
     private Long numProforma;
     private String docProforma;
-    private Long fournisseurId;
+    private Long idFournisseur;
 
 }

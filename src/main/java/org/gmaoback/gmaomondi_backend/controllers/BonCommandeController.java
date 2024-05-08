@@ -1,6 +1,7 @@
 package org.gmaoback.gmaomondi_backend.controllers;
 
 import org.gmaoback.gmaomondi_backend.dao.entities.BonCommande;
+import org.gmaoback.gmaomondi_backend.dto.BonCommandeDTO;
 import org.gmaoback.gmaomondi_backend.services.BonCommandeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -11,9 +12,49 @@ import java.util.List;
 @RestController
 @RequestMapping("/bonCommandes")
 public class BonCommandeController {
+    private final BonCommandeService bonCommandeService;
 
     @Autowired
-    private BonCommandeService bonCommandeService;
+    public BonCommandeController(BonCommandeService bonCommandeService) {
+        this.bonCommandeService = bonCommandeService;
+    }
+
+    @PostMapping("/add")
+    public BonCommande addNewBonCommande(@RequestBody BonCommandeDTO bonCommandeDto) {
+        return bonCommandeService.addNewBonCommande(bonCommandeDto);
+    }
+
+    @PutMapping("/update/{id}")
+    public BonCommande updateBonCommande(@PathVariable Long id, @RequestBody BonCommandeDTO bonCommandeDTO) {
+        return bonCommandeService.updateBonCommande(id, bonCommandeDTO);
+    }
+
+    @GetMapping("/list")
+    public List<BonCommande> listBonCommandes() {
+        return bonCommandeService.listBonCommandes();
+    }
+
+    @GetMapping("/{id}")
+    public BonCommande loadBonCommandeById(@PathVariable Long id) {
+        return bonCommandeService.loadBonCommandeById(id);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteBonCommande(@PathVariable Long id) {
+        bonCommandeService.deleteBonCommande(id);
+    }
+
+    @GetMapping("/listDTO")
+    public List<BonCommandeDTO> listBonCommandesDTO() {
+        return bonCommandeService.listBonCommandesDTO();
+    }
+
+    @GetMapping("/loadDTO/{id}")
+    public BonCommandeDTO loadBonCommandeByBonCommandeId(@PathVariable Long id) {
+        return bonCommandeService.loadBonCommandeByBonCommandeId(id);
+    }
+}
+
 //    @PostMapping("/saveBC")
 //    public BonCommande saveBonCommande(@RequestBody BonCommande bonCommande) {
 //        return bonCommandeService.saveBonCommande(bonCommande);
@@ -55,5 +96,5 @@ public class BonCommandeController {
 //        bonCommandeService.deleteBonCommandeByCodeSapBC(codeSapBC);
 //    }
 
-}
+
 
