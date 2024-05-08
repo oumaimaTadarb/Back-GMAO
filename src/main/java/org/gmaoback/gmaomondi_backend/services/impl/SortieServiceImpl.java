@@ -14,65 +14,95 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class SortieServiceImpl implements SortieService {
+    @Autowired
+    private SortieRepository sortieRepository;
 
     @Autowired
-    SortieRepository sortieRepository;
-    @Autowired
-    PersonneRepository personneRepository;
-    @Override
+    private PersonneRepository personneRepository;
+
     public Sortie addNewSortie(SortieDTO sortieDto) {
-            Sortie nouvelleSortie = new Sortie();
-            nouvelleSortie.setDateDemande(sortieDto.getDateDemande());
-            nouvelleSortie.setDateValidation(sortieDto.getDateValidation());
-            nouvelleSortie.setCommentaire(sortieDto.getCommentaire());
-            nouvelleSortie.setDocument(sortieDto.getDocument());
-            nouvelleSortie.setEtat(EtatSortie.valueOf(sortieDto.getEtat()));
+        Sortie nouvelleSortie = new Sortie();
+        mapSortieDtoToSortie(sortieDto, nouvelleSortie);
+        return sortieRepository.save(nouvelleSortie);
+    }
 
-            Personne personne = personneRepository.findById(sortieDto.getIdPersonne()).orElse(null);
-            nouvelleSortie.setPersonne(personne);
-
-            return sortieRepository.save(nouvelleSortie);
-        }
-
-
-    @Transactional
-    @Override
     public Sortie updateSortie(Long id, SortieDTO sortieDTO) {
-        return null;
+        return sortieRepository.findById(id)
+                .map(sortieToUpdate -> {
+                    mapSortieDtoToSortie(sortieDTO, sortieToUpdate);
+                    return sortieRepository.save(sortieToUpdate);
+                })
+                .orElse(null);
     }
 
-    @Override
-    public Sortie updateData(Sortie Sortie, SortieDTO sortieDto) {
-        return null;
+    public Sortie updateDataSortie(Sortie sortie, SortieDTO sortieDto) {
+        if (sortie != null && sortieDto != null) {
+            mapSortieDtoToSortie(sortieDto, sortie);
+            sortieRepository.save(sortie);
+        }
+        return sortie;
     }
 
-    @Override
     public void deleteSortie(Long id) {
-
+        sortieRepository.deleteById(id);
     }
 
-    @Override
     public List<SortieDTO> listSortiesDTO() {
-        return null;
+        return sortieRepository.findAll().stream()
+                .map(this::convertToSortieDTO)
+                .collect(Collectors.toList());
     }
 
-    @Override
     public List<Sortie> listSorties() {
-        return null;
+        return sortieRepository.findAll();
     }
 
-    @Override
     public Sortie loadSortieById(Long id) {
-        return null;
+        return sortieRepository.findById(id).orElse(null);
     }
 
-    @Override
-    public SortieDTO loadSortieBySortieId(Long id) {
-        return null;
+//    public SortieDTO loadSortieBySortieId(Long id) {
+//        return sortieRepository.findById(id)
+//                .map(this::convertToSortieDTO)
+//                .orElse(null);
+//    }
+
+    public SortieDTO convertToSortieDTO(Sortie sortie) {
+        SortieDTO sortieDTO = new SortieDTO();
+        mapSortieToSortieDto(sortie, sortieDTO);
+        return sortieDTO;
     }
+
+    private void mapSortieDtoToSortie(SortieDTO sortieDto, Sortie sortie) {
+        if (sortieDto != null && sortie != null) {
+            sortie.setDateDemande(sortieDto.getDateDemande());
+            sortie.setDateValidation(sortieDto.getDateValidation());
+            sortie.setCommentaire(sortieDto.getCommentaire());
+            sortie.setDocument(sortieDto.getDocument());
+            sortie.setEtat(EtatSortie.valueOf(sortieDto.getEtat()));
+            sortie.setPersonne(getPersonneFromId(sortieDto.getIdPersonne()));
+        }
+    }
+
+    private void mapSortieToSortieDto(Sortie sortie, SortieDTO sortieDTO) {
+        if (sortie != null && sortieDTO != null) {
+            sortieDTO.setIdSortie(sortie.getIdSortie());
+            sortieDTO.setDateDemande(sortie.getDateDemande());
+            sortieDTO.setDateValidation(sortie.getDateValidation());
+            sortieDTO.setCommentaire(sortie.getCommentaire());
+            sortieDTO.setDocument(sortie.getDocument());
+            sortieDTO.setEtat(String.valueOf(sortie.getEtat()));
+        }
+    }
+
+    private Personne getPersonneFromId(Long personneId) {
+        return personneRepository.findById(personneId).orElse(null);
+    }
+
 
 //    @Override
 //    public Sortie saveSortie(Sortie sortie) {
