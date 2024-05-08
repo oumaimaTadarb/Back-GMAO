@@ -15,9 +15,9 @@ public interface PersonneService {
     void deletePersonne(Long id);
     List<PersonneDTO> listPersonnesDTO();
     List<Personne> listPersonnes();
-    Personne loadPersonneBySpecialite(String specialite);
     Personne loadPersonneById(Long id);
     PersonneDTO loadPersonneByPersonneId(Long id);
+    Personne loadPersonneBySpecialite(String specialite);
     Personne loadPersonneByNom(String nom);
 
 

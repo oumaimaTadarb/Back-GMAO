@@ -17,7 +17,7 @@ import java.util.List;
 @Entity
 @Builder
 @Table(name="BonCommande",indexes={
-        @Index(name="idFournisseurx",columnList="Fournisseur")
+        @Index(name="idFournisseurx",columnList="idFournisseur")
 })
 public class BonCommande {
     @Id

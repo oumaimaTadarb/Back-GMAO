@@ -16,8 +16,8 @@ import java.time.LocalDateTime;
 @Entity
 @Builder
 @Table(name="Inventaire",indexes={
-        @Index(name="idPersonnex",columnList="Personne"),
-        @Index(name="idArticlex",columnList="Article")
+        @Index(name="idPersonnex",columnList="idPersonne"),
+        @Index(name="idArticlex",columnList="idArticle")
 })
 public class Inventaire {
     @Id
