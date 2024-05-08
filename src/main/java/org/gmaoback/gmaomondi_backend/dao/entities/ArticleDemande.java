@@ -22,7 +22,7 @@ public class ArticleDemande {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idArticle")
     @JsonIgnore
-    private Article article;;
+    private Article article;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idDA")

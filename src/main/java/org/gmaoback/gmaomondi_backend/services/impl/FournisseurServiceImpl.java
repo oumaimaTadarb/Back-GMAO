@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public class FournisseurServiceImpl implements FournisseurService {
 
-    private FournisseurRepository fournisseurRepository;
+    private final FournisseurRepository fournisseurRepository;
 
     public FournisseurServiceImpl(FournisseurRepository fournisseurRepository) {
         this.fournisseurRepository = fournisseurRepository;

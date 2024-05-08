@@ -7,13 +7,9 @@ import org.gmaoback.gmaomondi_backend.dao.entities.Personne;
 import org.gmaoback.gmaomondi_backend.dao.repositories.ArticleRepository;
 import org.gmaoback.gmaomondi_backend.dao.repositories.InventaireRepository;
 import org.gmaoback.gmaomondi_backend.dao.repositories.PersonneRepository;
-import org.gmaoback.gmaomondi_backend.dto.ArticleDTO;
 import org.gmaoback.gmaomondi_backend.dto.InventaireDTO;
-import org.gmaoback.gmaomondi_backend.dto.PersonneDTO;
 import org.gmaoback.gmaomondi_backend.services.InventaireService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -141,12 +137,10 @@ public class InventaireServiceImpl implements InventaireService {
         inventaireDto.setJustification(inventaire.getJustification());
         if (inventaire.getPersonne() != null) {
             inventaireDto.setIdPersonne(inventaire.getPersonne().getIdPersonne());
-            // Assuming you have a method to convert Personne entity to PersonneDTO
             inventaireDto.setIdInventaire(inventaire.getPersonne().getIdPersonne());
         }
         if (inventaire.getArticle() != null) {
             inventaireDto.setIdArticle(inventaire.getArticle().getIdArticle());
-            // Assuming you have a method to convert Article entity to ArticleDTO
             inventaireDto.setIdArticle(inventaire.getArticle().getIdArticle());
         }
 
