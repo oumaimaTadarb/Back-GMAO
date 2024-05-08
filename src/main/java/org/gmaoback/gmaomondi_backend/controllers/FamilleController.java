@@ -26,7 +26,13 @@ public class FamilleController {
     @GetMapping("/all-dto")
     public List<FamilleDTO> listFamillesDTO() {
         return familleService.listFamillesDTO();
-    }    
+    }
+
+
+    @PostMapping("/add")
+    public Famille addNewFamille(@RequestBody FamilleDTO familleDTO) {
+        return familleService.addNewFamille(familleDTO);
+    }
 
 
     // @PutMapping("/{id}/update")
@@ -54,10 +60,6 @@ public class FamilleController {
     //     return familleService.loadFamilleDTOByID(id);
     // }
 
-    // @PostMapping("/add")
-    // public Famille addNewFamille(@RequestBody FamilleDTO familleDTO) {
-    //     return familleService.addNewFamille(familleDTO);
-    // }
 
     // @PutMapping("/{id}/update-name")
     // public Famille updateFamilleName(@PathVariable Long id, @RequestParam String name) {

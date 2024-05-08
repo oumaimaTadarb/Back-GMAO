@@ -33,7 +33,7 @@ public class FamilleServiceImpl implements FamilleService {
     @Override
     public Famille addNewFamille(FamilleDTO FamilleDTO){
         Famille famille = new Famille();
-        famille.setIdFamille(FamilleDTO.getIdFamille());
+
         famille.setName(FamilleDTO.getNomFamille());
         if(FamilleDTO.getIdFamilleMere() != null) {
             Famille FamilleMere = getFamilleById(FamilleDTO.getIdFamille());
@@ -44,8 +44,8 @@ public class FamilleServiceImpl implements FamilleService {
     }
     @Override
     public Famille affectFamilleMereToFamille(Long idFamille, Long idFamilleMere){
-        Famille FamilleMere = this.getFamilleById(idFamilleMere);
-        Famille Famille = this.getFamilleById(idFamille);
+        Famille FamilleMere = getFamilleById(idFamilleMere);
+        Famille Famille = getFamilleById(idFamille);
         if(Famille != null && FamilleMere != null){
             Famille.setFamilleMere(FamilleMere);
             return this.familleRepository.save(Famille);
@@ -60,7 +60,7 @@ public class FamilleServiceImpl implements FamilleService {
         this.familleRepository.save(Famille);
     }
     @Override
-    public Famille loadFamilleById(Long id) {
+    public Famille getFamilleById(Long id) {
         return this.familleRepository
                 .findById(id)
                 .orElse(null);
@@ -76,7 +76,7 @@ public class FamilleServiceImpl implements FamilleService {
 
     @Override
     public FamilleDTO loadFamilleDTOByID(Long id) {
-        Famille Famille = loadFamilleById(id);
+        Famille Famille = getFamilleById(id);
         FamilleDTO FamilleDTO= new FamilleDTO();
         if (Famille != null) {
             FamilleDTO.setIdFamille(Famille.getIdFamille());
@@ -104,7 +104,7 @@ public class FamilleServiceImpl implements FamilleService {
 
     @Override
     public Famille updateFamilleName(Long idFamille, String name){
-        Famille famille = loadFamilleById(idFamille);
+        Famille famille = getFamilleById(idFamille);
         famille.setName(name);
         return this.familleRepository.save(famille);
     }
@@ -234,15 +234,15 @@ public class FamilleServiceImpl implements FamilleService {
         }
     }
 
-    @Override
-    public Famille getFamilleById(Long idFamille) {
-        try {
-            return familleRepository.findById(idFamille)
-                    .orElseThrow(() -> new IllegalArgumentException("Famille non trouvée avec l'identifiant : " + idFamille));
-        } catch (Exception e) {
-            throw new IllegalStateException("Erreur lors de la récupération de la famille par ID : " + e.getMessage());
-        }
-    }
+//    @Override
+//    public Famille getFamilleById(Long idFamille) {
+//        try {
+//            return familleRepository.findById(idFamille)
+//                    .orElseThrow(() -> new IllegalArgumentException("Famille non trouvée avec l'identifiant : " + idFamille));
+//        } catch (Exception e) {
+//            throw new IllegalStateException("Erreur lors de la récupération de la famille par ID : " + e.getMessage());
+//        }
+//    }
 
 
 }
