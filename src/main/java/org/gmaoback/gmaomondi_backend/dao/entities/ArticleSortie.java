@@ -18,8 +18,18 @@ public class ArticleSortie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private Long id;
-    @Column(name="quantiteSortie")
-    private int quantiteSortie;
+
+    @Column(name="quantite")
+    private int quantite;
+
+    @Column(name="commantaire")
+    private String commantaire;
+
+    @ManyToOne()
+    @JoinColumn(name = "idUsage")
+    @JsonIgnore
+    private Usage usage;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idArticle")
     @JsonIgnore
@@ -30,11 +40,7 @@ public class ArticleSortie {
     @JsonIgnore
     private Sortie sortie;
 
-    public ArticleSortie(Article article, Sortie sortie, int quantiteSortie) {
-        this.article = article;
-        this.sortie = sortie;
-        this.quantiteSortie = quantiteSortie;
-    }
+
 
 
 
