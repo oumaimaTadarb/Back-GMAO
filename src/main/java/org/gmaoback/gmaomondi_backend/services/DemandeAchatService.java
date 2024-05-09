@@ -20,6 +20,7 @@ public interface DemandeAchatService {
     DemandeAchat loadDemandeAchatByCodeSap(Long codeSapBC);
     DemandeAchat updateDemandeAchat(Long id, DemandeAchatDTO demandeAchatDTO);
     DemandeAchat updateDemandeAchatByCodeSapDA(Long codeSapBC, DemandeAchatDTO demandeAchatDTO);
+//    DemandeAchat findDevisByCodeSapDA(Long codeSapDA);
 
 //    DemandeAchat saveDemandeAchat(DemandeAchat demandeAchat);
 //    DemandeAchat updateDemandeAchat(DemandeAchat demandeAchat);
