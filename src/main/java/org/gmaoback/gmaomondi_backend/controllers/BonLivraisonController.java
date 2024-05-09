@@ -1,8 +1,10 @@
 package org.gmaoback.gmaomondi_backend.controllers;
 import org.gmaoback.gmaomondi_backend.dao.entities.BonLivraison;
+import org.gmaoback.gmaomondi_backend.dto.BonLivraisonDTO;
 import org.gmaoback.gmaomondi_backend.services.BonLivraisonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,6 +16,58 @@ public class BonLivraisonController {
     @Autowired
     private BonLivraisonService bonLivraisonService;
 
+    @PostMapping("/add")
+    public ResponseEntity<BonLivraison> addNewBonLivraison(@RequestBody BonLivraisonDTO bonLivraisonDto) {
+        BonLivraison createdBonLivraison = bonLivraisonService.addNewBonLivraison(bonLivraisonDto);
+        return ResponseEntity.ok(createdBonLivraison);
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<BonLivraison> updateBonLivraison(@PathVariable Long id, @RequestBody BonLivraisonDTO bonLivraisonDTO) {
+        try {
+            BonLivraison updatedBonLivraison = bonLivraisonService.updateBonLivraison(id, bonLivraisonDTO);
+            return ResponseEntity.ok(updatedBonLivraison);
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteBonLivraison(@PathVariable Long id) {
+        try {
+            bonLivraisonService.deleteBonLivraison(id);
+            return ResponseEntity.ok().build();
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping("/list")
+    public ResponseEntity<List<BonLivraisonDTO>> listBonLivraisonsDTO() {
+        List<BonLivraisonDTO> bonLivraisons = bonLivraisonService.listBonLivraisonsDTO();
+        return ResponseEntity.ok(bonLivraisons);
+    }
+
+    @GetMapping("/by{id}")
+    public ResponseEntity<BonLivraisonDTO> loadBonLivraisonDTOById(@PathVariable Long id) {
+        BonLivraisonDTO bonLivraisonDTO = bonLivraisonService.loadBonLivraisonDTOById(id);
+        if (bonLivraisonDTO != null) {
+            return ResponseEntity.ok(bonLivraisonDTO);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping("/codesap/{codeSapBL}")
+    public ResponseEntity<BonLivraison> loadBonLivraisonByCodeSap(@PathVariable Long codeSapBL) {
+        BonLivraison bonLivraison = bonLivraisonService.loadBonLivraisonByCodeSap(codeSapBL);
+        if (bonLivraison != null) {
+            return ResponseEntity.ok(bonLivraison);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+    }
 
 //    @PostMapping("/saveBL")
 //    public BonLivraison saveBonLivraison(@RequestBody BonLivraison bonLivraison) {
@@ -61,4 +115,3 @@ public class BonLivraisonController {
 //        bonLivraisonService.deleteBonLivraisonByCodeSapBL(codeSapBL);
 //    }
 
-}

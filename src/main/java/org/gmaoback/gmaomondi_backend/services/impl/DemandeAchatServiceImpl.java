@@ -1,13 +1,10 @@
 package org.gmaoback.gmaomondi_backend.services.impl;
 
-import jakarta.transaction.Transactional;
 import org.gmaoback.gmaomondi_backend.dao.entities.DemandeAchat;
 import org.gmaoback.gmaomondi_backend.dao.repositories.DemandeAchatRepository;
 import org.gmaoback.gmaomondi_backend.dto.DemandeAchatDTO;
 import org.gmaoback.gmaomondi_backend.services.DemandeAchatService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;

@@ -1,12 +1,9 @@
 package org.gmaoback.gmaomondi_backend.controllers;
 
-import org.gmaoback.gmaomondi_backend.dao.entities.User;
 import org.gmaoback.gmaomondi_backend.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/users")

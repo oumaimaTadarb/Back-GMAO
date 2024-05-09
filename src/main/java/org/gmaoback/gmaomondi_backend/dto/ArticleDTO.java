@@ -22,5 +22,6 @@ public class ArticleDTO {
     private String refFournisseur;
 
     private Long idFamille;
-    private Long idUsage;
+
+
 }

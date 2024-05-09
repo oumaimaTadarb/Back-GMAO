@@ -1,6 +1,5 @@
 package org.gmaoback.gmaomondi_backend.services.impl;
 
-import jakarta.persistence.EntityNotFoundException;
 import org.gmaoback.gmaomondi_backend.dao.entities.Usage;
 import org.gmaoback.gmaomondi_backend.dao.repositories.UsageRepository;
 import org.gmaoback.gmaomondi_backend.dto.UsageDTO;
