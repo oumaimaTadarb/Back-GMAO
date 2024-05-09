@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 
 public class ArticleDTO {
     private Long idArticle;
-    private Long codeSapAr;
+    private Long codeSapArticle;
     private String designation;
     private String emplacementPhysique;
     private int stockMin;
@@ -21,6 +21,6 @@ public class ArticleDTO {
     private String donneeTechnique;
     private String refFournisseur;
 
-    private Long familleId;
-
+    private Long idFamille;
+    private Long idUsage;
 }
