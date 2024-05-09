@@ -3,6 +3,7 @@ package org.gmaoback.gmaomondi_backend.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.gmaoback.gmaomondi_backend.enums.StatusBL;
 
 import java.time.LocalDateTime;
 
@@ -16,7 +17,7 @@ public class BonLivraisonDTO {
     private String documentBL;
     private LocalDateTime dateReception;
     private Long idRecepteur;
-    private String status;
+    private StatusBL status;
 
     private Long idFournissseur;
 }
