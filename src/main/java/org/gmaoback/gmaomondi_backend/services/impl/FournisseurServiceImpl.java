@@ -26,7 +26,7 @@ public class FournisseurServiceImpl implements FournisseurService {
         Fournisseur fournisseur = new Fournisseur();
         fournisseur.setCodeSapFr(fournisseurDto.getCodeSapFr());
         fournisseur.setNom(fournisseurDto.getNom());
-        fournisseur.setPhone(fournisseurDto.getTel());
+        fournisseur.setTel(fournisseurDto.getTel());
         fournisseur.setEmail(fournisseurDto.getEmail());
         fournisseur.setAdresse(fournisseurDto.getAdresse());
         return fournisseurRepository.save(fournisseur);
@@ -39,7 +39,7 @@ public class FournisseurServiceImpl implements FournisseurService {
         if (fournisseur != null) {
             fournisseur.setCodeSapFr(fournisseurDTO.getCodeSapFr());
             fournisseur.setNom(fournisseurDTO.getNom());
-            fournisseur.setPhone(fournisseurDTO.getTel());
+            fournisseur.setTel(fournisseurDTO.getTel());
             fournisseur.setEmail(fournisseurDTO.getEmail());
             fournisseur.setAdresse(fournisseurDTO.getAdresse());
 
@@ -53,7 +53,7 @@ public class FournisseurServiceImpl implements FournisseurService {
 
             fournisseur.setCodeSapFr(fournisseurDto.getCodeSapFr());
             fournisseur.setNom(fournisseurDto.getNom());
-            fournisseur.setPhone(fournisseurDto.getTel());
+            fournisseur.setTel(fournisseurDto.getTel());
             fournisseur.setEmail(fournisseurDto.getEmail());
             fournisseur.setAdresse(fournisseurDto.getAdresse());
 
@@ -91,7 +91,7 @@ public class FournisseurServiceImpl implements FournisseurService {
         fournisseurDto.setIdFournisseur(fournisseur.getIdFournisseur());
         fournisseurDto.setCodeSapFr(fournisseur.getCodeSapFr());
         fournisseurDto.setNom(fournisseur.getNom());
-        fournisseurDto.setTel(fournisseur.getPhone());
+        fournisseurDto.setTel(fournisseur.getTel());
         fournisseurDto.setEmail(fournisseur.getEmail());
         fournisseurDto.setAdresse(fournisseur.getAdresse());
         // Ajoutez d'autres attributs si nécessaire
