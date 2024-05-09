@@ -8,15 +8,15 @@ import java.util.List;
 
 @Service
 public interface BonLivraisonService {
-   BonLivraison updateBonLivraisonByCodeSapBL(Long codeSapBL, BonLivraison updatedBonLivraison);
-    void deleteBonLivraisonByCodeSapBL(Long codeSapBL);
+    BonLivraison updateBonLivraisonByCodeSapBL(Long codeSapBL, BonLivraison updatedBonLivraison);
 
+    void deleteBonLivraisonByCodeSapBL(Long codeSapBL);
 
     BonLivraison getBonLivraisonByCodeSapBL(Long codeSapBL);
 
     Page<BonLivraison> getAllBonLivraisonByPage(int page, int size);
 
-   // BonLivraison saveBonLivraison(BonLivraison bonLivraison);
+    BonLivraison saveBonLivraison(BonLivraison bonLivraison);
 
     BonLivraison updateBonLivraison(BonLivraison bonLivraison);
 
@@ -26,5 +26,24 @@ public interface BonLivraisonService {
 
     void deleteBonLivraisonById(Long idBL);
 
-    BonLivraison saveBonLivraison(BonLivraison bonLivraison);
+
+//   BonLivraison updateBonLivraisonByCodeSapBL(Long codeSapBL, BonLivraison updatedBonLivraison);
+//    void deleteBonLivraisonByCodeSapBL(Long codeSapBL);
+//
+//
+//    BonLivraison getBonLivraisonByCodeSapBL(Long codeSapBL);
+//
+//    Page<BonLivraison> getAllBonLivraisonByPage(int page, int size);
+//
+//   // BonLivraison saveBonLivraison(BonLivraison bonLivraison);
+//
+//    BonLivraison updateBonLivraison(BonLivraison bonLivraison);
+//
+//    BonLivraison getBonLivraisonById(Long idBL);
+//
+//    List<BonLivraison> getAllBonLivraison();
+//
+//    void deleteBonLivraisonById(Long idBL);
+//
+//    BonLivraison saveBonLivraison(BonLivraison bonLivraison);
 }

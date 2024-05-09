@@ -22,8 +22,8 @@ public class Personne {
     private String prenom;
     @Column(name="specialite", length = 100)
     private String specialite;
-    @Column(name="phone",length = 100)
-    private String phone;
+    @Column(name="tel",length = 100)
+    private String tel;
     @Column(name="email", length = 100)
     private String email;
 

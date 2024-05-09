@@ -1,8 +1,9 @@
 package org.gmaoback.gmaomondi_backend.controllers;
 import org.gmaoback.gmaomondi_backend.dao.entities.Usage;
+import org.gmaoback.gmaomondi_backend.dto.UsageDTO;
 import org.gmaoback.gmaomondi_backend.services.UsageService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,7 +13,40 @@ import java.util.List;
 public class UsageController {
 
     @Autowired
+
     private UsageService usageService;
+
+
+    @PostMapping("/add")
+    public ResponseEntity<UsageDTO> addUsage(@RequestBody UsageDTO usageDto) {
+        Usage usage = usageService.addNewUsage(usageDto);
+        return ResponseEntity.ok(usageService.convertToUsageDTO(usage));
+    }
+
+    @PutMapping("/put/{id}")
+    public ResponseEntity<UsageDTO> updateUsage(@PathVariable Long id, @RequestBody UsageDTO usageDto) {
+        Usage updatedUsage = usageService.updateUsage(id, usageDto);
+        return ResponseEntity.ok(usageService.convertToUsageDTO(updatedUsage));
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> deleteUsage(@PathVariable Long id) {
+        usageService.deleteUsage(id);
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/listDTO")
+    public ResponseEntity<List<UsageDTO>> getAllUsages() {
+        List<UsageDTO> usageDtoList = usageService.listUsagesDTO();
+        return ResponseEntity.ok(usageDtoList);
+    }
+
+    @GetMapping("/DTO/{id}")
+    public ResponseEntity<UsageDTO> getUsageById(@PathVariable Long id) {
+        UsageDTO usageDto = usageService.loadUsageById(id);
+        return ResponseEntity.ok(usageDto);
+    }
+
 //    @GetMapping("/page")
 //    public Page<Usage> getAllUsagesByPage(@RequestParam("page") int page, @RequestParam("size") int size) {
 //        return usageService.getAllUsagesByPage(page, size);

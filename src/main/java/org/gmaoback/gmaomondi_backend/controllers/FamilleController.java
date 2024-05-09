@@ -21,12 +21,22 @@ public class FamilleController {
         this.familleService = familleService;
     }
     
-    
-    
     @GetMapping("/all-dto")
     public List<FamilleDTO> listFamillesDTO() {
         return familleService.listFamillesDTO();
-    }    
+    }
+
+
+    @PostMapping("/add")
+    public Famille addNewFamille(@RequestBody FamilleDTO familleDTO) {
+        return familleService.addNewFamille(familleDTO);
+    }
+
+
+    @GetMapping("/{id}/familles-filles")
+    public List<FamilleDTO> listSousFamillesDTO(@PathVariable Long id) {
+        return familleService.listSousFamillesDTO(id);
+    }
 
 
     // @PutMapping("/{id}/update")
@@ -54,10 +64,6 @@ public class FamilleController {
     //     return familleService.loadFamilleDTOByID(id);
     // }
 
-    // @PostMapping("/add")
-    // public Famille addNewFamille(@RequestBody FamilleDTO familleDTO) {
-    //     return familleService.addNewFamille(familleDTO);
-    // }
 
     // @PutMapping("/{id}/update-name")
     // public Famille updateFamilleName(@PathVariable Long id, @RequestParam String name) {
@@ -72,11 +78,6 @@ public class FamilleController {
     // @GetMapping("/{id}/articles")
     // public List<ArticleDTO> listArticlesDtoOfFamille(@PathVariable Long id) {
     //     return familleService.listArticlesDtoOfFamille(id);
-    // }
-
-    // @GetMapping("/{id}/familles-filles")
-    // public List<FamilleDTO> listSousFamillesDTO(@PathVariable Long id) {
-    //     return familleService.listSousFamillesDTO(id);
     // }
 
     // @GetMapping("/all")

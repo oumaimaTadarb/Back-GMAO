@@ -16,7 +16,7 @@ public interface FamilleService {
     Famille saveFamille(Famille famille);
     void deleteFamilleById(Long idFamille);
     List<Long> getAllSapCodesByFamilleId(Long idFamille);
-   Famille getFamilleById(Long idFamille);
+
 
    List<Article> getAllArticlesByFamilleId(Long idFamille);
    List<Famille> getFamillesFillesById(Long idFamille);
@@ -36,7 +36,7 @@ public interface FamilleService {
     List<Famille> listFamilles();
     List<FamilleDTO> listFamillesDTO();
 
-    Famille loadFamilleById(Long id);
+    Famille getFamilleById(Long id);
     FamilleDTO loadFamilleDTOByID(Long id);
 
     Famille loadFamilleMereByIdFamille(Long id);

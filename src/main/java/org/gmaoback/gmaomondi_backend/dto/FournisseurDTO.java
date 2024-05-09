@@ -13,4 +13,5 @@ public class FournisseurDTO {
     private String tel;
     private String email;
     private String adresse;
+
 }
