@@ -1,6 +1,7 @@
 package org.gmaoback.gmaomondi_backend.services;
 
 import org.gmaoback.gmaomondi_backend.dao.entities.BonLivraison;
+import org.gmaoback.gmaomondi_backend.dto.BonLivraisonDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
@@ -8,23 +9,37 @@ import java.util.List;
 
 @Service
 public interface BonLivraisonService {
-    BonLivraison updateBonLivraisonByCodeSapBL(Long codeSapBL, BonLivraison updatedBonLivraison);
 
-    void deleteBonLivraisonByCodeSapBL(Long codeSapBL);
 
-    BonLivraison getBonLivraisonByCodeSapBL(Long codeSapBL);
+    BonLivraison addNewBonLivraison(BonLivraisonDTO bonLivraisonDto);
 
-    Page<BonLivraison> getAllBonLivraisonByPage(int page, int size);
+    BonLivraison updateBonLivraison(Long id, BonLivraisonDTO bonLivraisonDTO);
 
-    BonLivraison saveBonLivraison(BonLivraison bonLivraison);
+    void deleteBonLivraison(Long id);
 
-    BonLivraison updateBonLivraison(BonLivraison bonLivraison);
+    List<BonLivraisonDTO> listBonLivraisonsDTO();
 
-    BonLivraison getBonLivraisonById(Long idBL);
+    List<BonLivraison> listBonLivraisons();
 
-    List<BonLivraison> getAllBonLivraison();
+    BonLivraison loadBonLivraisonById(Long id);
 
-    void deleteBonLivraisonById(Long idBL);
+    BonLivraisonDTO loadBonLivraisonDTOById(Long id);
+
+    BonLivraison loadBonLivraisonByCodeSap(Long codeSapBL);
+
+}
+
+//    BonLivraison updateBonLivraisonByCodeSapBL(Long codeSapBL, BonLivraison updatedBonLivraison);
+//    void deleteBonLivraisonByCodeSapBL(Long codeSapBL);
+//    BonLivraison getBonLivraisonByCodeSapBL(Long codeSapBL);
+//    Page<BonLivraison> getAllBonLivraisonByPage(int page, int size);
+//    BonLivraison saveBonLivraison(BonLivraison bonLivraison);
+//    BonLivraison updateBonLivraison(BonLivraison bonLivraison);
+//    BonLivraison getBonLivraisonById(Long idBL);
+//    List<BonLivraison> getAllBonLivraison();
+//    void deleteBonLivraisonById(Long idBL);
+
+
 
 
 //   BonLivraison updateBonLivraisonByCodeSapBL(Long codeSapBL, BonLivraison updatedBonLivraison);
@@ -46,4 +61,4 @@ public interface BonLivraisonService {
 //    void deleteBonLivraisonById(Long idBL);
 //
 //    BonLivraison saveBonLivraison(BonLivraison bonLivraison);
-}
+
