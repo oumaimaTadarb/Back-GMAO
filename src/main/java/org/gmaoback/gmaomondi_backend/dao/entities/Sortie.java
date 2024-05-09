@@ -17,14 +17,15 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name="Sortie",indexes={
+@Table(name="Sortie",
+        indexes={
         @Index(name="idPersonnex",columnList="idPersonne")
 
 })
 public class Sortie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="idInventaire")
+    @Column(name="idSortie")
     private Long idSortie;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     @Column(name = "dateDemande")
