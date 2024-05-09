@@ -12,12 +12,14 @@ import java.util.List;
 public interface SortieService {
     Sortie addNewSortie(SortieDTO sortieDto);
     Sortie updateSortie(Long id, SortieDTO sortieDTO);
-    Sortie updateData(Sortie Sortie, SortieDTO sortieDto);
     void deleteSortie(Long id);
     List<SortieDTO> listSortiesDTO();
     List<Sortie> listSorties();
     Sortie loadSortieById(Long id);
-    SortieDTO loadSortieBySortieId(Long id);
+    //SortieDTO loadSortieBySortieId(Long id);
+    Sortie updateDataSortie(Sortie Sortie, SortieDTO sortieDto);
+
+    SortieDTO convertToSortieDTO(Sortie updatedSortie);
 //    Sortie saveSortie(Sortie sortie);
 //    Sortie updateSortie(Sortie sortie);
 //    Sortie getSortieById(Long idSortie);

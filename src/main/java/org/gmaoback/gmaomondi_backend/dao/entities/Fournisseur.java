@@ -20,7 +20,7 @@ public class Fournisseur {
     @Column(name = "nom", length = 100)
     private String nom;
     @Column(name = "tel")
-    private int tel;
+    private String tel;
     @Column(name = "email", length = 100)
     private String email;
     @Column(name = "adresse", length = 100)

@@ -53,6 +53,15 @@ public class BonCommandeController {
     public BonCommandeDTO loadBonCommandeByBonCommandeId(@PathVariable Long id) {
         return bonCommandeService.loadBonCommandeByBonCommandeId(id);
     }
+    @PostMapping("/updateData")
+    public BonCommande updateBonCommandeData(@RequestBody BonCommande bonCommande, @RequestBody BonCommandeDTO bonCommandeDto) {
+        return bonCommandeService.updateData(bonCommande, bonCommandeDto);
+    }
+
+    @GetMapping("/loadByCodeSap/{codeSapBC}")
+    public BonCommande loadBonCommandeByCodeSap(@PathVariable Long codeSapBC) {
+        return bonCommandeService.loadBonCommandeByCodeSap(codeSapBC);
+    }
 }
 
 //    @PostMapping("/saveBC")

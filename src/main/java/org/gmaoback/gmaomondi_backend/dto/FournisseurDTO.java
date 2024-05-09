@@ -10,7 +10,7 @@ public class FournisseurDTO {
     private Long idFournisseur;
     private Long codeSapFr;
     private String nom;
-    private int tel;
+    private String tel;
     private String email;
     private String adresse;
 

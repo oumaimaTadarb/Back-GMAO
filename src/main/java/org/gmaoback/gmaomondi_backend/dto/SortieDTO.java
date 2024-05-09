@@ -3,6 +3,7 @@ package org.gmaoback.gmaomondi_backend.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.gmaoback.gmaomondi_backend.enums.EtatSortie;
 
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -19,7 +20,7 @@ public class SortieDTO {
     private String commentaire;
     private String document;
 
-    private String etat;
+    private EtatSortie etat;
     private Long idPersonne;
 
      private List<Long> articleSortieIds;
