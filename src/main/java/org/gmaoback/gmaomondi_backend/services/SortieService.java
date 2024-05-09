@@ -16,10 +16,9 @@ public interface SortieService {
     List<SortieDTO> listSortiesDTO();
     List<Sortie> listSorties();
     Sortie loadSortieById(Long id);
-    //SortieDTO loadSortieBySortieId(Long id);
     Sortie updateDataSortie(Sortie Sortie, SortieDTO sortieDto);
-
     SortieDTO convertToSortieDTO(Sortie updatedSortie);
+//    SortieDTO loadSortieBySortieId(Long id);
 //    Sortie saveSortie(Sortie sortie);
 //    Sortie updateSortie(Sortie sortie);
 //    Sortie getSortieById(Long idSortie);
