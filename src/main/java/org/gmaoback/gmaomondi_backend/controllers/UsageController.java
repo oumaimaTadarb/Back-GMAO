@@ -17,31 +17,31 @@ public class UsageController {
     private UsageService usageService;
 
 
-    @PostMapping
+    @PostMapping("/add")
     public ResponseEntity<UsageDTO> addUsage(@RequestBody UsageDTO usageDto) {
         Usage usage = usageService.addNewUsage(usageDto);
         return ResponseEntity.ok(usageService.convertToUsageDTO(usage));
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/put/{id}")
     public ResponseEntity<UsageDTO> updateUsage(@PathVariable Long id, @RequestBody UsageDTO usageDto) {
         Usage updatedUsage = usageService.updateUsage(id, usageDto);
         return ResponseEntity.ok(usageService.convertToUsageDTO(updatedUsage));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteUsage(@PathVariable Long id) {
         usageService.deleteUsage(id);
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping
+    @GetMapping("/listDTO")
     public ResponseEntity<List<UsageDTO>> getAllUsages() {
         List<UsageDTO> usageDtoList = usageService.listUsagesDTO();
         return ResponseEntity.ok(usageDtoList);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/DTO/{id}")
     public ResponseEntity<UsageDTO> getUsageById(@PathVariable Long id) {
         UsageDTO usageDto = usageService.loadUsageById(id);
         return ResponseEntity.ok(usageDto);
