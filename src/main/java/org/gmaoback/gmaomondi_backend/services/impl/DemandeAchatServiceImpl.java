@@ -11,7 +11,10 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class DemandeAchatServiceImpl implements DemandeAchatService {
 
@@ -35,48 +38,148 @@ public class DemandeAchatServiceImpl implements DemandeAchatService {
 
     @Override
     public DemandeAchat updateData(DemandeAchat demandeAchat, DemandeAchatDTO demandeAchatDto) {
-        return null;
+        if (demandeAchat == null || demandeAchatDto == null) {
+            return null; // Ou vous pouvez jeter une exception
+        }
+
+        // Mettez à jour les champs de demandeAchat avec les valeurs de demandeAchatDto
+        // Assurez-vous de ne mettre à jour que les champs non null dans le DTO
+
+        if (demandeAchatDto.getCodeSapDA() != null) {
+            demandeAchat.setCodeSapDA(demandeAchatDto.getCodeSapDA());
+        }
+
+        if (demandeAchatDto.getDateSouhaitee() != null) {
+            demandeAchat.setDateSouhaitee(demandeAchatDto.getDateSouhaitee());
+        }
+
+        if (demandeAchatDto.getCommentaire() != null) {
+            demandeAchat.setCommentaire(demandeAchatDto.getCommentaire());
+        }
+
+        if (demandeAchatDto.getDateDA() != null) {
+            demandeAchat.setDateDA(demandeAchatDto.getDateDA());
+        }
+
+        if (demandeAchatDto.getDateDemissionDevis() != null) {
+            demandeAchat.setDateDemissionDevis(demandeAchatDto.getDateDemissionDevis());
+        }
+
+        if (demandeAchatDto.getNumDevis() != 0) {
+            demandeAchat.setNumDevis(demandeAchatDto.getNumDevis());
+        }
+
+        if (demandeAchatDto.getDocDevis() != null) {
+            demandeAchat.setDocDevis(demandeAchatDto.getDocDevis());
+        }
+
+        if (demandeAchatDto.getType() != null) {
+            demandeAchat.setType(demandeAchatDto.getType());
+        }
+        return demandeAchat;
     }
+
 
     @Override
     public void deleteDemandeAchat(Long id) {
+        if (id == null) {
+        throw new IllegalArgumentException("L'identifiant de la demande d'achat ne peut pas être null");
+    }
+        demandeAchatRepository.deleteById(id);
+
 
     }
 
     @Override
     public List<DemandeAchatDTO> listDemandeAchatsDTO() {
-        return null;
+        List<DemandeAchat> demandeAchats = demandeAchatRepository.findAll();
+        List<DemandeAchatDTO> demandeAchatsDTO = new ArrayList<>();
+        for (DemandeAchat demandeAchat : demandeAchats) {
+            DemandeAchatDTO demandeAchatDTO = new DemandeAchatDTO();
+            demandeAchatDTO.setIdDA(demandeAchat.getIdDA());
+            demandeAchatDTO.setCodeSapDA(demandeAchat.getCodeSapDA());
+            demandeAchatDTO.setDateSouhaitee(demandeAchat.getDateSouhaitee());
+            demandeAchatDTO.setCommentaire(demandeAchat.getCommentaire());
+            demandeAchatDTO.setDateDA(demandeAchat.getDateDA());
+            demandeAchatDTO.setDateDemissionDevis(demandeAchat.getDateDemissionDevis());
+            demandeAchatDTO.setNumDevis(demandeAchat.getNumDevis());
+            demandeAchatDTO.setDocDevis(demandeAchat.getDocDevis());
+            demandeAchatDTO.setType(demandeAchat.getType());
+
+            demandeAchatsDTO.add(demandeAchatDTO);
+        }
+
+        return demandeAchatsDTO;
     }
+
 
     @Override
     public List<DemandeAchat> listDemandeAchats() {
-        return null;
+        return demandeAchatRepository.findAll();
     }
 
     @Override
     public DemandeAchat loadDemandeAchatById(Long id) {
-        return null;
+         Optional<DemandeAchat> demandeAchatOptional = demandeAchatRepository.findById(id);
+        return demandeAchatOptional.orElse(null);
     }
 
     @Override
     public DemandeAchatDTO loadDemandeAchatByDemandeAchatId(Long id) {
+        DemandeAchat demandeAchat = loadDemandeAchatById(id);
+        if (demandeAchat != null) {
+            DemandeAchatDTO demandeAchatDTO = new DemandeAchatDTO();
+            demandeAchatDTO.setIdDA(demandeAchat.getIdDA());
+            demandeAchatDTO.setCodeSapDA(demandeAchat.getCodeSapDA());
+            demandeAchatDTO.setDateSouhaitee(demandeAchat.getDateSouhaitee());
+            demandeAchatDTO.setCommentaire(demandeAchat.getCommentaire());
+            demandeAchatDTO.setDateDA(demandeAchat.getDateDA());
+            demandeAchatDTO.setDateDemissionDevis(demandeAchat.getDateDemissionDevis());
+            demandeAchatDTO.setNumDevis(demandeAchat.getNumDevis());
+            demandeAchatDTO.setDocDevis(demandeAchat.getDocDevis());
+            demandeAchatDTO.setType(demandeAchat.getType());
+            return demandeAchatDTO;
+        }
         return null;
     }
 
     @Override
     public DemandeAchat loadDemandeAchatByCodeSap(Long codeSapBC) {
-        return null;
+        return demandeAchatRepository.findByCodeSapDA(codeSapBC);
     }
 
     @Override
     public DemandeAchat updateDemandeAchat(Long id, DemandeAchatDTO demandeAchatDTO) {
+         DemandeAchat demandeAchat = loadDemandeAchatById(id);
+        if (demandeAchat != null && demandeAchatDTO != null) {
+            demandeAchat = updateData(demandeAchat, demandeAchatDTO);
+            return demandeAchatRepository.save(demandeAchat);
+        }
         return null;
     }
 
     @Override
     public DemandeAchat updateDemandeAchatByCodeSapDA(Long codeSapBC, DemandeAchatDTO demandeAchatDTO) {
+        DemandeAchat demandeAchat = loadDemandeAchatByCodeSap(codeSapBC);
+        if (demandeAchat != null && demandeAchatDTO != null) {
+             demandeAchat = updateData(demandeAchat, demandeAchatDTO);
+           return demandeAchatRepository.save(demandeAchat);
+        }
         return null;
     }
+//    @Override
+//    public DemandeAchat findDevisByCodeSapDA(Long codeSapDA) {
+//        try {
+//            DemandeAchat demandeAchat = demandeAchatRepository.findDevisByCodeSapDA(codeSapDA);
+//            if (demandeAchat == null) {
+//                throw new IllegalArgumentException("Devis non trouvé avec le codeSapDA : " + codeSapDA);
+//            }
+//            return demandeAchat;
+//        } catch (Exception e) {
+//            throw new IllegalStateException("Erreur lors de la récupération du devis par codeSapDA : " + e.getMessage());
+//        }
+//    }
+
 }
 //    @Override
 //    @Transactional
