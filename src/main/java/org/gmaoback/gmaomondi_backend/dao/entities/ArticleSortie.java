@@ -2,6 +2,7 @@ package org.gmaoback.gmaomondi_backend.dao.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,10 +21,11 @@ public class ArticleSortie {
     private Long id;
 
     @Column(name="quantite")
+    @Min(value = 0, message = "Quantity must be non-negative")
     private int quantite;
 
     @Column(name="commantaire")
-    private String commantaire;
+    private String commentaire;
 
     @ManyToOne()
     @JoinColumn(name = "idUsage")
@@ -39,10 +41,6 @@ public class ArticleSortie {
     @JoinColumn(name = "idSortie")
     @JsonIgnore
     private Sortie sortie;
-
-
-
-
 
 }
 
