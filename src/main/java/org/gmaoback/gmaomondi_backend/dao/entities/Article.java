@@ -16,8 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Table(name="article",indexes={
-        @Index(name="idFamillex",columnList="idFamille"),
-        @Index(name="idUsagex",columnList="idUsage")
+        @Index(name="idFamillex",columnList="idFamille")
 })
 public class Article {
     @Id
@@ -50,12 +49,9 @@ public class Article {
     @JoinColumn(name = "idFamille", referencedColumnName = "idFamille")
     private Famille famille;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH,
-            CascadeType.DETACH })
+    @OneToMany(mappedBy = "article")
     @JsonIgnore
-    @JsonBackReference
-    @JoinColumn(name = "idUsage", referencedColumnName = "idUsage")
-    private Usage usage;
+    private List<ArticleUsage> listUsage;
 
     @OneToMany(mappedBy = "article")
     @JsonIgnore

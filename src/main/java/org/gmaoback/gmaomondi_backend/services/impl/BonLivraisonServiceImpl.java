@@ -13,56 +13,99 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 public class BonLivraisonServiceImpl implements BonLivraisonService {
-
     @Autowired
     private BonLivraisonRepository bonLivraisonRepository;
-
     @Override
     public BonLivraison addNewBonLivraison(BonLivraisonDTO bonLivraisonDto) {
-        return null;
-    }
+            BonLivraison bonLivraison = new BonLivraison();
+            bonLivraison.setCodeSapBL(bonLivraisonDto.getCodeSapBL());
+            bonLivraison.setDateReception(LocalDateTime.now());
+            bonLivraison.setDocumentBL(bonLivraisonDto.getDocumentBL());
+            bonLivraison.setIdRecepteur(bonLivraisonDto.getIdRecepteur());
+            bonLivraison.setStatus(bonLivraisonDto.getStatus());
+
+            return bonLivraisonRepository.save(bonLivraison);
+        }
+
 
     @Override
     public BonLivraison updateBonLivraison(Long id, BonLivraisonDTO bonLivraisonDTO) {
-        return null;
+        Optional<BonLivraison> optionalBonLivraison = bonLivraisonRepository.findById(id);
+        if (optionalBonLivraison.isPresent()) {
+            BonLivraison bonLivraison = optionalBonLivraison.get();
+            bonLivraison.setCodeSapBL(bonLivraisonDTO.getCodeSapBL());
+            bonLivraison.setDateReception(LocalDateTime.now());
+            bonLivraison.setDocumentBL(bonLivraisonDTO.getDocumentBL());
+            bonLivraison.setIdRecepteur(bonLivraisonDTO.getIdRecepteur());
+            bonLivraison.setStatus(bonLivraisonDTO.getStatus());
+            // Set other properties if needed
+
+            return bonLivraisonRepository.save(bonLivraison);
+        } else {
+            throw new RuntimeException("BonLivraison with id " + id + " not found");
+        }
     }
 
     @Override
     public void deleteBonLivraison(Long id) {
-
+        Optional<BonLivraison> optionalBonLivraison = bonLivraisonRepository.findById(id);
+        if (optionalBonLivraison.isPresent()) {
+            BonLivraison bonLivraison = optionalBonLivraison.get();
+            bonLivraisonRepository.delete(bonLivraison);
+        } else {
+              throw new RuntimeException("BonLivraison with id " + id + " not found");
+        }
     }
 
     @Override
     public List<BonLivraisonDTO> listBonLivraisonsDTO() {
-        return List.of();
+        List<BonLivraison> bonLivraisons = bonLivraisonRepository.findAll();
+        return bonLivraisons.stream()
+                .map(this::convertToDto)
+                .collect(Collectors.toList());
+    }
+
+    private BonLivraisonDTO convertToDto(BonLivraison bonLivraison) {
+        return BonLivraisonDTO.builder()
+                .codeSapBL(bonLivraison.getCodeSapBL())
+                .documentBL(bonLivraison.getDocumentBL())
+                .dateReception(bonLivraison.getDateReception())
+                .idRecepteur(bonLivraison.getIdRecepteur())
+                .status(bonLivraison.getStatus())
+                .build();
     }
 
     @Override
     public List<BonLivraison> listBonLivraisons() {
-        return List.of();
+        return bonLivraisonRepository.findAll();
     }
 
     @Override
     public BonLivraison loadBonLivraisonById(Long id) {
-        return null;
+        Optional<BonLivraison> bonLivraisonOptional = bonLivraisonRepository.findById(id);
+        return bonLivraisonOptional.orElse(null);
     }
 
-    @Override
     public BonLivraisonDTO loadBonLivraisonDTOById(Long id) {
-        return null;
+        Optional<BonLivraison> bonLivraisonOptional = bonLivraisonRepository.findById(id);
+        if (bonLivraisonOptional.isPresent()) {
+            BonLivraison bonLivraison = bonLivraisonOptional.get();
+            return convertToDto(bonLivraison);
+        } else {
+            return null;
+        }
     }
-
     @Override
     public BonLivraison loadBonLivraisonByCodeSap(Long codeSapBL) {
-        return null;
+            Optional<BonLivraison> bonLivraisonOptional = Optional.ofNullable(bonLivraisonRepository.findByCodeSapBL(codeSapBL));
+            return bonLivraisonOptional.orElse(null);
     }
 
-
-    // Add other methods as per interface
 
 //    @Override
 //    public BonLivraison updateBonLivraisonByCodeSapBL(Long codeSapBL, BonLivraison updatedBonLivraison) {

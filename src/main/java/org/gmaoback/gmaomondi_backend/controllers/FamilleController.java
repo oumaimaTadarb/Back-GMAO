@@ -1,7 +1,6 @@
 package org.gmaoback.gmaomondi_backend.controllers;
-import org.gmaoback.gmaomondi_backend.dao.entities.Article;
+
 import org.gmaoback.gmaomondi_backend.dao.entities.Famille;
-import org.gmaoback.gmaomondi_backend.dto.ArticleDTO;
 import org.gmaoback.gmaomondi_backend.dto.FamilleDTO;
 import org.gmaoback.gmaomondi_backend.services.FamilleService;
 import org.springframework.beans.factory.annotation.Autowired;

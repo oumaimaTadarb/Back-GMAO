@@ -1,6 +1,7 @@
 package org.gmaoback.gmaomondi_backend.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.gmaoback.gmaomondi_backend.enums.StatusBL;
@@ -10,6 +11,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class BonLivraisonDTO {
 
     private Long idBL;

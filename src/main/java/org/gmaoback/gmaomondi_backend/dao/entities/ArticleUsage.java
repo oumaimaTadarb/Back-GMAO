@@ -1,6 +1,5 @@
 package org.gmaoback.gmaomondi_backend.dao.entities;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -8,24 +7,25 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Entity
 @Data
 @NoArgsConstructor
+
 @AllArgsConstructor
 @Builder
-@Table(name = "usage_entity")
-public class Usage {
+public class ArticleUsage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="idUsage")
-    private Long idUsage;
+    @Column(name="id")
+    private Long id;
 
-    @Column(name = "usage_name", length = 100)
-    private String nomUsage;
-
-    @OneToMany(mappedBy = "usage")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idArticle")
     @JsonIgnore
-    private List<ArticleUsage> listArticle;
+    private Article article;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idUsage")
+    @JsonIgnore
+    private Usage usage;
 }
