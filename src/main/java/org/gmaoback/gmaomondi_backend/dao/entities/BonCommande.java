@@ -33,6 +33,8 @@ public class BonCommande {
     private String documentBC;
     @Column(name = "montant")
     private double montant;
+    @Column(name="prixUnitaire")
+    private double prixUnitaire;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     @Column(name = "dateLivraisonConfirmee")
     private LocalDateTime dateLivraisonConfirmee;
