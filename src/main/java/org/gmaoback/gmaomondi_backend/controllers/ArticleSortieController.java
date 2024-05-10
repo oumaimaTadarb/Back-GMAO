@@ -1,6 +1,8 @@
 package org.gmaoback.gmaomondi_backend.controllers;
 import org.gmaoback.gmaomondi_backend.dao.entities.ArticleSortie;
 import org.gmaoback.gmaomondi_backend.dao.entities.Sortie;
+import org.gmaoback.gmaomondi_backend.dao.repositories.ArticleRepository;
+import org.gmaoback.gmaomondi_backend.dao.repositories.ArticleSortieRepository;
 import org.gmaoback.gmaomondi_backend.dto.ArticleSortieDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +13,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/articleSorties")
 public class ArticleSortieController {
+    @Autowired
+    private ArticleSortieRepository articleSortieRepository;
 
     @Autowired
     private ArticleSortieService articleSortieService;
