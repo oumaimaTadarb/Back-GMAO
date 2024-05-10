@@ -1,5 +1,6 @@
 package org.gmaoback.gmaomondi_backend.controllers;
 
+import jakarta.persistence.EntityNotFoundException;
 import org.gmaoback.gmaomondi_backend.dao.entities.Article;
 import org.gmaoback.gmaomondi_backend.dao.repositories.ArticleRepository;
 import org.gmaoback.gmaomondi_backend.dto.ArticleDTO;
@@ -27,16 +28,21 @@ public class ArticleController {
         Article newArticle = articleService.addNewArticle(articleDTO);
         return ResponseEntity.ok(newArticle);
     }
+    @GetMapping("/listArticle")
+    public ResponseEntity<List<Article>> listArticles() {
+        List<Article> articles = articleService.listArticles();
+        return ResponseEntity.ok(articles);
+    }
 
     @PutMapping("/")
-    public ResponseEntity<Article> updateArticle(@PathVariable Long id, @RequestBody ArticleDTO articleDTO) {
-        Article updatedArticle = articleService.updateArticle(id, articleDTO);
-        if (updatedArticle != null) {
-            return ResponseEntity.ok(updatedArticle);
-        } else {
-            return ResponseEntity.notFound().build();
+    public ResponseEntity<Article> updateArticle(@PathVariable Long id, @RequestBody ArticleDTO articleDTO){
+            Article updatedArticle = articleService.updateArticle(id, articleDTO);
+            if (updatedArticle != null) {
+                return ResponseEntity.ok(updatedArticle);
+            } else {
+                return ResponseEntity.notFound().build();
+            }
         }
-    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteArticle(@PathVariable Long id) {

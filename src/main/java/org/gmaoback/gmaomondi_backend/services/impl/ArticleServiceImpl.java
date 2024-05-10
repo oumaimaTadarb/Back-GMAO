@@ -132,11 +132,8 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public Article updateArticleBycodeSapArticle(Long codeSapArticle, ArticleDTO articleDTO) {
-        // Recherchez l'article correspondant au code SAP spécifié
-        Article articleToUpdate = articleRepository.findByCodeSapArticle(codeSapArticle);
-
-        // Vérifiez si l'article existe
-        if (articleToUpdate == null) {
+       Article articleToUpdate = articleRepository.findByCodeSapArticle(codeSapArticle);
+    if (articleToUpdate == null) {
             throw new EntityNotFoundException("Article not found with code SAP: " + codeSapArticle);
         }
     mapArticleDtoToArticle(articleDTO, articleToUpdate);

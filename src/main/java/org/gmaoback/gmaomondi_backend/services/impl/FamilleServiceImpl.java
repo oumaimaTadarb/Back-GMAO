@@ -1,18 +1,15 @@
 package org.gmaoback.gmaomondi_backend.services.impl;
+
 import org.gmaoback.gmaomondi_backend.dao.entities.Article;
 import org.gmaoback.gmaomondi_backend.dao.entities.Famille;
-import org.gmaoback.gmaomondi_backend.dao.repositories.FamilleRepository;
 import org.gmaoback.gmaomondi_backend.dao.repositories.ArticleRepository;
+import org.gmaoback.gmaomondi_backend.dao.repositories.FamilleRepository;
 import org.gmaoback.gmaomondi_backend.dto.ArticleDTO;
 import org.gmaoback.gmaomondi_backend.dto.FamilleDTO;
 import org.gmaoback.gmaomondi_backend.services.FamilleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.transaction.annotation.Transactional;
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import java.util.List;
 import java.util.stream.Collectors;

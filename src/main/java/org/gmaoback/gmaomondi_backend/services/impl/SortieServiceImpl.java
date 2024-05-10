@@ -77,6 +77,11 @@ public class SortieServiceImpl implements SortieService {
         return sortieDTO;
     }
 
+    @Override
+    public List<Sortie> getSortiesByEtat(EtatSortie etat) {
+        return sortieRepository.findByEtat(etat);
+    }
+
     private void mapSortieDtoToSortie(SortieDTO sortieDto, Sortie sortie) {
         if (sortieDto != null && sortie != null) {
             sortie.setDateDemande(sortieDto.getDateDemande());

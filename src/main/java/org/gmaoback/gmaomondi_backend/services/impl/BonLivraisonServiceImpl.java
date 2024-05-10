@@ -100,6 +100,7 @@ public class BonLivraisonServiceImpl implements BonLivraisonService {
             return null;
         }
     }
+
     @Override
     public BonLivraison loadBonLivraisonByCodeSap(Long codeSapBL) {
             Optional<BonLivraison> bonLivraisonOptional = Optional.ofNullable(bonLivraisonRepository.findByCodeSapBL(codeSapBL));

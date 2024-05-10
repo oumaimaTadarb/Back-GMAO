@@ -10,6 +10,8 @@ import org.gmaoback.gmaomondi_backend.dao.repositories.PersonneRepository;
 import org.gmaoback.gmaomondi_backend.dto.InventaireDTO;
 import org.gmaoback.gmaomondi_backend.services.InventaireService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -126,6 +128,12 @@ public class InventaireServiceImpl implements InventaireService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public Page<Inventaire> findAll(Pageable pageable) {
+        return inventaireRepository.findAll(pageable);
+
+    }
+
     public InventaireDTO convertToInventaireDTO(Inventaire inventaire) {
         if (inventaire == null) {
             return null;
@@ -148,10 +156,7 @@ public class InventaireServiceImpl implements InventaireService {
     }
 
 
-    @Override
-    public List<Inventaire> listInventaires() {
-        return this.inventaireRepository.findAll();
-    }
+
 
     @Override
     public Inventaire loadInventaireById(Long id) {
@@ -178,6 +183,11 @@ public class InventaireServiceImpl implements InventaireService {
         } else {
             return null;
         }
+    }
+
+    @Override
+    public Page<Inventaire> listInventaires(Pageable pageable) {
+        return inventaireRepository.findAll(pageable);
     }
 }
 //    @Override
