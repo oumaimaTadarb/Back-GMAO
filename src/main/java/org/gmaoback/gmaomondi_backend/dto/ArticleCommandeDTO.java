@@ -12,7 +12,7 @@ public class ArticleCommandeDTO {
     private Long idBC;
     private Long codeSapBC;
     private Long idArticle;
-    private double quantiteCommande;
+    private int quantiteCommande;
     private String designation ;
     private Long CodeSapArticle;
     private String donneeTechnique;

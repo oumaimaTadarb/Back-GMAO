@@ -37,6 +37,7 @@ public class BonCommandeServiceImpl implements BonCommandeService {
         bonCommande.setDateDemissionProforma(bonCommandeDto.getDateDemissionProforma());
         bonCommande.setNumProforma(bonCommandeDto.getNumProforma());
         bonCommande.setDocProforma(bonCommandeDto.getDocProforma());
+        bonCommande.setPrixUnitaire(bonCommandeDto.getPrixUnitaire());
         Fournisseur fournisseur = fournisseurRepository.findById(bonCommandeDto.getIdFournisseur()).orElse(null);
         if (fournisseur == null) {
             System.err.println("Erreur: Fournisseur non trouvé.");
@@ -60,6 +61,7 @@ public class BonCommandeServiceImpl implements BonCommandeService {
             bonCommande.setDateDemissionProforma(bonCommandeDTO.getDateDemissionProforma());
             bonCommande.setNumProforma(bonCommandeDTO.getNumProforma());
             bonCommande.setDocProforma(bonCommandeDTO.getDocProforma());
+            bonCommande.setPrixUnitaire(bonCommandeDTO.getPrixUnitaire());
             Fournisseur fournisseur = fournisseurRepository.findById(bonCommandeDTO.getIdFournisseur()).orElse(null);
             if (fournisseur == null) {
                 System.err.println("Erreur: Fournisseur non trouvé.");
@@ -84,6 +86,8 @@ public class BonCommandeServiceImpl implements BonCommandeService {
             bonCommande.setDateDemissionProforma(bonCommandeDto.getDateDemissionProforma());
             bonCommande.setNumProforma(bonCommandeDto.getNumProforma());
             bonCommande.setDocProforma(bonCommandeDto.getDocProforma());
+            bonCommande.setPrixUnitaire(bonCommandeDto.getPrixUnitaire());
+
 
             Fournisseur fournisseur = fournisseurRepository.findById(bonCommandeDto.getIdFournisseur()).orElse(null);
             if (fournisseur == null) {
@@ -138,6 +142,7 @@ public class BonCommandeServiceImpl implements BonCommandeService {
             bonCommandeDTO.setDateDemissionProforma(bonCommande.getDateDemissionProforma());
             bonCommandeDTO.setNumProforma(bonCommande.getNumProforma());
             bonCommandeDTO.setDocProforma(bonCommande.getDocProforma());
+            bonCommande.setPrixUnitaire(bonCommande.getPrixUnitaire());
             bonCommandeDTO.setIdFournisseur(bonCommande.getFournisseur().getIdFournisseur());
 
             bonCommandesDTO.add(bonCommandeDTO);
@@ -162,8 +167,9 @@ public class BonCommandeServiceImpl implements BonCommandeService {
             bonCommandeDTO.setDateDemissionProforma(bonCommande.getDateDemissionProforma());
             bonCommandeDTO.setNumProforma(bonCommande.getNumProforma());
             bonCommandeDTO.setDocProforma(bonCommande.getDocProforma());
+            bonCommande.setPrixUnitaire(bonCommande.getPrixUnitaire());
             bonCommandeDTO.setIdFournisseur(bonCommande.getFournisseur().getIdFournisseur());
-            // Ajoutez d'autres attributs si nécessaire
+
 
             return bonCommandeDTO;
         } else {

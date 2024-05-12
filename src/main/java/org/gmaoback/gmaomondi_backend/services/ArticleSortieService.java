@@ -26,12 +26,4 @@ public interface ArticleSortieService {
     void deleteArticleSortieByIdSA(Long idSA);
     void deleteAllArticleSortieOfSortie(Long idSortie);
     ArticleSortie convertDTO(ArticleSortieDTO ASDTO);
-
-
-
-
-
-
-
-
 }
