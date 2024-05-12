@@ -96,7 +96,7 @@ public class ArticleSortieServiceImpl implements ArticleSortieService {
     dto.setDesignation(articleSortie.getArticle() != null ? articleSortie.getArticle().getDesignation() : null);
     dto.setDonneeTechnique(articleSortie.getArticle() != null ? articleSortie.getArticle().getDonneeTechnique() : null);
     return dto;
-    }
+    }/*
     @Override
     public List<ArticleSortieDTO> convertToDTOList(List<ArticleSortie> articles) {
     return articles.stream().map(this::convertToDTO).collect(Collectors.toList());
@@ -160,7 +160,7 @@ public class ArticleSortieServiceImpl implements ArticleSortieService {
 
         // Return the fully populated ArticleSortie entity
         return articleSortie;
-    }
+    }*/
 
 
 
