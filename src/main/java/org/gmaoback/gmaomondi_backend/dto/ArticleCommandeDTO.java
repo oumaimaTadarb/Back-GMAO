@@ -9,7 +9,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ArticleCommandeDTO {
     private Long id;
-    private int quantiteCommande;
+    private Long idBC;
+    private Long codeSapBC;
     private Long idArticle;
-    private Long bonCommandeId;
+    private int quantiteCommande;
+    private String designation ;
+    private Long CodeSapArticle;
+    private String donneeTechnique;
+    private double prixUnitaire;
+
 }

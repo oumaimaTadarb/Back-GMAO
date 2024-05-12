@@ -141,8 +141,8 @@ public class DemandeAchatServiceImpl implements DemandeAchatService {
     }
 
     @Override
-    public DemandeAchat loadDemandeAchatByCodeSap(Long codeSapBC) {
-        return demandeAchatRepository.findByCodeSapDA(codeSapBC);
+    public DemandeAchat loadDemandeAchatByCodeSap(Long codeSapDA) {
+        return demandeAchatRepository.findByCodeSapDA(codeSapDA);
     }
 
     @Override
@@ -156,8 +156,8 @@ public class DemandeAchatServiceImpl implements DemandeAchatService {
     }
 
     @Override
-    public DemandeAchat updateDemandeAchatByCodeSapDA(Long codeSapBC, DemandeAchatDTO demandeAchatDTO) {
-        DemandeAchat demandeAchat = loadDemandeAchatByCodeSap(codeSapBC);
+    public DemandeAchat updateDemandeAchatByCodeSapDA(Long codeSapDA, DemandeAchatDTO demandeAchatDTO) {
+        DemandeAchat demandeAchat = loadDemandeAchatByCodeSap(codeSapDA);
         if (demandeAchat != null && demandeAchatDTO != null) {
              demandeAchat = updateData(demandeAchat, demandeAchatDTO);
            return demandeAchatRepository.save(demandeAchat);

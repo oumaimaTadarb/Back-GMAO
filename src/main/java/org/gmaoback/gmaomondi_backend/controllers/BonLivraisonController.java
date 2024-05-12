@@ -1,9 +1,9 @@
 package org.gmaoback.gmaomondi_backend.controllers;
+
 import org.gmaoback.gmaomondi_backend.dao.entities.BonLivraison;
 import org.gmaoback.gmaomondi_backend.dto.BonLivraisonDTO;
 import org.gmaoback.gmaomondi_backend.services.BonLivraisonService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/bonLivraisons")
+@CrossOrigin("*")
 public class BonLivraisonController {
 
     @Autowired
@@ -22,6 +23,21 @@ public class BonLivraisonController {
         return ResponseEntity.ok(createdBonLivraison);
     }
 
+    @GetMapping("/listBL")
+    public ResponseEntity<List<BonLivraison>> listBonLivraisons() {
+        List<BonLivraison> bonLivraisons = bonLivraisonService.listBonLivraisons();
+        return ResponseEntity.ok(bonLivraisons);
+    }
+
+    @GetMapping("/load by/{id}")
+    public ResponseEntity<BonLivraison> loadBonLivraisonById(@PathVariable Long id) {
+        BonLivraison bonLivraison = bonLivraisonService.loadBonLivraisonById(id);
+        if (bonLivraison != null) {
+            return ResponseEntity.ok(bonLivraison);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
     @PutMapping("/update/{id}")
     public ResponseEntity<BonLivraison> updateBonLivraison(@PathVariable Long id, @RequestBody BonLivraisonDTO bonLivraisonDTO) {
         try {

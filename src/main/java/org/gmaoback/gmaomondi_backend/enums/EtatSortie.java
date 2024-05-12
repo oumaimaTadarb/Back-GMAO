@@ -1,6 +1,7 @@
 package org.gmaoback.gmaomondi_backend.enums;
 
 public enum EtatSortie {
-    VALIDE,
-    NON_VALIDE
+    Valide,
+    Rejeté,
+    En_cours_De_Traitement
 }

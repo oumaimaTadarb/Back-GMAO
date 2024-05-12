@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/bonCommandes")
+@CrossOrigin("*")
 public class BonCommandeController {
     private final BonCommandeService bonCommandeService;
 

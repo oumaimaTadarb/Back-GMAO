@@ -5,6 +5,7 @@ import org.gmaoback.gmaomondi_backend.dto.InventaireDTO;
 import org.gmaoback.gmaomondi_backend.services.InventaireService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/inventaires")
+@CrossOrigin("*")
 public class InventaireController {
 
     @Autowired
@@ -23,6 +25,11 @@ public class InventaireController {
     public ResponseEntity<InventaireDTO> addNewInventaire(@RequestBody InventaireDTO inventaireDto) {
         Inventaire inventaire = inventaireService.addNewInventaire(inventaireDto);
         return new ResponseEntity<>(convertToInventaireDTO(inventaire), HttpStatus.CREATED);
+    }
+    @GetMapping("/listpage")
+    public ResponseEntity<Page<Inventaire>> listInventaires(Pageable pageable) {
+        Page<Inventaire> page = inventaireService.listInventaires(pageable);
+        return ResponseEntity.ok(page);
     }
 
     public InventaireDTO convertToInventaireDTO(Inventaire inventaire) {

@@ -2,6 +2,7 @@ package org.gmaoback.gmaomondi_backend.controllers;
 
 import org.gmaoback.gmaomondi_backend.dao.entities.Sortie;
 import org.gmaoback.gmaomondi_backend.dto.SortieDTO;
+import org.gmaoback.gmaomondi_backend.enums.EtatSortie;
 import org.gmaoback.gmaomondi_backend.services.SortieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,6 +14,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/sorties")
+@CrossOrigin("*")
 public class SortieController {
 
     @Autowired
@@ -38,7 +40,10 @@ public class SortieController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
+    @GetMapping("/etat/{etat}")
+    public List<Sortie> getSortiesByEtat(@PathVariable EtatSortie etat) {
+        return sortieService.getSortiesByEtat(etat);
+    }
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteSortie(@PathVariable Long id) {

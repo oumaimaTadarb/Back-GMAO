@@ -17,9 +17,9 @@ public interface ArticleService {
     void deleteArticlebycodeSapArticle(Long codeSapArticle);
     List<ArticleDTO> listArticlesDTO();
     List<Article> listArticles();
+  Article updateDataArticle(Article article, ArticleDTO articleDto);
     Article loadArticleById(Long id);
-    Article loadArticleBycodeSapArticle(Long codeSapArticle);
-    Article updateDataArticle(Article article, ArticleDTO articleDto);
+    Article loadArticleBycodeSapArticle(Long codeSapArticle);;
     Article updateArticleBycodeSapArticle(Long codeSapArticle, ArticleDTO articleDTO);
 
 //     Article updateArticleByCodeSapAr(Long codeSapAr, Article updatedArticle);
