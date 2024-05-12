@@ -12,4 +12,17 @@ public interface FamilleRepository extends JpaRepository<Famille,Long> {
     @Query("SELECT f FROM Famille f WHERE f.familleMere.idFamille = :idFamilleMere")
     List<Famille> findByFamilleMereId(@Param("idFamilleMere") Long idFamilleMere);
 
+    Famille findByName(String name);
+
+    @Override
+    default void delete(Famille famille) {
+        if (!"Famille Racine".equals(famille.getName())) {
+            delete(famille);
+        } else {
+            // Logique pour gérer la tentative de suppression de la famille Racine
+            // Par exemple, enregistrer un avertissement ou lever une exception
+            throw new IllegalStateException("La suppression de la famille Racine n'est pas autorisée.");
+        }
+    }
+
 }

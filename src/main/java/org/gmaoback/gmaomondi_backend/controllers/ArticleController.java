@@ -18,10 +18,12 @@ public class ArticleController {
     ArticleRepository articleRepository;
     @Autowired
     ArticleService articleService;
-        @GetMapping("/besoin")
+
+    @GetMapping("/besoin")
     public List<Article> getArticlesBesoin() {
         return articleService.getBesoin();
     }
+
     @PostMapping("/add")
     public ResponseEntity<Article> addNewArticle(@RequestBody ArticleDTO articleDTO) {
         Article newArticle = articleService.addNewArticle(articleDTO);
@@ -85,7 +87,6 @@ public class ArticleController {
             return ResponseEntity.notFound().build();
         }
     }
-
 
 }
 //
