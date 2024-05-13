@@ -38,7 +38,7 @@ public class ArticleCommandeImpl implements ArticleCommandeService {
     }
 
     @Override
-    public List<ArticleCommande> getArticlecommandebyIdbcandidArticle(Long idBC, Long idArticle) {
+    public List<ArticleCommande> getArticlecommandebyidArticle(Long idBC, Long idArticle) {
         return articleCommandeRepository.findByBonCommande_idBCAndArticle_IdArticle(idBC, idArticle);
     }
 
