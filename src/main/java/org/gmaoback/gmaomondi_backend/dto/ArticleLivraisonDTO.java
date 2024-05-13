@@ -10,7 +10,10 @@ import lombok.NoArgsConstructor;
 public class ArticleLivraisonDTO {
     private Long id;
     private int quantiteLivraison;
-    private Long articleId;
-    private Long bonLivraisonId;
-    private Long idBonCommande;
+    private Long idArticle;
+    private Long idBL;
+    private Long idBC;
+    private Long codeSapBC;
+    private Long codeSapBL;
+    private Long codeSapArticle;
 }

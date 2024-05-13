@@ -85,7 +85,6 @@ public class ArticleServiceImpl implements ArticleService {
     public List<Article> listArticles() {
         return articleRepository.findAll();
     }
-
     private ArticleDTO convertToDTO(Article article) {
         ArticleDTO articleDTO = new ArticleDTO();
         articleDTO.setIdArticle(article.getIdArticle());
@@ -98,9 +97,12 @@ public class ArticleServiceImpl implements ArticleService {
         articleDTO.setStockDisponible(article.getStockDisponible());
         articleDTO.setDonneeTechnique(article.getDonneeTechnique());
         articleDTO.setRefFournisseur(article.getRefFournisseur());
-
+        if (article.getFamille() != null) {
+            articleDTO.setIdFamille(article.getFamille().getIdFamille());
+        }
         return articleDTO;
     }
+
 
 
     @Override

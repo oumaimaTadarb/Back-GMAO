@@ -60,8 +60,8 @@ public class ArticleCommandeImpl implements ArticleCommandeService {
 
     @Override
     public void deleteArticleBonCommandeByIdAC(Long idAC) {
-        articleCommandeRepository.deleteById(idAC);
-    }
+
+        articleCommandeRepository.deleteById(idAC);   }
 
     @Override
     public void deleteAllArticleCommandeofBonCommande(Long idBC) {
@@ -81,7 +81,7 @@ public class ArticleCommandeImpl implements ArticleCommandeService {
         }
         if (ACDTO.getIdBC() != null) {
             BonCommande bonCommande = bonCommandeRepository.findById(ACDTO.getIdBC())
-                    .orElseThrow(() -> new IllegalArgumentException("Invalid Sortie ID: " + ACDTO.getIdBC()));
+                    .orElseThrow(() -> new IllegalArgumentException("Invalid BonCommande ID: " + ACDTO.getIdBC()));
             articleCommande.setBonCommande(bonCommande);
         }
 
