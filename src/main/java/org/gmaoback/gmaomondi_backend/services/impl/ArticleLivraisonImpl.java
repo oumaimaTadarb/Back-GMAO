@@ -1,11 +1,11 @@
 package org.gmaoback.gmaomondi_backend.services.impl;
 
-import org.gmaoback.gmaomondi_backend.dao.entities.ArticleLivraison;
-import org.gmaoback.gmaomondi_backend.dao.entities.BonLivraison;
+import org.gmaoback.gmaomondi_backend.dao.entities.*;
 import org.gmaoback.gmaomondi_backend.dao.repositories.ArticleLivraisonRepository;
 import org.gmaoback.gmaomondi_backend.dao.repositories.ArticleRepository;
 import org.gmaoback.gmaomondi_backend.dao.repositories.BonLivraisonRepository;
 import org.gmaoback.gmaomondi_backend.dto.ArticleCommandeDTO;
+import org.gmaoback.gmaomondi_backend.dto.ArticleLivraisonDTO;
 import org.gmaoback.gmaomondi_backend.services.ArticleLivraisonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,46 +23,70 @@ public class ArticleLivraisonImpl implements ArticleLivraisonService {
     private ArticleRepository articleRepository;
     @Override
     public List<ArticleLivraison> listArticleLivraisonByIdBL(Long idBL) {
-        return null;
+        return articleLivraisonRepository.findByBonLivraison_IdBL(idBL);
     }
 
     @Override
     public List<ArticleLivraison> listArticleLivraisonByIdArticle(Long idArticle) {
-        return null;
+        return articleLivraisonRepository.findByArticle_IdArticle(idArticle);
     }
 
     @Override
     public ArticleLivraison getArticleLivraisonById(Long idAL) {
-        return null;
+        return articleLivraisonRepository.findById(idAL).orElse(null);
     }
 
     @Override
     public List<ArticleLivraison> getArticleLivraisonbyidArticle(Long idBL, Long idArticle) {
-        return null;
+        return articleLivraisonRepository.findByBonLivraison_idBLAndArticle_IdArticle(idBL, idArticle);
     }
 
     @Override
     public BonLivraison affectListArticleLivraisonToBonLivraison(Long idBL, List<ArticleLivraison> listArticleLivraison) {
-        return null;
+        BonLivraison bonLivraison =  bonLivraisonRepository.findById(idBL).orElse(null);
+        if ( bonLivraison != null) {
+            bonLivraison.getArticleLivraisons().clear();
+            bonLivraison.getArticleLivraisons().addAll(listArticleLivraison);
+            listArticleLivraison.forEach(al -> al.setBonLivraison(bonLivraison));
+            bonLivraisonRepository.save( bonLivraison);
+        }
+        return  bonLivraison;
     }
+
 
     @Override
     public ArticleLivraison updateArticleBonLivraison(ArticleLivraison AL) {
-        return null;
+        return articleLivraisonRepository.save(AL);
     }
 
     @Override
     public void deleteArticleBonLivraisonByIdAL(Long idAL) {
-
-    }
-
-    @Override
-    public void deleteAllArticleBonLivraison(Long idAL) {
-
-    }
+        articleLivraisonRepository.deleteById(idAL);   }
 
     @Override
-    public ArticleLivraison convertDTO(ArticleCommandeDTO ALDTO) {
-        return null;
+    public void deleteAllArticleBonLivraison(Long idBL) {
+            List<ArticleLivraison> articles = articleLivraisonRepository.findByBonLivraison_IdBL(idBL);
+            articleLivraisonRepository.deleteAll(articles);
+        }
+
+    @Override
+    public ArticleLivraison convertDTO(ArticleLivraisonDTO ALDTO) {
+        ArticleLivraison articleLivraison = new ArticleLivraison();
+        articleLivraison.setQuantiteLivraison(ALDTO.getQuantiteLivraison());
+        if (ALDTO.getIdArticle()!= null) {
+            Article article = articleRepository.findById(ALDTO.getIdArticle())
+                    .orElseThrow(() -> new IllegalArgumentException("Invalid Article ID: " + ALDTO.getIdArticle()));
+            articleLivraison.setArticle(article);
+        }
+        if (ALDTO.getIdBL() != null) {
+            BonLivraison bonLivraison = bonLivraisonRepository.findById(ALDTO.getIdBL())
+                    .orElseThrow(() -> new IllegalArgumentException("Invalid BonLivraison ID: " + ALDTO.getIdBL()));
+            articleLivraison.setBonLivraison(bonLivraison);
+        }
+
+        return articleLivraison;
     }
+
+
+
 }

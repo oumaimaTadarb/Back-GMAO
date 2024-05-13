@@ -3,6 +3,7 @@ package org.gmaoback.gmaomondi_backend.services;
 import org.gmaoback.gmaomondi_backend.dao.entities.ArticleLivraison;
 import org.gmaoback.gmaomondi_backend.dao.entities.BonLivraison;
 import org.gmaoback.gmaomondi_backend.dto.ArticleCommandeDTO;
+import org.gmaoback.gmaomondi_backend.dto.ArticleLivraisonDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,6 +17,6 @@ public interface ArticleLivraisonService {
     BonLivraison affectListArticleLivraisonToBonLivraison(Long idBL, List<ArticleLivraison>listArticleLivraison);
     ArticleLivraison updateArticleBonLivraison(ArticleLivraison AL);
     void deleteArticleBonLivraisonByIdAL(Long idAL);
-    void deleteAllArticleBonLivraison(Long idAL);
-    ArticleLivraison convertDTO(ArticleCommandeDTO ALDTO);
+    void deleteAllArticleBonLivraison(Long ibL);
+    ArticleLivraison convertDTO(ArticleLivraisonDTO ALDTO);
 }
