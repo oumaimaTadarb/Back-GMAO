@@ -28,7 +28,7 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public List<ArticleDTO> getBesoin() {
         try {
-            List<Article> articles = articleRepository.findArticlesBesoin();
+            List<ArticleDTO> articles = articleRepository.findArticlesBesoin();
             if (articles.isEmpty()) {
                 throw new IllegalArgumentException("Aucun article trouvé avec les besoins spécifiés.");
             }
