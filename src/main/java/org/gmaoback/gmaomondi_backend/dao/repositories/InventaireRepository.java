@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface InventaireRepository extends JpaRepository<Inventaire,Long> {
-    Page<Inventaire> findAll(Pageable pageable);
+   Page<Inventaire> findAll(Pageable pageable);
 }

@@ -32,9 +32,7 @@ public class Sortie {
     private LocalDateTime dateDemande;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     @Column(name = "dateValidation")
-    private LocalDateTime dateValidation;
-    @Column(name="commentaire", length = 100)
-    private String commentaire;
+    private LocalDateTime dateValidation;;
     @Column(name="document", length = 100)
     private String document;
 
@@ -48,8 +46,6 @@ public class Sortie {
     @JsonBackReference
     @JoinColumn(name = "idPersonne", referencedColumnName = "idPersonne")
     private Personne personne;
-
-
 
     @OneToMany(mappedBy = "sortie")
     @JsonIgnore

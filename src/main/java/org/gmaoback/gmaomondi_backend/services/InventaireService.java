@@ -13,13 +13,13 @@ import java.util.List;
 public interface InventaireService {
     Inventaire addNewInventaire(InventaireDTO inventaireDto);
     Inventaire updateInventaire(Long id, InventaireDTO inventaireDTO);
-    Inventaire updateData(Inventaire Inventaire, InventaireDTO inventaireDto);
+    Inventaire updateData(Inventaire existingInventaire, InventaireDTO inventaireDto);
     void deleteInventaire(Long id);
     List<InventaireDTO> listInventairesDTO();
     Page<Inventaire> findAll(Pageable pageable);
     Inventaire loadInventaireById(Long id);
     InventaireDTO loadInventaireByInventaireId(Long id);
-    Page<Inventaire> listInventaires(Pageable pageable);
+    List<Inventaire> listInventaires();
 //    Inventaire saveInventaire(Inventaire inventaire);
 //    Inventaire updateInventaire(Inventaire inventaire);
 //    Inventaire getInventaireById(Long idInventaire);
