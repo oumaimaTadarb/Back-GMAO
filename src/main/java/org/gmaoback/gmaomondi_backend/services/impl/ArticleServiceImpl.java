@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -27,15 +28,28 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public List<ArticleDTO> getBesoin() {
-        try {
-            List<ArticleDTO> articles = articleRepository.findArticlesBesoin();
-            if (articles.isEmpty()) {
-                throw new IllegalArgumentException("Aucun article trouvé avec les besoins spécifiés.");
-            }
-            return listArticlesDTO();
-        } catch (Exception e) {
-            throw new IllegalStateException("Erreur lors de la récupération des articles avec les besoins spécifiés : " + e.getMessage());
-        }
+        return articleRepository.findArticlesBelowMinimumStock().stream()
+                .map(article -> {
+                    ArticleDTO dto = new ArticleDTO();
+                    dto.setIdArticle(article.getIdArticle());
+                    dto.setCodeSapArticle(article.getCodeSapArticle());
+                    dto.setDesignation(article.getDesignation());
+                    dto.setEmplacementPhysique(article.getEmplacementPhysique());
+                    dto.setStockMin(article.getStockMin());
+                    dto.setStockMax(article.getStockMax());
+                    dto.setStockSecurite(article.getStockSecurite());
+                    dto.setStockDisponible(article.getStockDisponible());
+                    dto.setDonneeTechnique(article.getDonneeTechnique());
+                    dto.setRefFournisseur(article.getRefFournisseur());
+
+                    if (article.getFamille() != null) {
+                        dto.setIdFamille(article.getFamille().getIdFamille());
+                        dto.setNomFamille(article.getFamille().getName());
+                    }
+
+                    return dto;
+                })
+                .collect(Collectors.toList());
     }
 
     @Override

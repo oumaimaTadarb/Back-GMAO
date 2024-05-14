@@ -11,7 +11,8 @@ import java.util.List;
 @Repository
 public interface ArticleRepository extends JpaRepository<Article,Long> {
     @Query("SELECT a FROM Article a WHERE a.stockDisponible < a.stockMin")
-    List<ArticleDTO> findArticlesBesoin();
+    List<Article> findArticlesBelowMinimumStock();
+   // List<Article> findArticlesBesoin();
 
 
     Article findByCodeSapArticle(Long codeSapArticle);

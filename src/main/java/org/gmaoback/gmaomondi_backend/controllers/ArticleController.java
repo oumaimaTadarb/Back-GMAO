@@ -21,9 +21,11 @@ public class ArticleController {
     ArticleService articleService;
 
     @GetMapping("/besoin")
-    public List<ArticleDTO> getArticlesBesoin() {
-        return articleService.getBesoin();
-    }
+    public List<ArticleDTO> getArticlesWithLowStock() {
+        return articleService.getBesoin();}
+   //public List<ArticleDTO> getArticlesBesoin() {
+       // return articleService.getBesoin();
+    //}
 
     @PostMapping("/add")
     public ResponseEntity<Article> addNewArticle(@RequestBody ArticleDTO articleDTO) {
