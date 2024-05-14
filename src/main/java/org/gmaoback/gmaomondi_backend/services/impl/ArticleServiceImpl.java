@@ -97,8 +97,10 @@ public class ArticleServiceImpl implements ArticleService {
         articleDTO.setStockDisponible(article.getStockDisponible());
         articleDTO.setDonneeTechnique(article.getDonneeTechnique());
         articleDTO.setRefFournisseur(article.getRefFournisseur());
+
         if (article.getFamille() != null) {
             articleDTO.setIdFamille(article.getFamille().getIdFamille());
+            articleDTO.setNomFamille(article.getFamille().getName());
         }
         return articleDTO;
     }

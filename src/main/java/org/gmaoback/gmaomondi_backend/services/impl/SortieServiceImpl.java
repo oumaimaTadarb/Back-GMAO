@@ -86,7 +86,6 @@ public class SortieServiceImpl implements SortieService {
         if (sortieDto != null && sortie != null) {
             sortie.setDateDemande(sortieDto.getDateDemande());
             sortie.setDateValidation(sortieDto.getDateValidation());
-            sortie.setCommentaire(sortieDto.getCommentaire());
             sortie.setDocument(sortieDto.getDocument());
             sortie.setEtat(EtatSortie.valueOf(String.valueOf(sortieDto.getEtat())));
             sortie.setPersonne(getPersonneFromId(sortieDto.getIdPersonne()));
@@ -98,7 +97,6 @@ public class SortieServiceImpl implements SortieService {
             sortieDTO.setIdSortie(sortie.getIdSortie());
             sortieDTO.setDateDemande(sortie.getDateDemande());
             sortieDTO.setDateValidation(sortie.getDateValidation());
-            sortieDTO.setCommentaire(sortie.getCommentaire());
             sortieDTO.setDocument(sortie.getDocument());
             sortieDTO.setEtat(EtatSortie.valueOf(String.valueOf(sortie.getEtat())));
         }

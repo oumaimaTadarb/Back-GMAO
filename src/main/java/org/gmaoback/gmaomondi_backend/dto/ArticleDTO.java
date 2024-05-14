@@ -3,6 +3,7 @@ package org.gmaoback.gmaomondi_backend.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.gmaoback.gmaomondi_backend.dao.entities.Famille;
 
 
 @Data
@@ -22,6 +23,7 @@ public class ArticleDTO {
     private String refFournisseur;
 
     private Long idFamille;
+    private String nomFamille;
 
 
 }

@@ -21,7 +21,7 @@ import java.util.List;
 public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="idArticle")
+    @Column(name = "idArticle")
     private Long idArticle;
     @Column(name = "codeSapArticle")
     private Long codeSapArticle;
@@ -36,14 +36,14 @@ public class Article {
     @Column(name = "stockSecurite")
     private int stockSecurite;
     @Column(name = "stockDisponible")
-    private int stockDisponible ;
+    private int stockDisponible;
     @Column(name = "donneeTechnique", length = 100)
     private String donneeTechnique;
     @Column(name = "refFournisseur", length = 100)
     private String refFournisseur;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH,
-            CascadeType.DETACH })
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH,
+            CascadeType.DETACH})
     @JsonIgnore
     @JsonBackReference
     @JoinColumn(name = "idFamille", referencedColumnName = "idFamille")
@@ -68,5 +68,4 @@ public class Article {
     @OneToMany(mappedBy = "article")
     @JsonIgnore
     private List<ArticleSortie> articleSortie;
-
 }
