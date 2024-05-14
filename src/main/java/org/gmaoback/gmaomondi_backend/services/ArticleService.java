@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 public interface ArticleService {
-  List<Article>getBesoin();
+  List<ArticleDTO>getBesoin();
     Article addNewArticle(ArticleDTO articleDto);
     Article updateArticle(Long id, ArticleDTO articleDTO);
     void deleteArticle(Long id);

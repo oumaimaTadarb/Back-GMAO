@@ -26,13 +26,13 @@ public class ArticleServiceImpl implements ArticleService {
     FamilleRepository familleRepository;
 
     @Override
-    public List<Article> getBesoin() {
+    public List<ArticleDTO> getBesoin() {
         try {
             List<Article> articles = articleRepository.findArticlesBesoin();
             if (articles.isEmpty()) {
                 throw new IllegalArgumentException("Aucun article trouvé avec les besoins spécifiés.");
             }
-            return articles;
+            return listArticlesDTO();
         } catch (Exception e) {
             throw new IllegalStateException("Erreur lors de la récupération des articles avec les besoins spécifiés : " + e.getMessage());
         }
