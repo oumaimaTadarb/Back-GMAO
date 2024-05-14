@@ -21,7 +21,7 @@ public class ArticleController {
     ArticleService articleService;
 
     @GetMapping("/besoin")
-    public List<Article> getArticlesBesoin() {
+    public List<ArticleDTO> getArticlesBesoin() {
         return articleService.getBesoin();
     }
 
