@@ -1,7 +1,7 @@
 package org.gmaoback.gmaomondi_backend;
 import jakarta.transaction.Transactional;
-import org.gmaoback.gmaomondi_backend.dao.entities.Famille;
-import org.gmaoback.gmaomondi_backend.dao.repositories.FamilleRepository;
+import org.gmaoback.gmaomondi_backend.gestionStock.dao.entities.Famille;
+import org.gmaoback.gmaomondi_backend.gestionStock.dao.repositories.FamilleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
