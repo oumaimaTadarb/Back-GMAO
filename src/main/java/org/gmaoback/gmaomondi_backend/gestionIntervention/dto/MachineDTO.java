@@ -8,4 +8,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MachineDTO {
+    private Long idMachine;
 }
