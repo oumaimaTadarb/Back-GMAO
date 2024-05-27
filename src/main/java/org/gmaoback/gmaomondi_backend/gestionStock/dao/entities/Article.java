@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.gmaoback.gmaomondi_backend.gestionIntervention.dao.entities.Organe;
 
 import java.util.List;
 
@@ -68,4 +69,7 @@ public class Article {
     @OneToMany(mappedBy = "article")
     @JsonIgnore
     private List<ArticleSortie> articleSortie;
+    @ManyToOne
+    @JoinColumn(name = "idOrgane")
+    private Organe organe;
 }

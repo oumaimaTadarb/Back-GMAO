@@ -9,4 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class IntervenantDTO {
     private Long idIntervenant;
+    private String nom;
+    private String specialite;
 }

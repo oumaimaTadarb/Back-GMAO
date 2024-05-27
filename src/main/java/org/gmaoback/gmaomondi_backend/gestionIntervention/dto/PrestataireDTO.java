@@ -9,4 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PrestataireDTO {
     private Long idPrestataire;
+    private String nom;
+    private String tel;
+    private String email;
+    private String adresse;
 }
