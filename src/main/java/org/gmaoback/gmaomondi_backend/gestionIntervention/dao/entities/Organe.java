@@ -42,4 +42,7 @@ public class Organe {
     @OneToMany(mappedBy = "organe")
     private List<Article> articles;
 
+    @OneToMany(mappedBy = "organe")
+    private List<Gamme> gammes;
+
 }
