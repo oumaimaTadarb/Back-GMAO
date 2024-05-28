@@ -20,11 +20,13 @@ public class Demandeur {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idDemandeur")
     private Long idDemandeur ;
+
     @Column(name = "nom", length = 100)
     private String nom;
 
     @Column(name = "specialite", length = 100)
     private String specialite;
+
     @OneToMany(mappedBy = "demandeur")
     private List<Intervention> interventions = new ArrayList<>();
 

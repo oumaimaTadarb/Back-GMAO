@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 public interface PersonneService {
     Personne addNewPersonne(PersonneDTO personneDto);
     Personne updatePersonne(Long id, PersonneDTO personneDTO);

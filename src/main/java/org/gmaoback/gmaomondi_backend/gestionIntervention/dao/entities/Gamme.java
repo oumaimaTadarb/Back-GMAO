@@ -34,6 +34,4 @@ public class Gamme {
     @ManyToOne
     @JoinColumn(name = "idOrgane")
     private Organe organe;
-
-
 }

@@ -4,7 +4,7 @@ import org.gmaoback.gmaomondi_backend.gestionStock.dto.UsageDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Service
+
 public interface UsageService {
 
     Usage addNewUsage(UsageDTO usageDto);

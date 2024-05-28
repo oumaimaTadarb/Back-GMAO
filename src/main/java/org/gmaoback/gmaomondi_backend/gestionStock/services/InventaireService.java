@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 public interface InventaireService {
     Inventaire addNewInventaire(InventaireDTO inventaireDto);
     Inventaire updateInventaire(Long id, InventaireDTO inventaireDTO);

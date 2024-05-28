@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 public interface ArticleLivraisonService {
     List<ArticleLivraison> listArticleLivraisonByIdBL(Long idBL);
     List<ArticleLivraison>listArticleLivraisonByIdArticle(Long idArticle);

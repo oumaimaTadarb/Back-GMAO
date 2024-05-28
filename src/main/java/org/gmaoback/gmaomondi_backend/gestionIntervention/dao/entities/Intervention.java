@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.gmaoback.gmaomondi_backend.gestionIntervention.enums.Classfication;
+import org.gmaoback.gmaomondi_backend.gestionIntervention.enums.Classification;
 import org.gmaoback.gmaomondi_backend.gestionIntervention.enums.Impact;
 import org.gmaoback.gmaomondi_backend.gestionIntervention.enums.Priorite;
 import org.gmaoback.gmaomondi_backend.gestionIntervention.enums.TypeDAnomalie;
@@ -31,7 +31,7 @@ public class Intervention {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "classification", length = 100)
-    private Classfication classfication ;
+    private Classification classification ;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "degreDimpact", length = 100)
@@ -49,7 +49,7 @@ public class Intervention {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "degrePriorite", length = 100)
-    private Priorite degrePiorite;
+    private Priorite degrePriorite;
 
     @Column(name = "causesRacines", length = 100)
     private String causesRacines;

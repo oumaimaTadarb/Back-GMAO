@@ -7,7 +7,6 @@ import org.gmaoback.gmaomondi_backend.gestionStock.dao.entities.ArticleSortie;
 
 import java.util.List;
 
-@Service
 public interface ArticleSortieService {
     List<ArticleSortie> listArticlesSortieByIdSortie(Long id);
     //List <ArticleSortieDTO> listArticlesSortieDTOByIdSortie(Long id);

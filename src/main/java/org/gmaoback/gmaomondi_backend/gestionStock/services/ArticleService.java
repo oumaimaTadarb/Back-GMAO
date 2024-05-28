@@ -6,7 +6,6 @@ import org.gmaoback.gmaomondi_backend.gestionStock.dto.ArticleDTO;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
-@Service
 public interface ArticleService {
   List<ArticleDTO>getBesoin();
     Article addNewArticle(ArticleDTO articleDto);
@@ -17,7 +16,8 @@ public interface ArticleService {
     List<Article> listArticles();
   Article updateDataArticle(Article article, ArticleDTO articleDto);
     Article loadArticleById(Long id);
-    Article loadArticleBycodeSapArticle(Long codeSapArticle);;
+    Article loadArticleBycodeSapArticle(Long codeSapArticle);
+
     Article updateArticleBycodeSapArticle(Long codeSapArticle, ArticleDTO articleDTO);
 
 //     Article updateArticleByCodeSapAr(Long codeSapAr, Article updatedArticle);

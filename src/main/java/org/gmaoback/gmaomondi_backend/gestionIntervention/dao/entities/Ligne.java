@@ -26,5 +26,4 @@ public class Ligne {
     @JoinColumn(name = "idLigne")
     private List<Machine> machines;
 
-
 }

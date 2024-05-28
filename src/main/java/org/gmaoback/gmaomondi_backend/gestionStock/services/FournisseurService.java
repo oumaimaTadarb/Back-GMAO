@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 public interface FournisseurService {
 
     Fournisseur addNewFournisseur(FournisseurDTO fournisseurDto);

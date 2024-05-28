@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 public interface ArticleCommandeService {
     List<ArticleCommande> listArticlesCommmandeByIdBC(Long idBC);
     List<ArticleCommande>listArticlesCommandeByIdArticle(Long idArticle);

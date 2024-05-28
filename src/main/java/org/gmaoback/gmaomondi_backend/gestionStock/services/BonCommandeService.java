@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 public interface BonCommandeService {
     BonCommande addNewBonCommande(BonCommandeDTO bonCommandeDto);
     BonCommande updateBonCommande(Long id, BonCommandeDTO bonCommandeDTO);

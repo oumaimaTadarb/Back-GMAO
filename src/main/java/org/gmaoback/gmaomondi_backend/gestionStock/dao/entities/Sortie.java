@@ -32,7 +32,7 @@ public class Sortie {
     private LocalDateTime dateDemande;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     @Column(name = "dateValidation")
-    private LocalDateTime dateValidation;;
+    private LocalDateTime dateValidation;
     @Column(name="document", length = 100)
     private String document;
 

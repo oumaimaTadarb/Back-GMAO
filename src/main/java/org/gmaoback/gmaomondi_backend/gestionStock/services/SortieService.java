@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 public interface SortieService {
     Sortie addNewSortie(SortieDTO sortieDto);
     Sortie updateSortie(Long id, SortieDTO sortieDTO);
