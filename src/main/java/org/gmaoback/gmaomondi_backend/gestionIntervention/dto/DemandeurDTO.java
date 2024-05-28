@@ -15,3 +15,4 @@ public class DemandeurDTO {
     private String specialite;
     private List<Long> interventionIds;
 }
+

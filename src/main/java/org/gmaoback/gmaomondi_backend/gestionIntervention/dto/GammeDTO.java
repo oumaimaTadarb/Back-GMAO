@@ -9,4 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class GammeDTO {
     private Long idGamme;
+    private String refGamme;
+    private String nature;
+    private String frequence;
+    private Long organeId;
 }

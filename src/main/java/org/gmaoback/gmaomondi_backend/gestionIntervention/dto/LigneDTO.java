@@ -14,3 +14,4 @@ public class LigneDTO {
     private String nom;
     private List<Long> machineIds;
 }
+

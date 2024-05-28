@@ -14,10 +14,10 @@ public class EquipementDTO {
     private String zone;
     private String designation;
     private String descriptionTechnique;
-    private Long idFournisseur;
+    private Long fournisseurId;
     private String etat;
-    private Long idPrestataire;
-    private Long idMachine;
-    private List<Long> organesIds;
-    private List<Long> interventionsIds;
+    private Long prestataireId;
+    private Long machineId;
+    private List<Long> organeIds;
+    private List<Long> interventionIds;
 }

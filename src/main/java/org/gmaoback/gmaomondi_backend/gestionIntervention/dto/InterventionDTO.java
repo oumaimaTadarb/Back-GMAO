@@ -24,9 +24,8 @@ public class InterventionDTO {
     private Date dateValidation;
     private LocalTime heureDebut;
     private LocalTime heureFin;
-
-    private Long idEquipement;
-    private Long idIntervenant;
-    private Long idDemandeur;
+    private Long equipementId;
+    private Long intervenantId;
+    private Long demandeurId;
 
 }

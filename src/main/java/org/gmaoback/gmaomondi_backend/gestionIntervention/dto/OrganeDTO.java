@@ -13,8 +13,9 @@ public class OrganeDTO {
     private Long idOrgane;
     private String designation;
     private String descriptionTechnique;
-    private Long idFournisseur;
-    private Long idEquipement;
-    private Long idPrestataire;
-    private List<Long> articlesIds;
+    private Long fournisseurId;
+    private Long equipementId;
+    private Long prestataireId;
+    private List<Long> articleIds;
+    private List<Long> gammeIds;
 }

@@ -12,7 +12,7 @@ import java.time.LocalTime;
 @NoArgsConstructor
 public class BonInterventionDTO {
     private Long idBonIntervention;
-    private Long idIntervention;
+    private Long interventionId;
     private LocalDateTime dateDemande;
     private String classification;
     private String degreDimpact;

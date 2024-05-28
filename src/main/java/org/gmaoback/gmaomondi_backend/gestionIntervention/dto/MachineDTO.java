@@ -15,7 +15,7 @@ public class MachineDTO {
     private String designation;
     private LocalDateTime dateMiseEnService;
     private String descriptionTechnique;
-    private Long idFournisseur;
+    private Long fournisseurId;
     private List<Long> equipementIds;
-    private Long idLigne;
+    private Long ligneId;
 }
