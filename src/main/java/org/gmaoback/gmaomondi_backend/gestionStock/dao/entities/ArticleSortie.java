@@ -24,7 +24,7 @@ public class ArticleSortie {
     @Min(value = 0, message = "Quantity must be non-negative")
     private int quantite;
 
-    @Column(name="commantaire")
+    @Column(name="commentaire")
     private String commentaire;
 
     @ManyToOne()
