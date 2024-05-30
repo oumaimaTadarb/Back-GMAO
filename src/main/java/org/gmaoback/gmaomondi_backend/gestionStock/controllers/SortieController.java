@@ -3,7 +3,7 @@ package org.gmaoback.gmaomondi_backend.gestionStock.controllers;
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.entities.Sortie;
 import org.gmaoback.gmaomondi_backend.gestionStock.dto.SortieDTO;
 import org.gmaoback.gmaomondi_backend.gestionStock.enums.EtatSortie;
-import org.gmaoback.gmaomondi_backend.gestionStock.services.SortieService;
+import org.gmaoback.gmaomondi_backend.gestionStock.services.service.SortieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

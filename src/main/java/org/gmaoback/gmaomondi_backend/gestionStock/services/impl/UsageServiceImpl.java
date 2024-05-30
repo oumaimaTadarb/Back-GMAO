@@ -3,7 +3,7 @@ package org.gmaoback.gmaomondi_backend.gestionStock.services.impl;
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.entities.Usage;
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.repositories.UsageRepository;
 import org.gmaoback.gmaomondi_backend.gestionStock.dto.UsageDTO;
-import org.gmaoback.gmaomondi_backend.gestionStock.services.UsageService;
+import org.gmaoback.gmaomondi_backend.gestionStock.services.service.UsageService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

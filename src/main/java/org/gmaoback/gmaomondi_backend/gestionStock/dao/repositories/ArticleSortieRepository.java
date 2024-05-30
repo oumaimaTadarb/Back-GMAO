@@ -1,9 +1,9 @@
 package org.gmaoback.gmaomondi_backend.gestionStock.dao.repositories;
 
-import java.util.List;
-
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.entities.ArticleSortie;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
 
 public interface ArticleSortieRepository extends JpaRepository<ArticleSortie,Long> {
     List<ArticleSortie> findBySortie_IdSortie(Long idSortie);

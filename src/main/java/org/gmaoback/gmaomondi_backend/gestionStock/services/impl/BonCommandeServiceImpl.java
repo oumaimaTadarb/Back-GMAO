@@ -1,12 +1,12 @@
 package org.gmaoback.gmaomondi_backend.gestionStock.services.impl;
 
 import jakarta.persistence.EntityNotFoundException;
+import org.gmaoback.gmaomondi_backend.gestionFournisseur.Fournisseur;
+import org.gmaoback.gmaomondi_backend.gestionFournisseur.FournisseurRepository;
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.entities.BonCommande;
-import org.gmaoback.gmaomondi_backend.gestionStock.dao.entities.Fournisseur;
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.repositories.BonCommandeRepository;
-import org.gmaoback.gmaomondi_backend.gestionStock.dao.repositories.FournisseurRepository;
 import org.gmaoback.gmaomondi_backend.gestionStock.dto.BonCommandeDTO;
-import org.gmaoback.gmaomondi_backend.gestionStock.services.BonCommandeService;
+import org.gmaoback.gmaomondi_backend.gestionStock.services.service.BonCommandeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -6,7 +6,7 @@ import org.gmaoback.gmaomondi_backend.gestionStock.dao.repositories.PersonneRepo
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.repositories.SortieRepository;
 import org.gmaoback.gmaomondi_backend.gestionStock.dto.SortieDTO;
 import org.gmaoback.gmaomondi_backend.gestionStock.enums.EtatSortie;
-import org.gmaoback.gmaomondi_backend.gestionStock.services.SortieService;
+import org.gmaoback.gmaomondi_backend.gestionStock.services.service.SortieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

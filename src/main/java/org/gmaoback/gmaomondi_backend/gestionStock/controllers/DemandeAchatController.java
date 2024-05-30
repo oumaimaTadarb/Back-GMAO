@@ -1,7 +1,7 @@
 package org.gmaoback.gmaomondi_backend.gestionStock.controllers;
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.entities.DemandeAchat;
 import org.gmaoback.gmaomondi_backend.gestionStock.dto.DemandeAchatDTO;
-import org.gmaoback.gmaomondi_backend.gestionStock.services.DemandeAchatService;
+import org.gmaoback.gmaomondi_backend.gestionStock.services.service.DemandeAchatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

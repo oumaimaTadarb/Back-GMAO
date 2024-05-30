@@ -2,7 +2,7 @@ package org.gmaoback.gmaomondi_backend.gestionStock.controllers;
 
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.entities.ArticleCommande;
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.entities.BonCommande;
-import org.gmaoback.gmaomondi_backend.gestionStock.services.ArticleCommandeService;
+import org.gmaoback.gmaomondi_backend.gestionStock.services.service.ArticleCommandeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

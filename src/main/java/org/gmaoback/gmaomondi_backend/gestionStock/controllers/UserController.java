@@ -1,6 +1,6 @@
 package org.gmaoback.gmaomondi_backend.gestionStock.controllers;
 
-import org.gmaoback.gmaomondi_backend.gestionStock.services.UserService;
+import org.gmaoback.gmaomondi_backend.gestionStock.services.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;

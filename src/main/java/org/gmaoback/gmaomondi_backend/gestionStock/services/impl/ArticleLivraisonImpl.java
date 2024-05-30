@@ -7,7 +7,7 @@ import org.gmaoback.gmaomondi_backend.gestionStock.dao.repositories.ArticleLivra
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.repositories.ArticleRepository;
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.repositories.BonLivraisonRepository;
 import org.gmaoback.gmaomondi_backend.gestionStock.dto.ArticleLivraisonDTO;
-import org.gmaoback.gmaomondi_backend.gestionStock.services.ArticleLivraisonService;
+import org.gmaoback.gmaomondi_backend.gestionStock.services.service.ArticleLivraisonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

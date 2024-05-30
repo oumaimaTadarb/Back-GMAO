@@ -6,7 +6,7 @@ import org.gmaoback.gmaomondi_backend.gestionStock.dao.repositories.ArticleRepos
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.repositories.FamilleRepository;
 import org.gmaoback.gmaomondi_backend.gestionStock.dto.ArticleDTO;
 import org.gmaoback.gmaomondi_backend.gestionStock.dto.FamilleDTO;
-import org.gmaoback.gmaomondi_backend.gestionStock.services.FamilleService;
+import org.gmaoback.gmaomondi_backend.gestionStock.services.service.FamilleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

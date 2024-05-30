@@ -1,11 +1,13 @@
 package org.gmaoback.gmaomondi_backend.gestionStock.controllers;
+
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.entities.ArticleSortie;
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.entities.Sortie;
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.repositories.ArticleSortieRepository;
+import org.gmaoback.gmaomondi_backend.gestionStock.services.service.ArticleSortieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.gmaoback.gmaomondi_backend.gestionStock.services.ArticleSortieService;
+
 import java.util.List;
 @CrossOrigin("*")
 @RestController

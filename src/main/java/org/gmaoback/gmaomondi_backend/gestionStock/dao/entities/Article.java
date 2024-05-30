@@ -6,7 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.gmaoback.gmaomondi_backend.gestionIntervention.dao.entities.Organe;
+import org.gmaoback.gmaomondi_backend.gestionEquipement.dao.entities.Organe;
+import org.gmaoback.gmaomondi_backend.gestionFournisseur.Fournisseur;
 
 import java.util.List;
 
@@ -72,4 +73,8 @@ public class Article {
     @ManyToOne
     @JoinColumn(name = "idOrgane")
     private Organe organe;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idFournisseur") // make sure the column name matches the database schema
+    private Fournisseur fournisseur;
 }

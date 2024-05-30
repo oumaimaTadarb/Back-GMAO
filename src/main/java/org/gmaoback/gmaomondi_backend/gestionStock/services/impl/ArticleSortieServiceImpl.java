@@ -6,8 +6,7 @@ import org.gmaoback.gmaomondi_backend.gestionStock.dao.repositories.ArticleRepos
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.repositories.ArticleSortieRepository;
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.repositories.SortieRepository;
 import org.gmaoback.gmaomondi_backend.gestionStock.dto.ArticleSortieDTO;
-import org.gmaoback.gmaomondi_backend.gestionStock.services.ArticleSortieService;
-
+import org.gmaoback.gmaomondi_backend.gestionStock.services.service.ArticleSortieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

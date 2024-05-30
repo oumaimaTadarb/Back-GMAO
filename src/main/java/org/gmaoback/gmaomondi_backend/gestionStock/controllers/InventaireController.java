@@ -2,7 +2,7 @@ package org.gmaoback.gmaomondi_backend.gestionStock.controllers;
 
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.entities.Inventaire;
 import org.gmaoback.gmaomondi_backend.gestionStock.dto.InventaireDTO;
-import org.gmaoback.gmaomondi_backend.gestionStock.services.InventaireService;
+import org.gmaoback.gmaomondi_backend.gestionStock.services.service.InventaireService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

@@ -2,7 +2,7 @@ package org.gmaoback.gmaomondi_backend.gestionStock.services.impl;
 
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.entities.User;
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.repositories.UserRepository;
-import org.gmaoback.gmaomondi_backend.gestionStock.services.UserService;
+import org.gmaoback.gmaomondi_backend.gestionStock.services.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

@@ -1,7 +1,7 @@
 package org.gmaoback.gmaomondi_backend.gestionStock.controllers;
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.entities.Usage;
 import org.gmaoback.gmaomondi_backend.gestionStock.dto.UsageDTO;
-import org.gmaoback.gmaomondi_backend.gestionStock.services.UsageService;
+import org.gmaoback.gmaomondi_backend.gestionStock.services.service.UsageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

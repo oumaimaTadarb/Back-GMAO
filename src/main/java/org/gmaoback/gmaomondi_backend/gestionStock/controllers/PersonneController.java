@@ -1,7 +1,7 @@
 package org.gmaoback.gmaomondi_backend.gestionStock.controllers;
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.entities.Personne;
 import org.gmaoback.gmaomondi_backend.gestionStock.dto.PersonneDTO;
-import org.gmaoback.gmaomondi_backend.gestionStock.services.PersonneService;
+import org.gmaoback.gmaomondi_backend.gestionStock.services.service.PersonneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -7,7 +7,7 @@ import org.gmaoback.gmaomondi_backend.gestionStock.dao.repositories.ArticleComma
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.repositories.ArticleRepository;
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.repositories.BonCommandeRepository;
 import org.gmaoback.gmaomondi_backend.gestionStock.dto.ArticleCommandeDTO;
-import org.gmaoback.gmaomondi_backend.gestionStock.services.ArticleCommandeService;
+import org.gmaoback.gmaomondi_backend.gestionStock.services.service.ArticleCommandeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
