@@ -1,8 +1,13 @@
 package org.gmaoback.gmaomondi_backend.gestionMaintenance.dto;
 
-import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-public class MaintenancePreventiveDTO {
-    private Long idMaintenance;
+import java.util.List;
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class MaintenancePreventiveDTO extends MaintenanceDTO{
     private List<Long> gammeIds;
 }

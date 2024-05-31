@@ -1,11 +1,16 @@
 package org.gmaoback.gmaomondi_backend.gestionMaintenance.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Date;
-
-public class MaintenanceCorrectiveDTO {
-    private Long idIntervention;
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class MaintenanceCorrectiveDTO extends MaintenanceDTO {
     private LocalDateTime dateDemande;
     private String classification;
     private String degreDimpact;
