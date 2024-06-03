@@ -1,7 +1,7 @@
 package org.gmaoback.gmaomondi_backend.gestionStock.services.service;
 
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.entities.Usage;
-import org.gmaoback.gmaomondi_backend.gestionStock.dto.UsageDTO;
+import org.gmaoback.gmaomondi_backend.gestionStock.services.dto.UsageDTO;
 
 import java.util.List;
 

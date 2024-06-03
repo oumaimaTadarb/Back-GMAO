@@ -6,7 +6,7 @@ import org.gmaoback.gmaomondi_backend.gestionStock.dao.entities.BonCommande;
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.repositories.ArticleCommandeRepository;
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.repositories.ArticleRepository;
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.repositories.BonCommandeRepository;
-import org.gmaoback.gmaomondi_backend.gestionStock.dto.ArticleCommandeDTO;
+import org.gmaoback.gmaomondi_backend.gestionStock.services.dto.ArticleCommandeDTO;
 import org.gmaoback.gmaomondi_backend.gestionStock.services.service.ArticleCommandeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

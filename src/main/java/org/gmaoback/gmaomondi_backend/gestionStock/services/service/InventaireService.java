@@ -1,7 +1,7 @@
 package org.gmaoback.gmaomondi_backend.gestionStock.services.service;
 
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.entities.Inventaire;
-import org.gmaoback.gmaomondi_backend.gestionStock.dto.InventaireDTO;
+import org.gmaoback.gmaomondi_backend.gestionStock.services.dto.InventaireDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

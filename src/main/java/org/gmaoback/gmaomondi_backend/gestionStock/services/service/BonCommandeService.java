@@ -1,7 +1,7 @@
 package org.gmaoback.gmaomondi_backend.gestionStock.services.service;
 
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.entities.BonCommande;
-import org.gmaoback.gmaomondi_backend.gestionStock.dto.BonCommandeDTO;
+import org.gmaoback.gmaomondi_backend.gestionStock.services.dto.BonCommandeDTO;
 
 import java.util.List;
 

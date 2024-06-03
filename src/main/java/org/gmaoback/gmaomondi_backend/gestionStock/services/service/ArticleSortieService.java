@@ -2,7 +2,7 @@ package org.gmaoback.gmaomondi_backend.gestionStock.services.service;
 
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.entities.ArticleSortie;
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.entities.Sortie;
-import org.gmaoback.gmaomondi_backend.gestionStock.dto.ArticleSortieDTO;
+import org.gmaoback.gmaomondi_backend.gestionStock.services.dto.ArticleSortieDTO;
 
 import java.util.List;
 

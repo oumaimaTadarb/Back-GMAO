@@ -1,7 +1,7 @@
 package org.gmaoback.gmaomondi_backend.gestionStock.services.service;
 
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.entities.Sortie;
-import org.gmaoback.gmaomondi_backend.gestionStock.dto.SortieDTO;
+import org.gmaoback.gmaomondi_backend.gestionStock.services.dto.SortieDTO;
 import org.gmaoback.gmaomondi_backend.gestionStock.enums.EtatSortie;
 
 import java.util.List;

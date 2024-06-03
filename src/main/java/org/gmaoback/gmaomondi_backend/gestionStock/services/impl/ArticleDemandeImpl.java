@@ -6,7 +6,7 @@ import org.gmaoback.gmaomondi_backend.gestionStock.dao.entities.DemandeAchat;
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.repositories.ArticleDemandeRepository;
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.repositories.ArticleRepository;
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.repositories.DemandeAchatRepository;
-import org.gmaoback.gmaomondi_backend.gestionStock.dto.ArticleDemandeDTO;
+import org.gmaoback.gmaomondi_backend.gestionStock.services.dto.ArticleDemandeDTO;
 import org.gmaoback.gmaomondi_backend.gestionStock.services.service.ArticleDemandeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

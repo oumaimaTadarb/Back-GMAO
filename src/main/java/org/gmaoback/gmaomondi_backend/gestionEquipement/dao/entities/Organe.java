@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.gmaoback.gmaomondi_backend.gestionFournisseur.Fournisseur;
+import org.gmaoback.gmaomondi_backend.gestionFournisseur.dao.entitites.Fournisseur;
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.entities.Article;
 
 import java.util.List;

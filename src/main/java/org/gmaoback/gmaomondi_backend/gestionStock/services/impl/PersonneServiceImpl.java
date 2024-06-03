@@ -3,7 +3,7 @@ package org.gmaoback.gmaomondi_backend.gestionStock.services.impl;
 import jakarta.persistence.EntityNotFoundException;
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.entities.Personne;
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.repositories.PersonneRepository;
-import org.gmaoback.gmaomondi_backend.gestionStock.dto.PersonneDTO;
+import org.gmaoback.gmaomondi_backend.gestionStock.services.dto.PersonneDTO;
 import org.gmaoback.gmaomondi_backend.gestionStock.services.service.PersonneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

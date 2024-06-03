@@ -2,8 +2,8 @@ package org.gmaoback.gmaomondi_backend.gestionStock.services.service;
 
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.entities.Article;
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.entities.Famille;
-import org.gmaoback.gmaomondi_backend.gestionStock.dto.ArticleDTO;
-import org.gmaoback.gmaomondi_backend.gestionStock.dto.FamilleDTO;
+import org.gmaoback.gmaomondi_backend.gestionStock.services.dto.ArticleDTO;
+import org.gmaoback.gmaomondi_backend.gestionStock.services.dto.FamilleDTO;
 
 import java.util.List;
 

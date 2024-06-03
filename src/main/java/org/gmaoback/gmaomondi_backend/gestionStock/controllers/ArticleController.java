@@ -2,7 +2,7 @@ package org.gmaoback.gmaomondi_backend.gestionStock.controllers;
 
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.entities.Article;
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.repositories.ArticleRepository;
-import org.gmaoback.gmaomondi_backend.gestionStock.dto.ArticleDTO;
+import org.gmaoback.gmaomondi_backend.gestionStock.services.dto.ArticleDTO;
 import org.gmaoback.gmaomondi_backend.gestionStock.services.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

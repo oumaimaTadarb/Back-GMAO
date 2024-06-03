@@ -1,7 +1,7 @@
 package org.gmaoback.gmaomondi_backend.gestionStock.services.service;
 
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.entities.DemandeAchat;
-import org.gmaoback.gmaomondi_backend.gestionStock.dto.DemandeAchatDTO;
+import org.gmaoback.gmaomondi_backend.gestionStock.services.dto.DemandeAchatDTO;
 
 import java.util.List;
 

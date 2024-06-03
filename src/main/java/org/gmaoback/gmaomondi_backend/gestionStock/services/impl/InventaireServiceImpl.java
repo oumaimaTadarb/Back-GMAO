@@ -6,7 +6,7 @@ import org.gmaoback.gmaomondi_backend.gestionStock.dao.entities.Personne;
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.repositories.ArticleRepository;
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.repositories.InventaireRepository;
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.repositories.PersonneRepository;
-import org.gmaoback.gmaomondi_backend.gestionStock.dto.InventaireDTO;
+import org.gmaoback.gmaomondi_backend.gestionStock.services.dto.InventaireDTO;
 import org.gmaoback.gmaomondi_backend.gestionStock.services.service.InventaireService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

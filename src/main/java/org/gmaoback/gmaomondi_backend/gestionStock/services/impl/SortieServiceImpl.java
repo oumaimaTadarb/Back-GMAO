@@ -4,7 +4,7 @@ import org.gmaoback.gmaomondi_backend.gestionStock.dao.entities.Personne;
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.entities.Sortie;
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.repositories.PersonneRepository;
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.repositories.SortieRepository;
-import org.gmaoback.gmaomondi_backend.gestionStock.dto.SortieDTO;
+import org.gmaoback.gmaomondi_backend.gestionStock.services.dto.SortieDTO;
 import org.gmaoback.gmaomondi_backend.gestionStock.enums.EtatSortie;
 import org.gmaoback.gmaomondi_backend.gestionStock.services.service.SortieService;
 import org.springframework.beans.factory.annotation.Autowired;

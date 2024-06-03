@@ -1,7 +1,7 @@
 package org.gmaoback.gmaomondi_backend.gestionStock.services.service;
 
 import org.gmaoback.gmaomondi_backend.gestionStock.dao.entities.BonLivraison;
-import org.gmaoback.gmaomondi_backend.gestionStock.dto.BonLivraisonDTO;
+import org.gmaoback.gmaomondi_backend.gestionStock.services.dto.BonLivraisonDTO;
 
 import java.util.List;
 
