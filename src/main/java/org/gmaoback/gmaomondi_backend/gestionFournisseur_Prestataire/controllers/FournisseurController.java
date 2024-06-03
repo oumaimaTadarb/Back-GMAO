@@ -1,7 +1,7 @@
-package org.gmaoback.gmaomondi_backend.gestionFournisseur.controllers;
-import org.gmaoback.gmaomondi_backend.gestionFournisseur.dao.entitites.Fournisseur;
-import org.gmaoback.gmaomondi_backend.gestionFournisseur.services.dto.FournisseurDTO;
-import org.gmaoback.gmaomondi_backend.gestionFournisseur.services.service.FournisseurService;
+package org.gmaoback.gmaomondi_backend.gestionFournisseur_Prestataire.controllers;
+import org.gmaoback.gmaomondi_backend.gestionFournisseur_Prestataire.dao.entitites.Fournisseur;
+import org.gmaoback.gmaomondi_backend.gestionFournisseur_Prestataire.services.dto.FournisseurDTO;
+import org.gmaoback.gmaomondi_backend.gestionFournisseur_Prestataire.services.service.FournisseurService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

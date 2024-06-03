@@ -1,4 +1,4 @@
-package org.gmaoback.gmaomondi_backend.gestionEquipement.controllers;
+package org.gmaoback.gmaomondi_backend.gestionFournisseur_Prestataire.controllers;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -7,7 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.gmaoback.gmaomondi_backend.gestionFournisseur.dao.entitites.Fournisseur;
+import org.gmaoback.gmaomondi_backend.gestionFournisseur_Prestataire.dao.entitites.Fournisseur;
 import org.gmaoback.gmaomondi_backend.gestionStock.enums.StatusBL;
 
 import java.time.LocalDateTime;

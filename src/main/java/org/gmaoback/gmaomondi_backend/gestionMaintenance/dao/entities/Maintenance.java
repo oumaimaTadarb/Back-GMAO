@@ -2,7 +2,6 @@ package org.gmaoback.gmaomondi_backend.gestionMaintenance.dao.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.gmaoback.gmaomondi_backend.gestionEquipement.dao.entities.Organe;

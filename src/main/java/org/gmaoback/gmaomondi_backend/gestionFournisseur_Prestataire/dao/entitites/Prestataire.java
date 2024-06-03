@@ -1,9 +1,10 @@
-package org.gmaoback.gmaomondi_backend.gestionEquipement.dao.entities;
+package org.gmaoback.gmaomondi_backend.gestionFournisseur_Prestataire.dao.entitites;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.gmaoback.gmaomondi_backend.gestionEquipement.dao.entities.Equipement;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package org.gmaoback.gmaomondi_backend.gestionFournisseur.dao.entitites;
+package org.gmaoback.gmaomondi_backend.gestionFournisseur_Prestataire.dao.entitites;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

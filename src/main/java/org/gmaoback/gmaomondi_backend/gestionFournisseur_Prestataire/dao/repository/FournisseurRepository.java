@@ -1,6 +1,6 @@
-package org.gmaoback.gmaomondi_backend.gestionFournisseur.dao.repository;
+package org.gmaoback.gmaomondi_backend.gestionFournisseur_Prestataire.dao.repository;
 
-import org.gmaoback.gmaomondi_backend.gestionFournisseur.dao.entitites.Fournisseur;
+import org.gmaoback.gmaomondi_backend.gestionFournisseur_Prestataire.dao.entitites.Fournisseur;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package org.gmaoback.gmaomondi_backend.gestionEquipement.services.dto;
+package org.gmaoback.gmaomondi_backend.gestionFournisseur_Prestataire.services.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

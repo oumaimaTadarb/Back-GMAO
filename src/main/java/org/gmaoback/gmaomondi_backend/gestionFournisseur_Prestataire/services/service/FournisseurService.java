@@ -1,7 +1,7 @@
-package org.gmaoback.gmaomondi_backend.gestionFournisseur.services.service;
+package org.gmaoback.gmaomondi_backend.gestionFournisseur_Prestataire.services.service;
 
-import org.gmaoback.gmaomondi_backend.gestionFournisseur.dao.entitites.Fournisseur;
-import org.gmaoback.gmaomondi_backend.gestionFournisseur.services.dto.FournisseurDTO;
+import org.gmaoback.gmaomondi_backend.gestionFournisseur_Prestataire.dao.entitites.Fournisseur;
+import org.gmaoback.gmaomondi_backend.gestionFournisseur_Prestataire.services.dto.FournisseurDTO;
 
 import java.util.List;
 

@@ -5,7 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.gmaoback.gmaomondi_backend.gestionEquipement.enums.Etat;
-import org.gmaoback.gmaomondi_backend.gestionFournisseur.dao.entitites.Fournisseur;
+import org.gmaoback.gmaomondi_backend.gestionFournisseur_Prestataire.dao.entitites.Prestataire;
+import org.gmaoback.gmaomondi_backend.gestionFournisseur_Prestataire.dao.entitites.Fournisseur;
 
 import java.util.List;
 

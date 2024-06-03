@@ -1,10 +1,10 @@
-package org.gmaoback.gmaomondi_backend.gestionFournisseur.services.impl;
+package org.gmaoback.gmaomondi_backend.gestionFournisseur_Prestataire.services.impl;
 
 import jakarta.persistence.EntityNotFoundException;
-import org.gmaoback.gmaomondi_backend.gestionFournisseur.dao.entitites.Fournisseur;
-import org.gmaoback.gmaomondi_backend.gestionFournisseur.dao.repository.FournisseurRepository;
-import org.gmaoback.gmaomondi_backend.gestionFournisseur.services.dto.FournisseurDTO;
-import org.gmaoback.gmaomondi_backend.gestionFournisseur.services.service.FournisseurService;
+import org.gmaoback.gmaomondi_backend.gestionFournisseur_Prestataire.dao.entitites.Fournisseur;
+import org.gmaoback.gmaomondi_backend.gestionFournisseur_Prestataire.dao.repository.FournisseurRepository;
+import org.gmaoback.gmaomondi_backend.gestionFournisseur_Prestataire.services.dto.FournisseurDTO;
+import org.gmaoback.gmaomondi_backend.gestionFournisseur_Prestataire.services.service.FournisseurService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
