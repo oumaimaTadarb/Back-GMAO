@@ -44,5 +44,4 @@ public class Organe {
     @OneToMany(mappedBy = "organe")
     private List<Article> articles;
 
-
 }
