@@ -13,7 +13,7 @@ public interface LigneService {
     List<Ligne> getAllLignes();
 
     LigneDTO createLigneDTO(LigneDTO ligneDTO);
-   // LigneDTO updateLigneDTO(Long id, LigneDTO ligneDTO);
+    LigneDTO updateLigneDTO(Long id, LigneDTO ligneDTO);
     void deleteLigneDTO(Long id) throws Exception;
     LigneDTO getLigneDTOById(Long id);
     List<LigneDTO> getAllLignesDTO();

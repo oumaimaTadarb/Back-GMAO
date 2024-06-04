@@ -2,6 +2,7 @@ package org.gmaoback.gmaomondi_backend.gestionEquipement.services.impl;
 
 import org.gmaoback.gmaomondi_backend.gestionEquipement.dao.entities.Ligne;
 import org.gmaoback.gmaomondi_backend.gestionEquipement.dao.repository.LigneRepository;
+import org.gmaoback.gmaomondi_backend.gestionEquipement.dao.repository.MachineRepository;
 import org.gmaoback.gmaomondi_backend.gestionEquipement.services.dto.LigneDTO;
 import org.gmaoback.gmaomondi_backend.gestionEquipement.services.dto.MachineDTO;
 import org.gmaoback.gmaomondi_backend.gestionEquipement.services.mapper.LigneMapper;
@@ -21,6 +22,8 @@ public class LigneServiceImpl implements LigneService {
 
     @Autowired
     private LigneRepository ligneRepository;
+    @Autowired
+    private MachineRepository machineRepository;
 
     @Override
     public Ligne createLigne(Ligne ligne) {
@@ -69,20 +72,20 @@ public class LigneServiceImpl implements LigneService {
         return LigneMapper.INSTANCE.toDTO(ligneRepository.save(ligne));
     }
 
-//    @Override
-//    public LigneDTO updateLigneDTO(Long id, LigneDTO ligneDTO) {
-//        Optional<Ligne> existingLigne = ligneRepository.findById(id);
-//        if (existingLigne.isPresent()) {
-//            Ligne ligne = existingLigne.get();
-//            ligne.setNom(ligneDTO.getNom());
-//            ligne.setMachines(ligneDTO.getMachineIds().stream()
-//                    .map(( machineDTO) -> INSTANCE.toEntity(machineDTO))
-//                    .collect(Collectors.toList()));
-//            return LigneMapper.INSTANCE.toDTO(ligneRepository.save(ligne));
-//        }
-//        return null;
-//    }
-
+    @Override
+    public LigneDTO updateLigneDTO(Long id, LigneDTO ligneDTO) {
+        Optional<Ligne> existingLigne = ligneRepository.findById(id);
+        if (existingLigne.isPresent()) {
+            Ligne ligne = existingLigne.get();
+            ligne.setNom(ligneDTO.getNom());
+            ligne.setMachines(ligneDTO.getMachineIds().stream()
+                    .map(machineId -> machineRepository.findById(machineId).orElse(null))
+                    .collect(Collectors.toList()));
+            Ligne updatedLigne = ligneRepository.save(ligne);
+            return LigneMapper.INSTANCE.toDTO(updatedLigne);
+        }
+        return null;
+    }
     @Override
     public void deleteLigneDTO(Long id) throws Exception {
         Optional<Ligne> ligne = ligneRepository.findById(id);
