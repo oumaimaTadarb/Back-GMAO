@@ -96,7 +96,7 @@ public class PrestataireServiceImpl implements PrestataireService {
     }
 
     @Override
-    public void deletePrestataireDTOEntity(Long id) throws Exception {
+    public void deletePrestataireEntity(Long id) throws Exception {
         Optional<Prestataire> prestataire = prestataireRepository.findById(id);
         if (prestataire.isPresent()) {
             prestataireRepository.deleteById(id);
