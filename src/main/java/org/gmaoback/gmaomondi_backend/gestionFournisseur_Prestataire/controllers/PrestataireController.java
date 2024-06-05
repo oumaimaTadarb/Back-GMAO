@@ -1,5 +1,6 @@
 package org.gmaoback.gmaomondi_backend.gestionFournisseur_Prestataire.controllers;
 
+import org.gmaoback.gmaomondi_backend.gestionFournisseur_Prestataire.dao.entitites.Prestataire;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,15 +19,17 @@ public class PrestataireController {
     @Autowired
     private PrestataireService prestataireService;
 
+    // Méthodes utilisant des DTOs
+
     @PostMapping
-    public ResponseEntity<PrestataireDTO> createPrestataire(@RequestBody PrestataireDTO prestataireDTO) {
-        PrestataireDTO createdPrestataire = prestataireService.createPrestataire(prestataireDTO);
+    public ResponseEntity<PrestataireDTO> createPrestataireDTO(@RequestBody PrestataireDTO prestataireDTO) {
+        PrestataireDTO createdPrestataire = prestataireService.createPrestataireDTO(prestataireDTO);
         return ResponseEntity.ok(createdPrestataire);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<PrestataireDTO> updatePrestataire(@PathVariable Long id, @RequestBody PrestataireDTO prestataireDTO) {
-        PrestataireDTO updatedPrestataire = prestataireService.updatePrestataire(id, prestataireDTO);
+    public ResponseEntity<PrestataireDTO> updatePrestataireDTO(@PathVariable Long id, @RequestBody PrestataireDTO prestataireDTO) {
+        PrestataireDTO updatedPrestataire = prestataireService.updatePrestataireDTO(id, prestataireDTO);
         if (updatedPrestataire == null) {
             return ResponseEntity.notFound().build();
         }
@@ -34,9 +37,9 @@ public class PrestataireController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletePrestataire(@PathVariable Long id) {
+    public ResponseEntity<Void> deletePrestataireDTO(@PathVariable Long id) {
         try {
-            prestataireService.deletePrestataire(id);
+            prestataireService.deletePrestataireDTO(id);
             return ResponseEntity.noContent().build();
         } catch (Exception e) {
             return ResponseEntity.notFound().build();
@@ -44,8 +47,8 @@ public class PrestataireController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PrestataireDTO> getPrestataireById(@PathVariable Long id) {
-        PrestataireDTO prestataireDTO = prestataireService.getPrestataireById(id);
+    public ResponseEntity<PrestataireDTO> getPrestataireDTOById(@PathVariable Long id) {
+        PrestataireDTO prestataireDTO = prestataireService.getPrestataireDTOById(id);
         if (prestataireDTO == null) {
             return ResponseEntity.notFound().build();
         }
@@ -53,8 +56,51 @@ public class PrestataireController {
     }
 
     @GetMapping
-    public ResponseEntity<List<PrestataireDTO>> getAllPrestataires() {
-        List<PrestataireDTO> prestataires = prestataireService.getAllPrestataires();
+    public ResponseEntity<List<PrestataireDTO>> getAllPrestatairesDTO() {
+        List<PrestataireDTO> prestataires = prestataireService.getAllPrestatairesDTO();
         return ResponseEntity.ok(prestataires);
     }
+
+    // Méthodes utilisant des entités
+
+    @PostMapping("/entity")
+    public ResponseEntity<Prestataire> createPrestataire(@RequestBody Prestataire prestataire) {
+        Prestataire createdPrestataire = prestataireService.createPrestataire(prestataire);
+        return ResponseEntity.ok(createdPrestataire);
+    }
+
+    @PutMapping("/entity/{id}")
+    public ResponseEntity<Prestataire> updatePrestataire(@PathVariable Long id, @RequestBody Prestataire prestataire) {
+        Prestataire updatedPrestataire = prestataireService.updatePrestataire(id, prestataire);
+        if (updatedPrestataire == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(updatedPrestataire);
+    }
+
+    @DeleteMapping("/entity/{id}")
+    public ResponseEntity<Void> deletePrestataireEntity(@PathVariable Long id) {
+        try {
+            prestataireService.deletePrestataireEntity(id);
+            return ResponseEntity.noContent().build();
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping("/entity/{id}")
+    public ResponseEntity<Prestataire> getPrestataireByIdEntity(@PathVariable Long id) {
+        Prestataire prestataire = prestataireService.getPrestataireByIdEntity(id);
+        if (prestataire == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(prestataire);
+    }
+
+    @GetMapping("/entity")
+    public ResponseEntity<List<Prestataire>> getAllPrestatairesEntity() {
+        List<Prestataire> prestataires = prestataireService.getAllPrestatairesEntity();
+        return ResponseEntity.ok(prestataires);
+    }
+
 }
