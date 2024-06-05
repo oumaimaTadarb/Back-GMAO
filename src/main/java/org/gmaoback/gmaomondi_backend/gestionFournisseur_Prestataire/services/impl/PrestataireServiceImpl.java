@@ -25,7 +25,7 @@ public class PrestataireServiceImpl implements PrestataireService {
 
     // Méthodes utilisant des DTOs
     @Override
-    public PrestataireDTO createPrestataire(PrestataireDTO prestataireDTO) {
+    public PrestataireDTO createPrestataireDTO(PrestataireDTO prestataireDTO) {
         Prestataire prestataire = PrestataireMapper.INSTANCE.toEntity(prestataireDTO);
         setRelatedEntities(prestataire, prestataireDTO);
         Prestataire savedPrestataire = prestataireRepository.save(prestataire);
@@ -33,7 +33,7 @@ public class PrestataireServiceImpl implements PrestataireService {
     }
 
     @Override
-    public PrestataireDTO updatePrestataire(Long id, PrestataireDTO prestataireDTO) {
+    public PrestataireDTO updatePrestataireDTO(Long id, PrestataireDTO prestataireDTO) {
         Optional<Prestataire> existingPrestataire = prestataireRepository.findById(id);
         if (existingPrestataire.isPresent()) {
             Prestataire prestataire = existingPrestataire.get();
@@ -47,11 +47,11 @@ public class PrestataireServiceImpl implements PrestataireService {
             Prestataire updatedPrestataire = prestataireRepository.save(prestataire);
             return PrestataireMapper.INSTANCE.toDTO(updatedPrestataire);
         }
-        return null; // ou lancez une exception
+        return null;
     }
 
     @Override
-    public void deletePrestataire(Long id) throws Exception {
+    public void deletePrestataireDTO(Long id) throws Exception {
         Optional<Prestataire> prestataire = prestataireRepository.findById(id);
         if (prestataire.isPresent()) {
             prestataireRepository.deleteById(id);
@@ -61,14 +61,14 @@ public class PrestataireServiceImpl implements PrestataireService {
     }
 
     @Override
-    public PrestataireDTO getPrestataireById(Long id) {
+    public PrestataireDTO getPrestataireDTOById(Long id) {
         return prestataireRepository.findById(id)
                 .map(PrestataireMapper.INSTANCE::toDTO)
                 .orElse(null);
     }
 
     @Override
-    public List<PrestataireDTO> getAllPrestataires() {
+    public List<PrestataireDTO> getAllPrestatairesDTO() {
         return prestataireRepository.findAll().stream()
                 .map(PrestataireMapper.INSTANCE::toDTO)
                 .collect(Collectors.toList());
@@ -76,12 +76,12 @@ public class PrestataireServiceImpl implements PrestataireService {
 
     // Méthodes utilisant des entités
     @Override
-    public Prestataire createPrestataireDTO(Prestataire prestataire) {
+    public Prestataire createPrestataire(Prestataire prestataire) {
         return prestataireRepository.save(prestataire);
     }
 
     @Override
-    public Prestataire updatePrestataireDTO(Long id, Prestataire prestataire) {
+    public Prestataire updatePrestataire(Long id, Prestataire prestataire) {
         Optional<Prestataire> existingPrestataire = prestataireRepository.findById(id);
         if (existingPrestataire.isPresent()) {
             Prestataire existing = existingPrestataire.get();
@@ -92,7 +92,7 @@ public class PrestataireServiceImpl implements PrestataireService {
             existing.setEquipements(prestataire.getEquipements());
             return prestataireRepository.save(existing);
         }
-        return null; // ou lancez une exception
+        return null;
     }
 
     @Override
@@ -106,12 +106,12 @@ public class PrestataireServiceImpl implements PrestataireService {
     }
 
     @Override
-    public Prestataire getPrestataireDTOByIdEntity(Long id) {
+    public Prestataire getPrestataireByIdEntity(Long id) {
         return prestataireRepository.findById(id).orElse(null);
     }
 
     @Override
-    public List<Prestataire> getAllPrestatairesDTOEntity() {
+    public List<Prestataire> getAllPrestatairesEntity() {
         return prestataireRepository.findAll();
     }
 
