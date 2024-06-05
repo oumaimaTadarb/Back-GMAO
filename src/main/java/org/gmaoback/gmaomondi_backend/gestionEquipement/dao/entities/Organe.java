@@ -44,4 +44,7 @@ public class Organe {
     @OneToMany(mappedBy = "organe")
     private List<Article> articles;
 
+    @Column(name = "bloc", length = 100)
+    private String bloc;
+
 }
