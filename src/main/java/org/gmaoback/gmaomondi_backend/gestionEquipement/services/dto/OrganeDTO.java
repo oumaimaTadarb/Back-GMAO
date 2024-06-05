@@ -12,6 +12,7 @@ import java.util.List;
 public class OrganeDTO {
     private Long idOrgane;
     private String designation;
+    private String bloc;
     private String descriptionTechnique;
     private Long fournisseurId;
     private Long equipementId;
