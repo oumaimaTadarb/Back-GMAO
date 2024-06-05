@@ -76,12 +76,12 @@ public class PrestataireServiceImpl implements PrestataireService {
 
     // Méthodes utilisant des entités
     @Override
-    public Prestataire createPrestataire(Prestataire prestataire) {
+    public Prestataire createPrestataireDTO(Prestataire prestataire) {
         return prestataireRepository.save(prestataire);
     }
 
     @Override
-    public Prestataire updatePrestataire(Long id, Prestataire prestataire) {
+    public Prestataire updatePrestataireDTO(Long id, Prestataire prestataire) {
         Optional<Prestataire> existingPrestataire = prestataireRepository.findById(id);
         if (existingPrestataire.isPresent()) {
             Prestataire existing = existingPrestataire.get();
@@ -96,7 +96,7 @@ public class PrestataireServiceImpl implements PrestataireService {
     }
 
     @Override
-    public void deletePrestataireEntity(Long id) throws Exception {
+    public void deletePrestataireDTOEntity(Long id) throws Exception {
         Optional<Prestataire> prestataire = prestataireRepository.findById(id);
         if (prestataire.isPresent()) {
             prestataireRepository.deleteById(id);
@@ -106,12 +106,12 @@ public class PrestataireServiceImpl implements PrestataireService {
     }
 
     @Override
-    public Prestataire getPrestataireByIdEntity(Long id) {
+    public Prestataire getPrestataireDTOByIdEntity(Long id) {
         return prestataireRepository.findById(id).orElse(null);
     }
 
     @Override
-    public List<Prestataire> getAllPrestatairesEntity() {
+    public List<Prestataire> getAllPrestatairesDTOEntity() {
         return prestataireRepository.findAll();
     }
 

@@ -14,9 +14,9 @@ public interface PrestataireService {
     List<PrestataireDTO> getAllPrestataires();
 
     // Méthodes utilisant des entités
-    Prestataire createPrestataire(Prestataire prestataire);
-    Prestataire updatePrestataire(Long id, Prestataire prestataire);
-    void deletePrestataireEntity(Long id) throws Exception;
-    Prestataire getPrestataireByIdEntity(Long id);
-    List<Prestataire> getAllPrestatairesEntity();
+    Prestataire createPrestataireDTO(Prestataire prestataire);
+    Prestataire updatePrestataireDTO(Long id, Prestataire prestataire);
+    void deletePrestataireDTOEntity(Long id) throws Exception;
+    Prestataire getPrestataireDTOByIdEntity(Long id);
+    List<Prestataire> getAllPrestatairesDTOEntity();
 }
