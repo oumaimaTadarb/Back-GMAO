@@ -49,6 +49,7 @@ public class OrganeServiceImpl implements OrganeService {
             organe.setEquipement(updatedOrgane.getEquipement());
             organe.setPrestataire(updatedOrgane.getPrestataire());
             organe.setArticles(updatedOrgane.getArticles());
+            organe.setBloc(updatedOrgane.getBloc());
             return organeRepository.save(organe);
         }
         return null; // ou lancez une exception
@@ -77,10 +78,6 @@ public class OrganeServiceImpl implements OrganeService {
     public List<Organe> getAllOrganes() {
         return organeRepository.findAll();
     }
-
-    //
-
-
 
     @Override
     public OrganeDTO createOrganeDTO(OrganeDTO organeDTO) {
