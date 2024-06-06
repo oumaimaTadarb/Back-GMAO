@@ -35,7 +35,7 @@ public class Machine {
     private Fournisseur fournisseur;
 
     @OneToMany
-    @JoinColumn(name = "machine")
+    @JoinColumn(name = "Equipements")
     private List<Equipement> equipements;
 
     @ManyToOne

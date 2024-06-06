@@ -1,4 +1,5 @@
 package org.gmaoback.gmaomondi_backend.gestionEquipement.dao.entities;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -48,6 +49,7 @@ public class Equipement  {
     private Machine machine;
 
     @OneToMany(mappedBy = "equipement")
+    @JsonIgnore
     private List<Organe> organes;
 
 
