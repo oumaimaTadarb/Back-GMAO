@@ -22,13 +22,13 @@ public class MachineController {
 
     // Méthodes utilisant des entités
 
-    @PostMapping
+    @PostMapping("create")
     public ResponseEntity<Machine> createMachine(@RequestBody Machine machine) {
         Machine createdMachine = machineService.createMachine(machine);
         return ResponseEntity.ok(createdMachine);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update{id}")
     public ResponseEntity<Machine> updateMachine(@PathVariable Long id, @RequestBody Machine updatedMachine) {
         Machine updated = machineService.updateMachine(id, updatedMachine);
         if (updated != null) {
@@ -38,7 +38,7 @@ public class MachineController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete{id}")
     public ResponseEntity<Void> deleteMachine(@PathVariable Long id) {
         try {
             machineService.deleteMachine(id);
@@ -48,7 +48,7 @@ public class MachineController {
         }
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/get{id}")
     public ResponseEntity<Machine> getMachineById(@PathVariable Long id) {
         Machine machine = machineService.getMachineById(id);
         if (machine != null) {
@@ -58,7 +58,7 @@ public class MachineController {
         }
     }
 
-    @GetMapping
+    @GetMapping("/list")
     public ResponseEntity<List<Machine>> getAllMachines() {
         List<Machine> machines = machineService.getAllMachines();
         return ResponseEntity.ok(machines);
@@ -66,13 +66,13 @@ public class MachineController {
 
     // Méthodes utilisant des DTOs
 
-    @PostMapping("/dto")
+    @PostMapping("/createdto")
     public ResponseEntity<MachineDTO> createMachineDTO(@RequestBody MachineDTO machineDTO) {
         Machine createdMachine = machineService.createMachineDTO(machineDTO);
         return ResponseEntity.ok(MachineMapper.INSTANCE.toDTO(createdMachine));
     }
 
-    @PutMapping("/dto/{id}")
+    @PutMapping("/updatedto/{id}")
     public ResponseEntity<MachineDTO> updateMachineDTO(@PathVariable Long id, @RequestBody MachineDTO machineDTO) {
         MachineDTO updatedMachineDTO = machineService.updateMachineDTO(id, machineDTO);
         if (updatedMachineDTO != null) {
@@ -82,7 +82,7 @@ public class MachineController {
         }
     }
 
-    @DeleteMapping("/dto/{id}")
+    @DeleteMapping("/deletedto/{id}")
     public ResponseEntity<Void> deleteMachineDTO(@PathVariable Long id) {
         try {
             machineService.deleteMachineDTO(id);
@@ -92,7 +92,7 @@ public class MachineController {
         }
     }
 
-    @GetMapping("/dto/{id}")
+    @GetMapping("/getdto/{id}")
     public ResponseEntity<MachineDTO> getMachineDTOById(@PathVariable Long id) {
         MachineDTO machineDTO = machineService.getMachineDTOById(id);
         if (machineDTO != null) {
@@ -102,7 +102,7 @@ public class MachineController {
         }
     }
 
-    @GetMapping("/dto")
+    @GetMapping("/listdto")
     public ResponseEntity<List<MachineDTO>> getAllMachinesDTO() {
         List<MachineDTO> machinesDTO = machineService.getAllMachinesDTO();
         return ResponseEntity.ok(machinesDTO);

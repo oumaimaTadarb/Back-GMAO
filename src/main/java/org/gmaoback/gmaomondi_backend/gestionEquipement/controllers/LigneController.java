@@ -21,13 +21,13 @@ public class LigneController {
 
     // Méthodes utilisant des entités
 
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<Ligne> createLigne(@RequestBody Ligne ligne) {
         Ligne createdLigne = ligneService.createLigne(ligne);
         return ResponseEntity.ok(createdLigne);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update{id}")
     public ResponseEntity<Ligne> updateLigne(@PathVariable Long id, @RequestBody Ligne updatedLigne) {
         Ligne updated = ligneService.updateLigne(id, updatedLigne);
         if (updated != null) {
@@ -37,7 +37,7 @@ public class LigneController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete{id}")
     public ResponseEntity<Void> deleteLigne(@PathVariable Long id) {
         try {
             ligneService.deleteLigne(id);
@@ -47,7 +47,7 @@ public class LigneController {
         }
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/get{id}")
     public ResponseEntity<Ligne> getLigneById(@PathVariable Long id) {
         Ligne ligne = ligneService.getLigneById(id);
         if (ligne != null) {
@@ -57,7 +57,7 @@ public class LigneController {
         }
     }
 
-    @GetMapping
+    @GetMapping("/list")
     public ResponseEntity<List<Ligne>> getAllLignes() {
         List<Ligne> lignes = ligneService.getAllLignes();
         return ResponseEntity.ok(lignes);
@@ -65,13 +65,13 @@ public class LigneController {
 
     // Méthodes utilisant des DTOs
 
-    @PostMapping("/dto")
+    @PostMapping("/createdto")
     public ResponseEntity<LigneDTO> createLigneDTO(@RequestBody LigneDTO ligneDTO) {
         LigneDTO createdLigneDTO = ligneService.createLigneDTO(ligneDTO);
         return ResponseEntity.ok(createdLigneDTO);
     }
 
-    @PutMapping("/dto/{id}")
+    @PutMapping("/updatedto/{id}")
     public ResponseEntity<LigneDTO> updateLigneDTO(@PathVariable Long id, @RequestBody LigneDTO ligneDTO) {
         LigneDTO updatedLigneDTO = ligneService.updateLigneDTO(id, ligneDTO);
         if (updatedLigneDTO != null) {
@@ -81,7 +81,7 @@ public class LigneController {
         }
     }
 
-    @DeleteMapping("/dto/{id}")
+    @DeleteMapping("/deletedto/{id}")
     public ResponseEntity<Void> deleteLigneDTO(@PathVariable Long id) {
         try {
             ligneService.deleteLigneDTO(id);
@@ -91,7 +91,7 @@ public class LigneController {
         }
     }
 
-    @GetMapping("/dto/{id}")
+    @GetMapping("/getdto/{id}")
     public ResponseEntity<LigneDTO> getLigneDTOById(@PathVariable Long id) {
         LigneDTO ligneDTO = ligneService.getLigneDTOById(id);
         if (ligneDTO != null) {
@@ -101,7 +101,7 @@ public class LigneController {
         }
     }
 
-    @GetMapping("/dto")
+    @GetMapping("/listdto")
     public ResponseEntity<List<LigneDTO>> getAllLignesDTO() {
         List<LigneDTO> lignesDTO = ligneService.getAllLignesDTO();
         return ResponseEntity.ok(lignesDTO);

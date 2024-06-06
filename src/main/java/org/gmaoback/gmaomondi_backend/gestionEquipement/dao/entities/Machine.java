@@ -1,4 +1,5 @@
 package org.gmaoback.gmaomondi_backend.gestionEquipement.dao.entities;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,13 +33,16 @@ public class Machine {
 
     @ManyToOne
     @JoinColumn(name = "idFournisseur")
+    @JsonIgnore
     private Fournisseur fournisseur;
 
     @OneToMany
     @JoinColumn(name = "Equipements")
+    @JsonIgnore
     private List<Equipement> equipements;
 
     @ManyToOne
     @JoinColumn(name = "idLigne")
+    @JsonIgnore
     private Ligne ligne;
 }

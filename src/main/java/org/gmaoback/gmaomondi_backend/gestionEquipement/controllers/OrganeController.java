@@ -20,13 +20,13 @@ public class OrganeController {
 
     // Méthodes utilisant des entités
 
-    @PostMapping
+    @PostMapping("create")
     public ResponseEntity<Organe> createOrgane(@RequestBody Organe organe) {
         Organe createdOrgane = organeService.createOrgane(organe);
         return ResponseEntity.ok(createdOrgane);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update{id}")
     public ResponseEntity<Organe> updateOrgane(@PathVariable Long id, @RequestBody Organe updatedOrgane) {
         Organe updated = organeService.updateOrgane(id, updatedOrgane);
         if (updated != null) {
@@ -36,7 +36,7 @@ public class OrganeController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete{id}")
     public ResponseEntity<Void> deleteOrgane(@PathVariable Long id) {
         try {
             organeService.deleteOrgane(id);
@@ -46,7 +46,7 @@ public class OrganeController {
         }
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/get{id}")
     public ResponseEntity<Organe> getOrganeById(@PathVariable Long id) {
         Organe organe = organeService.getOrganeById(id);
         if (organe != null) {
@@ -56,7 +56,7 @@ public class OrganeController {
         }
     }
 
-    @GetMapping
+    @GetMapping("list")
     public ResponseEntity<List<Organe>> getAllOrganes() {
         List<Organe> organes = organeService.getAllOrganes();
         return ResponseEntity.ok(organes);
@@ -64,13 +64,13 @@ public class OrganeController {
 
     // Méthodes utilisant des DTOs
 
-    @PostMapping("/dto")
+    @PostMapping("/createdto")
     public ResponseEntity<OrganeDTO> createOrganeDTO(@RequestBody OrganeDTO organeDTO) {
         OrganeDTO createdOrganeDTO = organeService.createOrganeDTO(organeDTO);
         return ResponseEntity.ok(createdOrganeDTO);
     }
 
-    @PutMapping("/dto/{id}")
+    @PutMapping("/updatedto/{id}")
     public ResponseEntity<OrganeDTO> updateOrganeDTO(@PathVariable Long id, @RequestBody OrganeDTO organeDTO) {
         OrganeDTO updatedOrganeDTO = organeService.updateOrganeDTO(id, organeDTO);
         if (updatedOrganeDTO != null) {
@@ -80,7 +80,7 @@ public class OrganeController {
         }
     }
 
-    @DeleteMapping("/dto/{id}")
+    @DeleteMapping("/deletedto/{id}")
     public ResponseEntity<Void> deleteOrganeDTO(@PathVariable Long id) {
         try {
             organeService.deleteOrganeDTO(id);
@@ -90,7 +90,7 @@ public class OrganeController {
         }
     }
 
-    @GetMapping("/dto/{id}")
+    @GetMapping("/getdto/{id}")
     public ResponseEntity<OrganeDTO> getOrganeDTOById(@PathVariable Long id) {
         OrganeDTO organeDTO = organeService.getOrganeDTOById(id);
         if (organeDTO != null) {

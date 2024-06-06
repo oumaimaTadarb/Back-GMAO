@@ -34,6 +34,7 @@ public class Equipement  {
 
     @ManyToOne
     @JoinColumn(name = "idFournisseur")
+    @JsonIgnore
     private Fournisseur fournisseur;
 
     @Enumerated(EnumType.STRING)
@@ -42,10 +43,12 @@ public class Equipement  {
 
     @ManyToOne
     @JoinColumn(name = "idPrestataire")
+    @JsonIgnore
     private Prestataire prestataire;
 
     @ManyToOne
     @JoinColumn(name = "idMachine")
+    @JsonIgnore
     private Machine machine;
 
     @OneToMany(mappedBy = "equipement")

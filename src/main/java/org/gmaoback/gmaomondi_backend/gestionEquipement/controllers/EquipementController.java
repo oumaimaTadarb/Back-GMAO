@@ -21,13 +21,13 @@ public class EquipementController {
 
     // Méthodes utilisant des entités
 
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<Equipement> createEquipement(@RequestBody Equipement equipement) {
         Equipement createdEquipement = equipementService.createEquipement(equipement);
         return ResponseEntity.ok(createdEquipement);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update{id}")
     public ResponseEntity<Equipement> updateEquipement(@PathVariable Long id, @RequestBody Equipement updatedEquipement) {
         Equipement updated = equipementService.updateEquipement(id, updatedEquipement);
         if (updated != null) {
@@ -37,7 +37,7 @@ public class EquipementController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("delete/{id}")
     public ResponseEntity<Void> deleteEquipement(@PathVariable Long id) {
         try {
             equipementService.deleteEquipement(id);
@@ -47,7 +47,7 @@ public class EquipementController {
         }
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/get{id}")
     public ResponseEntity<Equipement> getEquipementById(@PathVariable Long id) {
         Equipement equipement = equipementService.getEquipementById(id);
         if (equipement != null) {
@@ -57,7 +57,7 @@ public class EquipementController {
         }
     }
 
-    @GetMapping
+    @GetMapping("/list")
     public ResponseEntity<List<Equipement>> getAllEquipements() {
         List<Equipement> equipements = equipementService.getAllEquipements();
         return ResponseEntity.ok(equipements);
@@ -65,13 +65,13 @@ public class EquipementController {
 
     // Méthodes utilisant des DTOs
 
-    @PostMapping("/dto")
+    @PostMapping("/createdto")
     public ResponseEntity<EquipementDTO> createEquipementDTO(@RequestBody EquipementDTO equipementDTO) {
         EquipementDTO createdEquipementDTO = equipementService.createEquipementDTO(equipementDTO);
         return ResponseEntity.ok(createdEquipementDTO);
     }
 
-    @PutMapping("/dto/{id}")
+    @PutMapping("/updatedto/{id}")
     public ResponseEntity<EquipementDTO> updateEquipementDTO(@PathVariable Long id, @RequestBody EquipementDTO equipementDTO) {
         EquipementDTO updatedEquipementDTO = equipementService.updateEquipementDTO(id, equipementDTO);
         if (updatedEquipementDTO != null) {
@@ -81,7 +81,7 @@ public class EquipementController {
         }
     }
 
-    @DeleteMapping("/dto/{id}")
+    @DeleteMapping("/deletedto/{id}")
     public ResponseEntity<Void> deleteEquipementDTO(@PathVariable Long id) {
         try {
             equipementService.deleteEquipementDTO(id);
@@ -91,7 +91,7 @@ public class EquipementController {
         }
     }
 
-    @GetMapping("/dto/{id}")
+    @GetMapping("/getdto/{id}")
     public ResponseEntity<EquipementDTO> getEquipementDTOById(@PathVariable Long id) {
         EquipementDTO equipementDTO = equipementService.getEquipementDTOById(id);
         if (equipementDTO != null) {
@@ -101,7 +101,7 @@ public class EquipementController {
         }
     }
 
-    @GetMapping("/dto")
+    @GetMapping("/listdto")
     public ResponseEntity<List<EquipementDTO>> getAllEquipementsDTO() {
         List<EquipementDTO> equipementsDTO = equipementService.getAllEquipementsDTO();
         return ResponseEntity.ok(equipementsDTO);
