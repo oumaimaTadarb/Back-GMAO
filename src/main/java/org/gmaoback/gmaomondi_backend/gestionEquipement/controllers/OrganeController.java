@@ -93,6 +93,8 @@ public class OrganeController {
     @GetMapping("/getdto/{id}")
     public ResponseEntity<OrganeDTO> getOrganeDTOById(@PathVariable Long id) {
         OrganeDTO organeDTO = organeService.getOrganeDTOById(id);
+
+
         if (organeDTO != null) {
             return ResponseEntity.ok(organeDTO);
         } else {
