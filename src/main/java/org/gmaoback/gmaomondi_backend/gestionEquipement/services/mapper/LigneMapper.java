@@ -22,7 +22,7 @@ public interface LigneMapper {
                     .map(Machine::getIdMachine) // Suppose que votre classe Machine a une méthode getId()
                     .collect(Collectors.toList());
         } else {
-            return null;
+            return null;// push again
         }
     }
     Ligne toEntity(LigneDTO ligneDTO);
