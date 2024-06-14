@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 public interface LigneMapper {
     LigneMapper INSTANCE = Mappers.getMapper(LigneMapper.class);
 
-    @Mapping(source = "machines", target = "machineIds")
+//    @Mapping(source = "machines", target = "machineIds")
     LigneDTO toDTO(Ligne ligne);
 
     default List<Long> map(List<Machine> machines) {

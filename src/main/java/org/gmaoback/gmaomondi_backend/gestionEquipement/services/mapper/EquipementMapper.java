@@ -12,14 +12,14 @@ import org.mapstruct.factory.Mappers;
 public interface EquipementMapper {
     EquipementMapper INSTANCE = Mappers.getMapper(EquipementMapper.class);
 
-    @Mapping(source = "fournisseur.idFournisseur", target = "fournisseurId")
-    @Mapping(source = "prestataire.idPrestataire", target = "prestataireId")
-    @Mapping(source = "machine.idMachine", target = "machineId")
+   // @Mapping(source = "fournisseur.idFournisseur", target = "fournisseurId")
+    //@Mapping(source = "prestataire.idPrestataire", target = "prestataireId")
+    //@Mapping(source = "machine.idMachine", target = "machineId")
     EquipementDTO toDTO(Equipement equipement);
 
-    @Mapping(source = "fournisseurId", target = "fournisseur.idFournisseur")
-    @Mapping(source = "prestataireId", target = "prestataire.idPrestataire")
-    @Mapping(source = "machineId", target = "machine.idMachine")
+    //@Mapping(source = "fournisseurId", target = "fournisseur.idFournisseur")
+    //@Mapping(source = "prestataireId", target = "prestataire.idPrestataire")
+    //@Mapping(source = "machineId", target = "machine.idMachine")
     Equipement toEntity(EquipementDTO equipementDTO);
 
     default Long map(Fournisseur fournisseur) {

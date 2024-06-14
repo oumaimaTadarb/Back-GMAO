@@ -16,9 +16,9 @@ import java.util.stream.Collectors;
 public interface MachineMapper{
     MachineMapper INSTANCE = Mappers.getMapper(MachineMapper.class);
 
-    @Mapping(source = "fournisseur.idFournisseur", target = "fournisseurId")
-    @Mapping(source = "ligne.idLigne", target = "ligneId")
-    @Mapping(source = "equipements", target = "equipementIds")
+//    @Mapping(source = "fournisseur.idFournisseur", target = "fournisseurId")
+//    @Mapping(source = "ligne.idLigne", target = "ligneId")
+//    @Mapping(source = "equipements", target = "equipementIds")
     MachineDTO toDTO(Machine machine);
 
     Machine toEntity(MachineDTO machineDTO);
